@@ -1,0 +1,224 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[latin2]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{witharrows}
+\usepackage{xifthen}
+\usepackage[margin=1cm]{caption}
+\usepackage{braket}
+\usepackage{bm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{tikz-cd}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage[style=alphabetic]{biblatex}
+\addbibresource{references.bib}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\On}{O}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\U}{U}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Curves}{Curves}
+\DeclareMathOperator{\standard}{standard}
+\DeclareMathOperator{\gl}{GL}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\diag}{diag}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\newcommand{\DD}{{\rm D}}
+\renewcommand{\qed}{%
+	\ifmmode\tag*{$\square$}
+	\else\hfill$\square$
+	\fi}
+\newcommand{\?}{\stackrel{?}{=}}
+\newcommand{\e}[1][]{{\rm e}^{#1}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}[1][]{\mathbb{R}^{#1}}
+\newcommand{\C}[1][]{\mathbb{C}^{#1}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Mn}[1][\C]{\mathcal{M}_n(#1)}
+\newcommand{\GLn}[1][\C]{\gl_n(#1)}
+\newcommand{\GL}[1][n]{\gl_{#1}(\C)}
+\newcommand{\Pn}[1][n]{\mathbb{P}^{#1}}
+\newcommand{\Lie}[1]{\mathcal{L}_{#1}}
+\newcommand{\la}[1][g]{\mathfrak{#1}}
+\newcommand{\vct}{\mathfrak{X}}
+\newcommand{\fund}[1]{#1^\#}
+\newcommand{\Lg}{\mathscr{L}}
+\newcommand{\Ac}{\mathcal{A}}
+\newcommand{\Fc}{\mathcal{F}}
+\newcommand{\Gc}{\mathcal{G}}
+\newcommand{\Rc}{\mathcal{R}}
+\newcommand{\Oc}{\mathcal{O}}
+\newcommand{\Cinf}{C^\infty}
+\newcommand{\cov}[1]{\nabla_{\!#1}}
+\newcommand{\inner}[2]{\langle #1, #2 \rangle}
+\newcommand{\onto}{\hookrightarrow}
+\newcommand{\supto}{\supset\kern-1.7pt\to}
+\newcommand{\lowint}{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+\newcommand{\upint}{\mathchoice%
+	{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+	{\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+	{\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+	{\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+	\int}
+\newcommand{\tran}{^{\mkern-1.5mu\mathsf{T}}}
+\newcommand{\herm}{^\dag}
+\newcommand{\ext}[1]{\widetilde{#1}}
+\newcommand{\argdot}{\makebox[1ex]{\textbf{$\cdot$}}}
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\O}{\On}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+
+%\title{Formalising local symmetries: An introduction to mathematical gauge theory}
+%\author{Thijs Douwes}
+
+\begin{document}
+	
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+		\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
+		
+		\center % Centre everything on the page
+		
+		%------------------------------------------------
+		%	Headings
+		%------------------------------------------------
+		
+		\textsc{\LARGE Utrecht University}\\[1.5cm] % Main heading such as the name of your university/college
+		
+		%------------------------------------------------
+		%	Title
+		%------------------------------------------------
+		
+		\HRule\\[0.4cm]
+		
+		{\Huge\textsc{Topology of Weyl-semimetals}\\[.2cm] \huge  with non-orientable Brillouin zones}\\[0.4cm] % Title of your document
+		
+		\HRule\\[.8cm]
+		
+		
+		{\large by}\\[.8cm]
+		
+		
+		{\LARGE Thijs \textsc{Douwes}}\\[1.1cm]
+		
+		
+		
+		{\Large \textsc{A thesis}}\\[.8cm]
+		
+		
+		{\large Submitted to the Department of Physics}\\[.1cm]
+		{\large in partial fulfilment of the requirements}\\[.1cm]
+		{\large for the degree of}\\[.5cm]
+		
+		{\Large Master of Science}\\[.9cm]
+		
+		
+		{\large under the joint supervision of}\\[1cm]
+		
+		
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushleft}
+				\large
+				%			\textit{Supervisor}\\
+				Prof. Cristiane \textsc{de Morais Smith}\\
+				\normalsize Department of Physics
+			\end{flushleft}
+		\end{minipage}
+		~
+		\begin{minipage}{0.45\textwidth}
+			\begin{flushright}
+				\large
+				%			\textit{Supervisor}\\
+				Dr. Marcus \textsc{St{\aa}lhammar}\\
+				\normalsize Department of Physics
+			\end{flushright}
+		\end{minipage}
+		
+		\vfill\vfill\vfill % Position the date 3/4 down the remaining page
+		
+		{\large October 2024} % Date, change the \today to a set date if you want to be precise
+		
+		
+		\vfill % Push the date up 1/4 of the remaining page
+		
+	\end{titlepage}
+	%\maketitle %TODO title page
+\pagenumbering{roman}
+\setcounter{page}{2}
+	
+	
+\chapter*{Abstract}
+	
+\tableofcontents
+	
+\newpage
+\pagenumbering{arabic}
+	
+\chapter{Introduction}
+
+Example citation.\cite{einstein_rel} Example expanded citation.\parencite[Theorem 5.6]{lee_manifolds}
+
+\section{Main results}
+
+\section{Overview}
+
+\section{Prerequisites}
+
+\section{Notational conventions}
+	
+	
+\chapter[Topological states of matter]{Topological states of matter \& symmetries}	
+
+	
+\chapter{Weyl semimetals}
+
+\section{Physics perspective}
+
+\section{Mathematics perspective}
+
+
+\chapter{Non-orientable manifolds}
+
+\section{Mathematical exploration}
+
+\section{Physical implications}
+
+\printbibliography
+	
+	
+\end{document}
