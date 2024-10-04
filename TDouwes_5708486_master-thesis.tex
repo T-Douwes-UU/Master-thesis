@@ -105,124 +105,92 @@
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 
-%\title{Formalising local symmetries: An introduction to mathematical gauge theory}
-%\author{Thijs Douwes}
+%\includeonly{Chapters/topological-states}  % For generating a single chapter PDF
 
 \begin{document}
 	
-\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
-		\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
-		
-		\center % Centre everything on the page
-		
-		%------------------------------------------------
-		%	Headings
-		%------------------------------------------------
-		
-		\textsc{\LARGE Utrecht University}\\[1.5cm] % Main heading such as the name of your university/college
-		
-		%------------------------------------------------
-		%	Title
-		%------------------------------------------------
-		
-		\HRule\\[0.4cm]
-		
-		{\Huge\textsc{Topology of Weyl-semimetals}\\[.2cm] \huge  with non-orientable Brillouin zones}\\[0.4cm] % Title of your document
-		
-		\HRule\\[.8cm]
-		
-		
-		{\large by}\\[.8cm]
-		
-		
-		{\LARGE Thijs \textsc{Douwes}}\\[1.1cm]
-		
-		
-		
-		{\Large \textsc{A thesis}}\\[.8cm]
-		
-		
-		{\large Submitted to the Department of Physics}\\[.1cm]
-		{\large in partial fulfilment of the requirements}\\[.1cm]
-		{\large for the degree of}\\[.5cm]
-		
-		{\Large Master of Science}\\[.9cm]
-		
-		
-		{\large under the joint supervision of}\\[1cm]
-		
-		
-		\begin{minipage}{0.45\textwidth}
-			\begin{flushleft}
-				\large
-				%			\textit{Supervisor}\\
-				Prof. Cristiane \textsc{de Morais Smith}\\
-				\normalsize Department of Physics
-			\end{flushleft}
-		\end{minipage}
-		~
-		\begin{minipage}{0.45\textwidth}
-			\begin{flushright}
-				\large
-				%			\textit{Supervisor}\\
-				Dr. Marcus \textsc{St{\aa}lhammar}\\
-				\normalsize Department of Physics
-			\end{flushright}
-		\end{minipage}
-		
-		\vfill\vfill\vfill % Position the date 3/4 down the remaining page
-		
-		{\large October 2024} % Date, change the \today to a set date if you want to be precise
-		
-		
-		\vfill % Push the date up 1/4 of the remaining page
-		
-	\end{titlepage}
-	%\maketitle %TODO title page
 \pagenumbering{roman}
-\setcounter{page}{2}
+\begin{titlepage}  % Suppresses page number, next page is numbered 'i' by default
+	\center
+	
+	\textsc{\LARGE Utrecht University}\\[1.5cm]  % Main heading
+	
+	%------------------------------------------------
+	%	Title
+	%------------------------------------------------
+	
+	\rule{\linewidth}{0.5mm}\\[0.4cm]
+	
+	{\Huge\textsc{Topology of Weyl-semimetals}\\[.2cm] \huge  with non-orientable Brillouin zones}\\[0.4cm] % Title
+	
+	\rule{\linewidth}{0.5mm}\\[.8cm]
 	
 	
-\chapter*{Abstract}
+	{\large by}\\[.8cm]
+	
+	
+	{\LARGE Thijs \textsc{Douwes}}\\[1.1cm]
+	
+	
+	
+	{\Large \textsc{A thesis}}\\[.8cm]
+	
+	
+	{\large Submitted to the Department of Physics}\\[.1cm]
+	{\large in partial fulfilment of the requirements}\\[.1cm]
+	{\large for the degree of}\\[.5cm]
+	
+	{\Large Master of Science}\\[.9cm]
+	
+	
+	{\large under the joint supervision of}\\[1cm]
+	
+	
+	\begin{minipage}{0.45\textwidth}
+		\begin{flushleft}
+			\large
+			\textit{Project supervisor}\\
+			Prof. Cristiane \textsc{de Morais Smith}\\
+			\normalsize Department of Physics
+		\end{flushleft}
+	\end{minipage}
+	~
+	\begin{minipage}{0.45\textwidth}
+		\begin{flushright}
+			\large
+			\textit{Direct supervisor}\\
+			Dr. Marcus \textsc{St{\aa}lhammar}\\
+			\normalsize Department of Physics
+		\end{flushright}
+	\end{minipage}
+	
+	
+	\vfill\vfill\vfill  % Position the date 3/4 down the remaining page
+	
+	{\large October 2024}  % Use \today for current date
+	
+	\vfill  % Push the date up 1/4 of the remaining page
+\end{titlepage}
+%TODO title page
+\setcounter{page}{2}  % Number next page as 'ii' instead of 'i'
+	
+\include{Chapters/abstract}
 	
 \tableofcontents
 	
-\newpage
 \pagenumbering{arabic}
+
+\include{Chapters/introduction}
 	
-\chapter{Introduction}
-
-Example citation.\cite{einstein_rel} Example expanded citation.\parencite[Theorem 5.6]{lee_manifolds}
-
-\section{Main results}
-
-\section{Overview}
-
-\section{Prerequisites}
-
-\section{Notational conventions}
+\include{Chapters/topological-states}
 	
-	
-\chapter[Topological states of matter]{Topological states of matter \& symmetries}	
+\include{Chapters/weyl-semimetals}
 
-	
-\chapter{Weyl semimetals}
-
-\section{Physics perspective}
-
-\section{Mathematics perspective}
-
-
-\chapter{Non-orientable manifolds}
-
-\section{Mathematical exploration}
-
-\section{Physical implications}
+\include{Chapters/non-orientable}
 
 \appendix 
-\cftaddtitleline{toc}{chapter}{APPENDICES}{}
 
-\chapter{Homology and cohomology}
+\include{Chapters/appendix}
 
 \printbibliography
 	
