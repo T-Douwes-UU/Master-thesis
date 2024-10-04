@@ -23,6 +23,7 @@
 \usepackage[style=alphabetic]{biblatex}
 \addbibresource{references.bib}
 \usepackage[hidelinks]{hyperref}
+\usepackage{tocloft}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -217,6 +218,11 @@ Example citation.\cite{einstein_rel} Example expanded citation.\parencite[Theore
 \section{Mathematical exploration}
 
 \section{Physical implications}
+
+\appendix 
+\cftaddtitleline{toc}{chapter}{APPENDICES}{}
+
+\chapter{Homology and cohomology}
 
 \printbibliography
 	
