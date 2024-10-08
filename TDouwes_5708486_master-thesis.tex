@@ -39,18 +39,15 @@
 
 
 \DeclareMathOperator{\Vol}{Vol}
-\DeclareMathOperator{\pr}{pr}
 \DeclareMathOperator{\On}{O}
+\renewcommand{\O}{\On}
 \DeclareMathOperator{\SO}{SO}
 \DeclareMathOperator{\U}{U}
 \DeclareMathOperator{\SU}{SU}
 \DeclareMathOperator{\id}{id}
-\DeclareMathOperator{\Curves}{Curves}
-\DeclareMathOperator{\standard}{standard}
 \DeclareMathOperator{\gl}{GL}
 \DeclareMathOperator{\Ad}{Ad}
 \DeclareMathOperator{\ad}{ad}
-\DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\Alt}{Alt}
 \DeclareMathOperator{\diag}{diag}
 
@@ -62,20 +59,19 @@
 	\else\hfill$\square$
 	\fi}
 \newcommand{\?}{\stackrel{?}{=}}
-\newcommand{\e}[1][]{{\rm e}^{#1}}
+\newcommand{\e}{{\rm e}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
-\newcommand{\R}[1][]{\mathbb{R}^{#1}}
-\newcommand{\C}[1][]{\mathbb{C}^{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
 \newcommand{\F}{\mathbb{F}}
+\newcommand{\T}{\mathbb{T}}
 \newcommand{\Mn}[1][\C]{\mathcal{M}_n(#1)}
 \newcommand{\GLn}[1][\C]{\gl_n(#1)}
 \newcommand{\GL}[1][n]{\gl_{#1}(\C)}
-\newcommand{\Pn}[1][n]{\mathbb{P}^{#1}}
 \newcommand{\Lie}[1]{\mathcal{L}_{#1}}
 \newcommand{\la}[1][g]{\mathfrak{#1}}
 \newcommand{\vct}{\mathfrak{X}}
-\newcommand{\fund}[1]{#1^\#}
 \newcommand{\Lg}{\mathscr{L}}
 \newcommand{\Ac}{\mathcal{A}}
 \newcommand{\Fc}{\mathcal{F}}
@@ -87,20 +83,10 @@
 \newcommand{\inner}[2]{\langle #1, #2 \rangle}
 \newcommand{\onto}{\hookrightarrow}
 \newcommand{\supto}{\supset\kern-1.7pt\to}
-\newcommand{\lowint}{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
-\newcommand{\upint}{\mathchoice%
-	{\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
-	{\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
-	{\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
-	{\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
-	\int}
 \newcommand{\tran}{^{\mkern-1.5mu\mathsf{T}}}
 \newcommand{\herm}{^\dag}
 \newcommand{\ext}[1]{\widetilde{#1}}
 \newcommand{\argdot}{\makebox[1ex]{\textbf{$\cdot$}}}
-
-\renewcommand{\phi}{\varphi}
-\renewcommand{\O}{\On}
 
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
