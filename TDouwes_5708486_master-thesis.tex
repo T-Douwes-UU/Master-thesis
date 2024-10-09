@@ -92,6 +92,18 @@
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 
+\newcommand{\markedchapter}[2]{\chapter[#2]{#2%
+	\chaptermark{#1}}
+	\chaptermark{#1}}
+
+\newcommand{\markedsection}[2]{\section[#2]{#2%
+	\sectionmark{#1}}
+	\sectionmark{#1}}
+
+\newcommand{\markedsubsection}[2]{\subsection[#2]{#2%
+	\subsectionmark{#1}}
+	\subsectionmark{#1}}
+
 %\includeonly{Chapters/topological-states}  % For generating a single chapter PDF
 
 \begin{document}
