@@ -8,23 +8,34 @@
 \usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage[shortlabels]{enumitem}
-\usepackage{physics}
 \usepackage{siunitx}
+\usepackage{physics}
 \usepackage{witharrows}
 \usepackage{xifthen}
 \usepackage[margin=1cm]{caption}
+\usepackage{subcaption}
 \usepackage{braket}
+\usepackage{slashed}
 \usepackage{bm}
 \usepackage{geometry}
 \usepackage{xcolor}
+\usepackage{dsfont}
+\usepackage{tensor}
+\usepackage{cancel}
 \usepackage{tikz-cd}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+\setlength{\headheight}{13.6pt}
 \usepackage[style=alphabetic]{biblatex}
 \addbibresource{references.bib}
-\usepackage[hidelinks]{hyperref}
 \usepackage{tocloft}
 \usepackage{microtype}
+\usepackage{csquotes}
+\usepackage{upgreek}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage[normalem]{ulem}
+\newcommand{\st}[1]{\ifmmode\text{\sout{\ensuremath{#1}}}\else\sout{#1}\fi}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -79,6 +90,7 @@
 \newcommand{\Gc}{\mathcal{G}}
 \newcommand{\Rc}{\mathcal{R}}
 \newcommand{\Oc}{\mathcal{O}}
+\newcommand{\Hc}{\mathcal{H}}
 \newcommand{\Cinf}{C^\infty}
 \newcommand{\cov}[1]{\nabla_{\!#1}}
 \newcommand{\inner}[2]{\langle #1, #2 \rangle}
@@ -120,7 +132,7 @@
 	
 	\rule{\linewidth}{0.5mm}\\[0.4cm]
 	
-	{\Huge\textsc{Topology of Weyl-semimetals}\\[.2cm] \huge  with non-orientable Brillouin zones}\\[0.4cm] % Title
+	{\Huge\textsc{Topology of Weyl semimetals}\\[.2cm] \huge  with non-orientable Brillouin zones}\\[0.4cm] % Title
 	
 	\rule{\linewidth}{0.5mm}\\[.8cm]
 	

@@ -1,6 +1,33 @@
 \chapter[Topological states of matter]{Topological states of matter \& symmetries}
 
-\red{Write intro when chapter is more complete} %TODO
+\blue{Sources:\cite{Akhmerov_online-course}\cite{Asboth_topo-course}\cite{Bernevig_topological-insulators}}
+
+\red{Finish intro when chapter is more complete} %TODO
+
+\section{Basic definitions}
+{\color{blue}
+\begin{itemize}
+	\item Conductive properties of materials are understood in terms of band structure → Fermi energy. Conductance means Fermi level lies inside one of the bands. [picture]
+	
+	\item $N$-band system has hilbert space $\Hc\cong\C^N$, Hamiltonian represented by $N\times N$ matrix. Static system: $H\psi = E\psi$, eigenvalues are energy bands.
+	
+	\item Mostly interested in 2-band systems since only valence/conduction bands are relevant. Then $H$ is a $2\times 2$ Hermitian (for now) matrix. These are given by $H = h_0I + \vb{h}\cdot\bm{\upsigma}$ in general; $h_0$ corresponds to the Fermi level and can be normalized to 0. → Bloch Hamiltonian (higher dimensional systems?)
+	
+	\item For a Bloch Hamiltonian, eigenvalues are $\pm\abs{\vb{h}}$, so conductance occurs when $\vb{h} = 0$.
+	
+	\item Insulating Hamiltonians are adiabatically connected if they can be continuously deformed into each other without band crossings. Insulators are considered topological if they are not adiabatically connected to a reference trivial phase; then these inhabit different regions of the phase diagram → existence of edge states (not always\cite{Bernevig_topological-insulators}, footnote)
+\end{itemize}
+}
+
+\subsection{Bloch theory}
+{\color{blue}
+\begin{itemize}
+	\item We work with crystalline materials which are composed of periodically repeating unit cells.
+	
+	\item In the bulk, we assume the Hamiltonian is periodic in the unit cell. This enables use of Bloch's theorem\cite{Bloch_theorem}
+\end{itemize}
+}
+
 
 \section{One-dimensional models}
 
