@@ -1,4 +1,4 @@
-\chapter[Topological states of matter]{Topological states of matter \& symmetries}
+\markedchapter{Topological states}{Topological states of matter \& symmetries}
 
 \blue{Sources:\cite{Akhmerov_online-course}\cite{Asboth_topo-course}\cite{Bernevig_topological-insulators}}
 
@@ -11,9 +11,9 @@
 	
 	\item $N$-band system has hilbert space $\Hc\cong\C^N$, Hamiltonian represented by $N\times N$ matrix. Static system: $H\psi = E\psi$, eigenvalues are energy bands.
 	
-	\item Mostly interested in 2-band systems since only valence/conduction bands are relevant. Then $H$ is a $2\times 2$ Hermitian (for now) matrix. These are given by $H = h_0I + \vb{h}\cdot\bm{\upsigma}$ in general; $h_0$ corresponds to the Fermi level and can be normalized to 0. → Bloch Hamiltonian (higher dimensional systems?)
+	\item Mostly interested in 2-band systems since only valence/conduction bands are relevant. Then $H$ is a $2\times 2$ Hermitian (for now) matrix. These are given by $H = h_0\mathbb{I} + \h\cdot\bm{\upsigma}$ in general; $h_0$ corresponds to the Fermi level and can be normalized to 0. [understand this better] → Bloch Hamiltonian [higher dimensional systems: Clifford algebra]
 	
-	\item For a Bloch Hamiltonian, eigenvalues are $\pm\abs{\vb{h}}$, so conductance occurs when $\vb{h} = 0$.
+	\item For a Bloch Hamiltonian, eigenvalues are $\pm\abs{\h}$, so conductance occurs when $\h = 0$.
 	
 	\item Insulating Hamiltonians are adiabatically connected if they can be continuously deformed into each other without band crossings. Insulators are considered topological if they are not adiabatically connected to a reference trivial phase; then these inhabit different regions of the phase diagram → existence of edge states (not always\cite{Bernevig_topological-insulators}, footnote)
 \end{itemize}
@@ -24,14 +24,128 @@
 \begin{itemize}
 	\item We work with crystalline materials which are composed of periodically repeating unit cells.
 	
-	\item In the bulk, we assume the Hamiltonian is periodic in the unit cell. This enables use of Bloch's theorem\cite{Bloch_theorem}
+	\item In the bulk, we assume the Hamiltonian is periodic in the unit cell. This enables use of Bloch's theorem\cite{Bloch_theorem} $\psi(\vb{r}) = \e^{i\k\cdot\vb{r}}u_{\k}(\vb{r})$.
+	
+	\item Different values of crystal momentum may yield identical eigenstates, the set of equivalence classes is the Brillouin zone
+	
+	\item Brillouin zone usually has $\T^n$ topology, but internal symmetries etc. may alter this\cite{Foncesca-Vaidya_nonorientable} [other sources]
 \end{itemize}
 }
 
 
 \section{One-dimensional models}
+{\color{blue}
+\begin{itemize}
+	\item SSH is usually introduced "physics first", but we would like to work backwards in a sense, to see how bulk topology gives rise to physical properties of a system.
+\end{itemize}
+}
 
 \subsection{The Su--Schrieffer--Heeger model}
+{\color{blue}
+\begin{itemize}
+	\item Start with an infinite 1D chain of unit cells; then the Brillouin zone has $S^1\cong [-\pi,\pi]/\set{-\pi\sim\pi}$ topology
+	
+	\item Parametrizing the Hamiltonian by $\h(k)$ gives a map $\h:S^1\to\R^3$, and restricting to insulators gives $\h:S^1\to\R^3\setminus\set{0}$.
+	
+	\item However, $\pi_1(\R^3\setminus\set{0}) = 0$ and so all insulating Hamiltonians are adiabatically connected
+	
+	\item We can fix this by imposing $h_z = 0$, so that effectively $\h:S^1\to\R^2\setminus\set{0}$, with fundamental group $\Z$ indexed by winding number around the origin. We will see that this amounts to imposing a physical symmetry.
+	
+	\item Start with the simplest topologically trivial state $\h_{\rm triv}(k) = (1, 0, 0)\tran$ and the simplest topologically interesting state $\h_{\rm top}(k) = \big(\cos(k), \sin(k), 0\big)\tran$. We choose these combinations of $x$, $y$, $z$ conveniently to arrive at the SSH but in principle any similar model would be equivalent by change of basis.
+	
+	\item Now make a linear combination $\h(k) = v\h_{\rm triv}(k) + w\h_{\rm top}(k)$. This is trivial when $v>w$, conducting when $v=w$ and topological when $v<w$. [picture]
+	
+	\item The momentum-space Hamiltonian is now
+	\[
+		H(k) = \begin{pmatrix}
+			0 & v + w\e^{-ik} \\
+			v + w\e^{ik} & 0
+		\end{pmatrix}.
+	\]
+	For FT we can suggestively rewrite as
+	\[
+		H(k) = \e^{-ik(n-n)}\begin{pmatrix}
+			0 & v \\
+			v & 0
+		\end{pmatrix} + \e^{-ik\big((n+1)-n\big)}\begin{pmatrix}
+		0 & w \\
+		0 & 0
+		\end{pmatrix} + \e^{-ik\big(n-(n+1)\big)}\begin{pmatrix}
+		0 & 0 \\
+		w & 0
+		\end{pmatrix}
+	\]
+	where $n$ is the unit cell index.
+	
+	\item It follows [how exactly?] that we can write the Hamiltonian in a unit cell basis as
+	\[
+		\hat{H} = \sum_{n=-\infty}^{\infty}\left[\ket{n}\bra{n}\otimes\begin{pmatrix}
+			0 & v \\
+			v & 0
+		\end{pmatrix} + \left(\ket{n+1}\bra{n}\otimes\begin{pmatrix}
+		0 & w \\
+		0 & 0
+		\end{pmatrix} + {\rm h.c.}\right)\right]
+	\]
+	
+	\item We can introduce a boundary by setting finite $N$ with open BC:
+	\[
+		\hat{H} = \sum_{n=0}^{N}\ket{n}\bra{n}\otimes\begin{pmatrix}
+			0 & v \\
+			v & 0
+		\end{pmatrix} + \sum_{n=0}^{N-1}\left(\ket{n+1}\bra{n}\otimes\begin{pmatrix}
+			0 & w \\
+			0 & 0
+		\end{pmatrix} + {\rm h.c.}\right)
+	\]
+	
+	\item This case can be represented as
+	\[
+		\hat{H} = \begin{pNiceMatrix}
+			\Block[borders={bottom,right,tikz=dashed}]{2-2}{}
+			             0 & v & \Block[borders={bottom,right,tikz=dashed}]{2-2}{}
+			                     0 & 0 & \Block{4-4}{0} &        &   & \\
+			             v & 0 & w & 0 &                &        &   & \\
+			\Block[borders={bottom,right,tikz=dashed}]{2-2}{}
+			             0 & w & 0 & v &                &        &   & \\
+			             0 & 0 & v & 0 &                &        &   & \\
+			\Block{4-4}{0} &   &   &   &                & \Ddots & 0 & 0 \\
+			               &   &   &   & \Ddots         &        & w & 0 \\
+			               &   &   &   &              0 & w      & 0 & v \\
+			               &   &   &   &              0 & 0      & v & 0
+		\end{pNiceMatrix}
+	\]
+	
+	\item This looks like a chain of length 2N with alternating hopping amplitudes, meaning we can realize the system in terms of unit cells with two atoms, intra-cell hopping $v$ and inter-cell hopping $w$. This is realised in e.g. polyacetylene: \includegraphics[width=.8\textwidth]{Images/polyacetylene}
+	
+	\item The trivial $v>w$ case has strong hopping within the cells, including to and from the edge modes. The conducting $v=w$ phase is just a chain of equal hoppings, and the topological $v<w$ has weaker hopping inside the cells so that the edge modes become isolated.
+	
+	\item We can now physically interpret the meaning of setting $h_z = 0$: it ensures that hopping only occurs between the two sublattices $A$ and $B$, and not within them (i.e.\ there are only off-diagonal elements in the internal degrees of freedom). If we define the sublattice projection operators
+	\[
+		\hat{P}_A = \mathbb{I} \otimes \begin{pmatrix}
+			1 & 0 \\ 0 & 0
+		\end{pmatrix},\quad \hat{P}_B = \mathbb{I} \otimes \begin{pmatrix}
+		0 & 0 \\ 0 & 1
+		\end{pmatrix}
+	\]
+	then the Hamiltonian obeys
+	\[
+		\hat{P}_A\hat{H}\hat{P}_A = \hat{P}_B\hat{H}\hat{P}_B = 0
+	\]
+	and so since $\hat{P}_A + \hat{P}_B$ is the identity we have
+	\begin{align*}
+		\hat{H} &= (\hat{P}_A + \hat{P}_B)\hat{H}(\hat{P}_A + \hat{P}_B) \\
+			&= \hat{P}_A\hat{H}\hat{P}_B + \hat{P}_B\hat{H}\hat{P}_A \\
+			&= (\hat{P}_A - \hat{P}_B)\hat{H}(\hat{P}_B - \hat{P}_A) \\
+			&\equiv -\hat{\Gamma}\hat{H}\hat{\Gamma}
+	\end{align*}
+	with $\hat{\Gamma}\equiv\hat{P}_A - \hat{P}_B$ having the property that $\hat{\Gamma} = \hat{\Gamma}^{-1} = \hat{\Gamma}\dagger$; this is called sublattice symmetry and it also applies to the momentum space Hamiltonian $H(k)$.
+	
+	\item An immediate consequence of our setup is that the trivial and topological phase become adiabatically connected if we allow for sublattice symmetry breaking ($h_z \neq 0$).
+\end{itemize}
+}
+%TODO write about boundary states
+\red{Expand more on boundary states}
 
 \subsection{The Kitaev chain}
 
