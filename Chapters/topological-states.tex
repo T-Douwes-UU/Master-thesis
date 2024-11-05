@@ -43,7 +43,7 @@
 }
 
 \subsection{The Su--Schrieffer--Heeger model}
-We will take the approach of deriving the Su--Schrieffer--Heeger model by beginning with a generic one-dimensional crystal, and trying to make it topologically interesting the simplest way that we can.
+We will take the approach of deriving the Su--Schrieffer--Heeger model by beginning with a generic one-dimensional crystal, and trying to make it topologically interesting the simplest way we can.
 
 To begin with, we assume that the crystal extends infinitely in both directions. We will introduce a boundary later, but its relevant properties will turn out to be determined by the crystal's bulk topology. Concretely, we have a one-dimensional chain of unit cells indexed by $n\in\Z$; at this point, we do not make any assumptions on the internal structure of these unit cells. We require that the real-space Hamiltonian of the system is periodic in these unit cells, so that by Bloch's theorem, two crystal momenta $k$ and $k'$ are equivalent if they differ by an integer multiple of $2\pi$. This means we can take our Brillouin zone $B$ to be the interval $[-\pi,\pi]$ with the points $-\pi$ and $\pi$ identified, which is homeomorphic to $S^1$.
 
@@ -88,7 +88,7 @@ To characterise a phase transition between these two states, we look at the line
 				] ( {.3*cos(deg(x)) + .5}, {.3*sin(deg(x))} );
 			\end{axis}
 		\end{tikzpicture}
-		\caption{$v=0.5$, $w=0.3$} %TODO
+		\caption{$v=0.5$, $w=0.3$}
 	\end{subfigure}
 	\hfil
 	\begin{subfigure}{.3\textwidth}
@@ -110,7 +110,7 @@ To characterise a phase transition between these two states, we look at the line
 				] ( {.4*cos(deg(x)) + 0.4}, {.4*sin(deg(x))} );
 			\end{axis}
 	\end{tikzpicture}
-	\caption{$v=w=0.4$} %TODO
+	\caption{$v=w=0.4$}
 	\end{subfigure}
 	\hfil
 	\begin{subfigure}{.3\textwidth}
@@ -132,9 +132,9 @@ To characterise a phase transition between these two states, we look at the line
 				] ( {.5*cos(deg(x)) + 0.3}, {.5*sin(deg(x))} );
 			\end{axis}
 		\end{tikzpicture}
-		\caption{$v=0.3$, $w=0.5$} %TODO
+		\caption{$v=0.3$, $w=0.5$}
 	\end{subfigure}
-	\caption{Contours in Hamiltonian space for (a) trivial, (b) conducting and (c) topological phases.} %TODO
+	\caption{Contours in Hamiltonian space for (a) trivial, (b) conducting and (c) topological phases.}
 	\label{fig:phases}
 \end{figure}
 
@@ -166,7 +166,7 @@ We can set up a Fourier transform to real space by rewriting this suggestively i
 		&= \sum_{a,n,n'}\delta_{n+a,n'}M_a\ket{n}\bra{n'} \\
 		&= \sum_{a,n}M_a\ket{n}\bra{n+a}
 \end{align*}
-But I don't fully understand the first step, the sign is wrong and normalization is broken. Maybe it's easier to discretize first and do a DFT?}
+But I don't fully understand the first step, the sign of $a$ is wrong and normalization is broken. Maybe it's easier to discretize first and do a DFT?}
 
 {\color{blue}
 \begin{itemize}
