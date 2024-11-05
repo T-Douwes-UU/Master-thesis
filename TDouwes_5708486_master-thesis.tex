@@ -8,7 +8,6 @@
 \usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage[shortlabels]{enumitem}
-\usepackage{siunitx}
 \usepackage{physics}
 \usepackage{witharrows}
 \usepackage{xifthen}
@@ -24,6 +23,8 @@
 \usepackage{cancel}
 \usepackage{tikz}
 \usepackage{tikz-cd}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \setlength{\headheight}{13.6pt}
@@ -64,6 +65,7 @@
 \DeclareMathOperator{\ad}{ad}
 \DeclareMathOperator{\Alt}{Alt}
 \DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\e}{e}
 
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
@@ -73,7 +75,6 @@
 	\else\hfill$\square$
 	\fi}
 \newcommand{\?}{\stackrel{?}{=}}
-\newcommand{\e}{{\rm e}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}

@@ -1,6 +1,8 @@
 \markedchapter{Topological states}{Topological states of matter \& symmetries}
 
-\blue{Sources:\cite{Akhmerov_online-course}\cite{Asboth_topo-course}\cite{Bernevig_topological-insulators}}
+\blue{Sources:\cite{Akhmerov_online-course}\cite{Asboth_topo-course}\cite{Bernevig_topological-insulators}\cite{Sato_superconductors}}
+
+\blue{Topo phases occur in nature:\cite{Gehring_natural-TI}}
 
 \red{Finish intro when chapter is more complete} %TODO
 
@@ -19,7 +21,7 @@
 \end{itemize}
 }
 
-\subsection{Bloch theory}
+\subsection{Bloch theory}\label{subsection:bloch}
 {\color{blue}
 \begin{itemize}
 	\item We work with crystalline materials which are composed of periodically repeating unit cells.
@@ -41,42 +43,133 @@
 }
 
 \subsection{The Su--Schrieffer--Heeger model}
-{\color{blue}
-\begin{itemize}
-	\item Start with an infinite 1D chain of unit cells; then the Brillouin zone has $S^1\cong [-\pi,\pi]/\set{-\pi\sim\pi}$ topology
-	
-	\item Parametrizing the Hamiltonian by $\h(k)$ gives a map $\h:S^1\to\R^3$, and restricting to insulators gives $\h:S^1\to\R^3\setminus\set{0}$.
-	
-	\item However, $\pi_1(\R^3\setminus\set{0}) = 0$ and so all insulating Hamiltonians are adiabatically connected
-	
-	\item We can fix this by imposing $h_z = 0$, so that effectively $\h:S^1\to\R^2\setminus\set{0}$, with fundamental group $\Z$ indexed by winding number around the origin. We will see that this amounts to imposing a physical symmetry.
-	
-	\item Start with the simplest topologically trivial state $\h_{\rm triv}(k) = (1, 0, 0)\tran$ and the simplest topologically interesting state $\h_{\rm top}(k) = \big(\cos(k), \sin(k), 0\big)\tran$. We choose these combinations of $x$, $y$, $z$ conveniently to arrive at the SSH but in principle any similar model would be equivalent by change of basis.
-	
-	\item Now make a linear combination $\h(k) = v\h_{\rm triv}(k) + w\h_{\rm top}(k)$. This is trivial when $v>w$, conducting when $v=w$ and topological when $v<w$. [picture]
-	
-	\item The momentum-space Hamiltonian is now
-	\[
-		H(k) = \begin{pmatrix}
-			0 & v + w\e^{-ik} \\
-			v + w\e^{ik} & 0
-		\end{pmatrix}.
-	\]
-	For FT we can suggestively rewrite as
-	\[
-		H(k) = \e^{-ik(n-n)}\begin{pmatrix}
-			0 & v \\
-			v & 0
-		\end{pmatrix} + \e^{-ik\big((n+1)-n\big)}\begin{pmatrix}
+We will take the approach of deriving the Su--Schrieffer--Heeger model by beginning with a generic one-dimensional crystal, and trying to make it topologically interesting the simplest way that we can.
+
+To begin with, we assume that the crystal extends infinitely in both directions. We will introduce a boundary later, but its relevant properties will turn out to be determined by the crystal's bulk topology. Concretely, we have a one-dimensional chain of unit cells indexed by $n\in\Z$; at this point, we do not make any assumptions on the internal structure of these unit cells. We require that the real-space Hamiltonian of the system is periodic in these unit cells, so that by Bloch's theorem, two crystal momenta $k$ and $k'$ are equivalent if they differ by an integer multiple of $2\pi$. This means we can take our Brillouin zone $B$ to be the interval $[-\pi,\pi]$ with the points $-\pi$ and $\pi$ identified, which is homeomorphic to $S^1$.
+
+We might begin with a simple 2 band Bloch Hamiltonian $H(k) = \h(k)\cdot\bm{\upsigma}$, with
+\[
+	\h: B\cong S^1\to\R^3,\quad k\mapsto\begin{pmatrix}
+		h_x(k) \\ h_y(k) \\ h_z(k)
+	\end{pmatrix}.
+\]
+Such a Hamiltonian describes a gapped phase precisely when the map $\h$ is nowhere vanishing, so that the topological classification of these phases is given by classes of maps from $S^1$ to $\R^3$ minus the origin---that is, homotopy classes of loops in $\R^3\setminus\set{0}$. But this space has a trivial fundamental group $\pi_1\big(\R^3\setminus\set{0}\big)\cong0$, meaning all such loops can be contracted to a point; in other words, all gapped phases are adiabatically connected, and there are no topologically interesting phases.
+
+To remedy this situation, we impose a constraint on the Hamiltonian: we require that $h_z(k)=0$, so that we effectively have a map $S^1\to\R^2$. The gapped phases are now classified by the group $\pi_1\big(\R^2\setminus\set{0}\big)\cong\Z$, indexed by winding number: loops that wind around the origin $a\in\Z$ times cannot be deformed into those with a different winding number $b\neq a$. In particular, loops with a non-zero winding number cannot be contracted to a point, and the associated phases are considered topological. Note that imposing a constraint on the Hamiltonian has made this system topologically interesting; once we move to the physical picture, we will see that this really amounts to imposing a certain symmetry on the system.
+
+To arrive at a concrete physical system, let us begin with the simplest possible\footnote{Of course, our choice of $x$, $y$, and $z$ coordinates very conveniently sets us up to arrive at the SSH model. However, mathematically speaking, all similar models are related by a simple change of basis.}
+distinct states, one trivial and one topologically interesting:
+\[
+	\h_{\rm triv}(k) = \begin{pmatrix}
+		1 \\ 0 \\ 0
+	\end{pmatrix},\qquad \h_{\rm top}(k) = \begin{pmatrix}
+		\cos(k) \\ \sin(k) \\ 0
+	\end{pmatrix}.
+\]
+To characterise a phase transition between these two states, we look at the linear combination $\h(k) = v\h_{\rm triv}(k) + w\h_{\rm top}(k)$, with $v,w\geq0$. The phase described by the resulting Bloch Hamiltonian is trivial when $v>w$, gapless (conducting) when $v=w$, and topological when $v<w$; see Figure \ref{fig:phases}.
+\begin{figure}[htb!]
+	\centering
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				axis equal image,
+				axis lines=middle,
+				axis line style={->},
+				xtick={-1,1}, ytick={-1,1},
+				xmin=-1.2, xmax=1.2,
+				ymin=-1.2, ymax=1.2,
+				xlabel=$h_x$, ylabel=$h_y$,
+				width=6.5cm,
+				]
+				\addplot+[mark options={black}] coordinates {(0,0)};
+				\addplot [
+				samples=100, domain=0:2*pi, color=teal, thick,
+				] ( {.3*cos(deg(x)) + .5}, {.3*sin(deg(x))} );
+			\end{axis}
+		\end{tikzpicture}
+		\caption{$v=0.5$, $w=0.3$} %TODO
+	\end{subfigure}
+	\hfil
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				axis equal image,
+				axis lines=middle,
+				axis line style={->},
+				xtick={-1,1}, ytick={-1,1},
+				xmin=-1.2, xmax=1.2,
+				ymin=-1.2, ymax=1.2,
+				xlabel=$h_x$, ylabel=$h_y$,
+				width=6.5cm,
+				]
+				\addplot+[mark options={black}] coordinates {(0,0)};
+				\addplot [
+				samples=100, domain=0:2*pi, color=teal, thick,
+				] ( {.4*cos(deg(x)) + 0.4}, {.4*sin(deg(x))} );
+			\end{axis}
+	\end{tikzpicture}
+	\caption{$v=w=0.4$} %TODO
+	\end{subfigure}
+	\hfil
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				axis equal image,
+				axis lines=middle,
+				axis line style={->},
+				xtick={-1,1}, ytick={-1,1},
+				xmin=-1.2, xmax=1.2,
+				ymin=-1.2, ymax=1.2,
+				xlabel=$h_x$, ylabel=$h_y$,
+				width=6.5cm,
+				]
+				\addplot+[mark options={black}] coordinates {(0,0)};
+				\addplot [
+				samples=100, domain=0:2*pi, color=teal, thick,
+				] ( {.5*cos(deg(x)) + 0.3}, {.5*sin(deg(x))} );
+			\end{axis}
+		\end{tikzpicture}
+		\caption{$v=0.3$, $w=0.5$} %TODO
+	\end{subfigure}
+	\caption{Contours in Hamiltonian space for (a) trivial, (b) conducting and (c) topological phases.} %TODO
+	\label{fig:phases}
+\end{figure}
+
+Now that we have a simple setup, it's time to analyse the physics. Concretely, the momentum space Hamiltonian is given by
+\begin{align*}
+	H(k) &= \h(k)\cdot\bm{\upsigma} = \big(v + w\cos(k)\big)\sigma_x + w\sin(k)\sigma_y = \begin{pmatrix}
+		0 & v + w\e^{-ik} \\
+		v + w\e^{ik} & 0
+	\end{pmatrix}.
+\end{align*}
+We can set up a Fourier transform to real space by rewriting this suggestively in terms of the unit cell index $n$:
+\[
+	H(k) = \e^{-ik(n-n)}\begin{pmatrix}
+		0 & v \\
+		v & 0
+	\end{pmatrix} + \e^{-ik\big((n+1)-n\big)}\begin{pmatrix}
 		0 & w \\
 		0 & 0
-		\end{pmatrix} + \e^{-ik\big(n-(n+1)\big)}\begin{pmatrix}
+	\end{pmatrix} + \e^{-ik\big(n-(n+1)\big)}\begin{pmatrix}
 		0 & 0 \\
 		w & 0
-		\end{pmatrix}
-	\]
-	where $n$ is the unit cell index.
-	
+	\end{pmatrix}
+\]
+{\color{red} I need to work out the details of this Fourier transform later, my calculations aren't working out. Transforming from a periodic Brillouin zone to (discrete or infinite) real space is breaking my brain. I imagine it needs to look something like this (where $M_{0/\pm1}$ are the three matrices above):
+\begin{align*}
+	\hat{H} &= \int_B H(k) \ket{k}\bra{k} \\
+		&= \int_{-\pi}^{\pi}\frac{\dd{k}}{2\pi} \left(\sum_{a\in\{0,\pm1\}}\e^{-ika}M_a\right) \left(\sum_{n}\e^{-ikn}\ket{n}\right) \left(\sum_{n'}\bra{n'}\e^{ikn'}\right) \\
+		&= \sum_{a,n,n'}\left(\int_{-\pi}^{\pi}\frac{\dd{k}}{2\pi}\e^{-ik(a+n-n')}\right)M_a\ket{n}\bra{n'} \\
+		&= \sum_{a,n,n'}\delta_{n+a,n'}M_a\ket{n}\bra{n'} \\
+		&= \sum_{a,n}M_a\ket{n}\bra{n+a}
+\end{align*}
+But I don't fully understand the first step, the sign is wrong and normalization is broken. Maybe it's easier to discretize first and do a DFT?}
+
+{\color{blue}
+\begin{itemize}
 	\item It follows [how exactly?] that we can write the Hamiltonian in a unit cell basis as
 	\[
 		\hat{H} = \sum_{n=-\infty}^{\infty}\left[\ket{n}\bra{n}\otimes\begin{pmatrix}
@@ -116,7 +209,7 @@
 		\end{pNiceMatrix}
 	\]
 	
-	\item This looks like a chain of length 2N with alternating hopping amplitudes, meaning we can realize the system in terms of unit cells with two atoms, intra-cell hopping $v$ and inter-cell hopping $w$. This is realised in e.g. polyacetylene: \includegraphics[width=.8\textwidth]{Images/polyacetylene}
+	\item This looks like a chain of length 2N with alternating hopping amplitudes, meaning we can realize the system in terms of unit cells with two atoms, intra-cell hopping $v$ and inter-cell hopping $w$. This is realised in e.g. polyacetylene\cite{SSH_model}: \includegraphics[width=.8\textwidth]{Images/polyacetylene}
 	
 	\item The trivial $v>w$ case has strong hopping within the cells, including to and from the edge modes. The conducting $v=w$ phase is just a chain of equal hoppings, and the topological $v<w$ has weaker hopping inside the cells so that the edge modes become isolated.
 	
