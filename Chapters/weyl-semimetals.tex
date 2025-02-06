@@ -53,8 +53,9 @@ Recall from our discussion in Section \ref{sec:Chern} that a 2D Chern insulator 
 This logic can be translated to the the three-dimensional case, where such slices are stacked in the $x$ direction. Suppose there is a projection $\pi$ along the $z$ direction, onto a two-dimensional surface Brillouin zone $\ext{\T}_{xy}^2$. Then the two-dimensional slices $\T_{yz}^2$ project down to a one-dimensional loop $\pi(\T_{yz}^2)\cong S^1$ containing a single point-like gapless state. As the $\T_{yz}^2$ slice is moved around in the $x$ direction, this band crossing point moves continuously along the $y$ direction, by continuity of the Hamiltonian. It follows that the full two-dimensional surface Brillouin zone must contain a loop of gapless states going across the $x$ direction, as depicted in the figure. This loop is called a Fermi loop, in analogy with the Fermi arcs in a Weyl semimetal, and the existence of such loops is experimentally well documented \red{[references]}. %TODO refs
 Moreover, the chirality of the edge modes can be used to assign a consistent orientation to this loop. %TODO note about linked loops, extra topology etc.
 
-Fermi loops admit a natural topological description in terms of homology. Being oriented loops, they precisely represent a class in the first homology group $H_1(\ext{\T}^2)$ of the surface Brillouin zone. Furthermore, it is possible to define an oriented \emph{Dirac loop} %TODO terminology
-$\ell$ in the bulk Brillouin zone in such a way that its projection $\pi(\ell)$ onto the surface in any direction is exactly the Fermi loop. This loop $\ell$ represents a first homology class in the bulk Brillouin zone,
+Fermi loops admit a natural topological description in terms of homology. Being oriented loops, they precisely represent a class in the first homology group $H_1(\ext{\T}^2)$ of the surface Brillouin zone. Furthermore, it is possible to define an oriented \emph{Dirac loop} \red{[I don't know if there is an established term for this]} %TODO terminology
+$\ell$ in the bulk Brillouin zone in such a way that its projection $\pi(\ell)$ onto the surface in any direction is exactly the Fermi loop. This loop $\ell$ is not a gapless feature \red{[it does seem to be related to gauge singularities, at least in WSMs]}, %TODO
+but it is rather interesting topologically: represents a first homology class in the bulk Brillouin zone,
 \[
 	[\ell]\in H_1(\T^3)\cong\Z^3.
 \]
@@ -117,7 +118,7 @@ All in all, the presence of Weyl points allows for a finer collection of Chern n
 \begin{equation}
 	[\Fc]\in H^2(\T^3\setminus W) \cong \Z^3\oplus\Z^{k-1},
 \end{equation}
-where $k$ again is the number of Weyl points. It follows that there are $k-1$ extra factors of $\Z$ involved in the classification of a Weyl semimetal compared to that of a 3D Chern insulator. One might expect this to be $k$ factors, but the reduction by one is a natural result of Nielsen--Ninomiya: for example, if $k=1$ then charge cancellation implies that the single Weyl point must have a charge of 0, and so it is not topologically protected.
+where $k$ again is the number of Weyl points. It follows that there are $k-1$ extra factors of $\Z$ involved in the classification of a Weyl semimetal compared to that of a 3D Chern insulator. One might expect this to be $k$ factors, but the reduction by one is a natural result of charge cancellation: for example, if $k=1$ then the Nielsen--Ninomiya theorem implies that the single Weyl point must have a charge of 0, and so it is not topologically protected. A similar intuition holds for general $k\in\N$, in that the $k$ additional ``degrees of freedom'' which are afforded to the system by the Weyl point charges are reduced by one under the charge cancellation condition. This relation will become more explicit once the Mayer--Vietoris sequence is introduced in Section \ref{sec:Mayer-Vietoris}.
 
 
 \subsubsection{Fermi arcs}
@@ -132,4 +133,15 @@ The varying Chern numbers over Weyl points help explain how Fermi arcs arise on 
 	\label{fig:Fermi-arc-Chern}
 \end{figure}
 
-\subsection{The Mayer--Vietoris sequence}
+\blue{Mention Weyl point creation/annihilation leading to changing Chern numbers + figure of experimental observation}
+
+Just as Fermi loops can be considered projections of a bulk Dirac loop, so too can Fermi arcs be considered a projection of a bulk \emph{Dirac string}.\footnote{
+	A more or less equivalent concept is referred to as \emph{Euler chain} in \cite{Mathai_math-review}, placing the emphasis on topology over physics: ``chain'' here refers the oriented subspaces that homology is founded on.}
+Like Dirac loops, these strings can be given an interpretation in terms of homology. The setup is somewhat more subtle in this case: since the Dirac strings have a boundary, they are not loops and as such do not represent homology classes in $H_1(\T^3)$. Instead, they represent classes in the \emph{relative homology group}
+\[
+	H_1(\T^3, W) \cong \Z^3\oplus\Z^{k-1}
+\]
+with respect to the set of Weyl points $W\subset\T^3$. Intuitively, taking the relative homology means that any boundaries lying in the subset $W$ are ignored; for a more precise definition the reader is referred to e.g. \parencite[\S 2.1]{Hatcher_algebraic-topology}. 
+
+
+\subsection{The Mayer--Vietoris sequence}\label{sec:Mayer-Vietoris}
