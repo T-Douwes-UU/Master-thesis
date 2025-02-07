@@ -9,10 +9,8 @@
 
 \subsection{3D Chern insulators}
 
-%TODO incorporate feedback
-
-To get a good intuition for the topological description of Weyl semimetals, it will be useful to consider a fully insulating material with similar properties first. That is, suppose we have a three-dimensional material that is not subject to any additional symmetries. Such a material is called a 3D Chern insulator, in analogy to the 2D Chern insulator studied in Section \ref{sec:Chern}.%TODO
-This is not a semimetallic phase in the sense that there are no band crossings in the bulk; still, in some sense it can be considered a limiting case of a Weyl semimetal, where the number of Weyl points is zero.
+To get a good intuition for the topological description of Weyl semimetals, it is useful to first consider a fully insulating material with similar properties. Suppose we have a three-dimensional material that is not subject to any additional symmetries. Such a material is called a 3D Chern insulator, in analogy to the 2D Chern insulator studied in Section \ref{sec:Chern}.%TODO
+This system is not a semimetal in the sense that there are no band crossings in the bulk; still, in many respects it can be considered a limiting case of a Weyl semimetal, where the number of Weyl points is zero.
 
 From the Atland--Zirnbauer classification in Table \red{[reference]},%TODO
 one might expect a 3D Chern insulator to be topologically trivial. However, as seen before in equation \red{[reference] (and perhaps also in 3D BHZ/Kane--Mele if I discuss this in ch. 2)},%TODO
@@ -22,14 +20,14 @@ the full topological classification of materials depends not only on the top-dim
 	\includegraphics[width=.5\linewidth]{Images/3D_Chern_insulator}
 	\caption{
 		\red{[Temporary figure]} %TODO fix
-		Three-dimensional Brillouin torus $\T^3$ of a Chern insulator, with a two-dimensional slice $\T_{yz}^2$ indicated in blue. A projection onto a surface Brillouin zone in the $xy$-direction is also shown, with an example Fermi loop of gapless states in red. In this example, the slice $\T_{yz}^2$ has a Chern number of $C_{x} = 1$, and so its projection onto the surface is a 1D loop that features one band crossing.
+		Three-dimensional Brillouin torus $\T^3$ of a Chern insulator, with a two-dimensional slice $\T_{yz}^2$ indicated in blue. A projection onto a surface Brillouin zone in the $xy$-direction is also shown, with an example Fermi loop of gapless states in red. In this example, the slice $\T_{yz}^2$ has a Chern number of $C_{x} = 1$. Hence, its projection onto the surface is a 1D loop that features one band crossing.
 		Figure adapted from \cite{Mathai_math-review}.}
 	\label{fig:3D_Chern_insulator}
 \end{figure}
 
 There are three topologically distinct ways to slice up the three-torus, all perpendicular to one of the three coordinate directions.\footnote{
 	Other 2D slices exist, such as those going diagonally across, but these can all be considered linear combinations of the three ``orthogonal'' slices. To be precise, the different classes of 2D subspaces of $\T^3$ form the second homology group $H_2(\T^3)\cong\Z^3$, and this group is \emph{generated} by the orthogonal slices.}
-These slices have the topology of a two-torus $\T^2$, and a Chern number can be obtained by integrating the Berry curvature $\Fc$ of the system over them: for example, perpendicular to the $x$ direction we obtain $C_{x} = \int_{\T_{yz}^2}\mathcal{F}$.\footnote{
+These slices have the topology of a two-torus $\T^2$, and a Chern number can be obtained by integrating the Berry curvature $\Fc$ of the system over them: for example, perpendicular to the $x$ direction there is a Chern number $C_{x} = \int_{\T_{yz}^2}\mathcal{F}$.\footnote{
 	Note that it does not matter where along the Brillouin zone this $yz$-slice is taken: the Chern number is an integer, while the system is continuous. This means the $x$ coordinate can be changed continuously without changing the resulting Chern number.}
 This results in a classification by three distinct Chern numbers $C_x$, $C_y$ and $C_z$, and in the literature (e.g. \cites{Vanderbilt_2018}{Liu_photonic-Chern-vector}) these are commonly arranged in a so-called \emph{Chern vector}
 \[
@@ -38,7 +36,7 @@ This results in a classification by three distinct Chern numbers $C_x$, $C_y$ an
 	\end{pmatrix} \in \Z^3.
 \]
 
-Importantly, these three Chern numbers are all induced by a single two-form $\Fc$. In this sense, there is an exact correspondence between topologically distinct Berry curvatures $\Fc$ and Chern vectors $\vb{C}\in\Z^3$. This is precisely what motivates the use of cohomology for classification: just like in the 2D Chern insulator, the two-form $\Fc$ can be considered to represent a class in the second cohomology group:
+Importantly, these three Chern numbers are all induced by a single two-form $\Fc$. In this sense, there is an exact correspondence between topologically distinct Berry curvatures $\Fc$ and Chern vectors $\vb{C}\in\Z^3$. This is precisely what motivates the use of cohomology for classification: just like in the 2D Chern insulator, the two-form $\Fc$ can be considered to represent a class in the second cohomology group,
 \begin{equation}
 	[\Fc]\in H^2(\T^3)\cong\Z^3. \label{eq:2nd-cohom-z3}
 \end{equation}
@@ -60,15 +58,15 @@ but it is rather interesting topologically: represents a first homology class in
 	[\ell]\in H_1(\T^3)\cong\Z^3.
 \]
 
-It is not a coincidence that this first homology group is isomorphic to the second cohomology group $H^2(\T^3)$ from Equation (\ref{eq:2nd-cohom-z3}). This equivalence is a result of \emph{Poincaré duality}, which is the statement that for any closed oriented $d$-dimensional manifold $M$, the isomorphism
+It is not a coincidence that this first homology group is isomorphic to the second cohomology group $H^2(\T^3)$ from Equation (\ref{eq:2nd-cohom-z3}). This equivalence is a result of \emph{Poincar\'e duality}, which is the statement that for any closed oriented $d$-dimensional manifold $M$, the isomorphism
 \[
 	H_n(M) \cong H^{d-n}(M)
 \]
 holds for any integer $n$. In the present case, this duality can be stated intuitively in terms of Chern numbers, which count the number of signed intersections of the Dirac loop with the different two-dimensional slices of the Brillouin zone. This duality can be summarised schematically as follows:
-\[
+\begin{equation}\label{eq:duality-scheme}
 	H^2(\T^3) \ni [\Fc] \overset{\rm integration}{\iff} \vb{C} \overset{\rm intersections}{\iff} [\ell] \in H_1(\T^3).
-\]
-This Poincaré duality ensures that the classifications in terms of first homology and second cohomology are completely equivalent in this case. Importantly, however, Poincaré duality depends on orientability, and it will not hold when we consider non-orientable Brillouin zones in the next chapter. As such, the question of which group provides the right classification of such a system will be key. For the moment, we turn our attention to the topology of Weyl points in the simpler orientable setting.
+\end{equation}
+This Poincar\'e duality ensures that the classifications in terms of first homology and second cohomology are completely equivalent in this case. Importantly, however, Poincar\'e duality depends on orientability, and it will not hold when we consider non-orientable Brillouin zones in the next chapter. As such, the question of which group provides the right classification of such a system will be key. For the moment, we turn our attention to the topology of Weyl points in the simpler orientable setting.
 
 
 \subsection{Introducing Weyl points}
@@ -114,11 +112,13 @@ The same Stokes' theorem argument can then be used to relate the Chern numbers $
 \]
 That is, the Chern number of a two-dimensional slice increases by $q$ every time it passes over a Weyl point with charge $q$. As a sanity check, it should be noted that this process respects the periodicity of the Brillouin torus: indeed, when the slice is passed over the entire torus, charge cancellation ensures that the added Chern number is zero in total.
 
-All in all, the presence of Weyl points allows for a finer collection of Chern numbers to appear in the Brillouin zone, beyond the $\Z^3$ Chern vector of the insulating case. This behaviour can be captured using cohomology. The key idea is that the Berry curvature can only be integrated over subspaces where the gap never closes, so that the set of Weyl points $W$ needs to be excluded. To be precise, we are interested in classifying possible Chern numbers on $\T^3\setminus W$, the Brillouin zone minus $W$; these correspond precisely to all possible gapless phases on $\T^3\setminus W$. This means the Berry curvature now lives in the second cohomology group of this space:
-\begin{equation}
+All in all, the presence of Weyl points allows for a finer collection of Chern numbers to appear in the Brillouin zone, beyond the $\Z^3$ Chern vector of the insulating case. This behaviour can be captured using cohomology. The key idea is that the Berry curvature $\Fc$ can only be integrated over subspaces where the gap never closes, so that the set of Weyl points $W$ needs to be excluded. This means $\Fc$ now lives in the second cohomology group of the Brillouin zone minus $W$:
+\begin{equation}\label{eq:semimetal-cohomology}
 	[\Fc]\in H^2(\T^3\setminus W) \cong \Z^3\oplus\Z^{k-1},
 \end{equation}
-where $k$ again is the number of Weyl points. It follows that there are $k-1$ extra factors of $\Z$ involved in the classification of a Weyl semimetal compared to that of a 3D Chern insulator. One might expect this to be $k$ factors, but the reduction by one is a natural result of charge cancellation: for example, if $k=1$ then the Nielsen--Ninomiya theorem implies that the single Weyl point must have a charge of 0, and so it is not topologically protected. A similar intuition holds for general $k\in\N$, in that the $k$ additional ``degrees of freedom'' which are afforded to the system by the Weyl point charges are reduced by one under the charge cancellation condition. This relation will become more explicit once the Mayer--Vietoris sequence is introduced in Section \ref{sec:Mayer-Vietoris}.
+where $k$ again is the number of Weyl points. Put differently, classification of semimetallic phases given a set of Weyl points $W$ essentially amounts to classifying the gapped phases on $\T^3\setminus W$.
+
+Notably, there are $k-1$ extra factors of $\Z$ involved in the classification of a Weyl semimetal compared to that of a 3D Chern insulator. One might expect this to be $k$ factors, but the reduction by one is a natural result of charge cancellation: for example, if $k=1$ then the Nielsen--Ninomiya theorem implies that the single Weyl point must have a charge of 0, and so it is not topologically protected. A similar intuition holds for general $k\in\N$, in that the $k$ additional ``degrees of freedom'' which are afforded to the system by the Weyl point charges are reduced by one under the charge cancellation condition. This relation will become more explicit once the Mayer--Vietoris sequence is introduced in Section \ref{sec:Mayer-Vietoris}.
 
 
 \subsubsection{Fermi arcs}
@@ -133,15 +133,32 @@ The varying Chern numbers over Weyl points help explain how Fermi arcs arise on 
 	\label{fig:Fermi-arc-Chern}
 \end{figure}
 
-\blue{Mention Weyl point creation/annihilation leading to changing Chern numbers + figure of experimental observation}
+This feature of Weyl semimetals implies they can mediate phase transitions between 3D Chern insulators with different Chern vectors. For example, suppose a pair of Weyl points is created at some point in the Brillouin zone of a trivial insulator ($\vb{C}=0$). These points can then be moved apart in the $z$ direction until they meet again and annihilate at the other end of the torus. In the process, a Fermi arc extends between the projections of the Weyl points on the $xz$ and $yz$-planes, which eventually closes into a Fermi loop. In its final state, the system features a non-zero Chern vector of $\vb{C} = (0,0,1)\tran$. This process was first observed experimentally by Gui-Geng Liu et al.\ in 2022 (see Figure \ref{fig:Weyl-phase-transition}), in the context of a photonic crystal. This was also the first experimental realisation of a 3D Chern insulator \cite{Liu_photonic-Chern-vector}.
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\linewidth]{Images/Weyl-phase-transition}
+	\caption{
+		\red{[I need to think about how to organise this figure and add a caption]} %TODO
+		Figure from \cite{Liu_photonic-Chern-vector}, reproduced with permission from Springer Nature.}
+	\label{fig:Weyl-phase-transition}
+\end{figure}
 
 Just as Fermi loops can be considered projections of a bulk Dirac loop, so too can Fermi arcs be considered a projection of a bulk \emph{Dirac string}.\footnote{
 	A more or less equivalent concept is referred to as \emph{Euler chain} in \cite{Mathai_math-review}, placing the emphasis on topology over physics: ``chain'' here refers the oriented subspaces that homology is founded on.}
 Like Dirac loops, these strings can be given an interpretation in terms of homology. The setup is somewhat more subtle in this case: since the Dirac strings have a boundary, they are not loops and as such do not represent homology classes in $H_1(\T^3)$. Instead, they represent classes in the \emph{relative homology group}
-\[
+\begin{equation}
 	H_1(\T^3, W) \cong \Z^3\oplus\Z^{k-1}
-\]
-with respect to the set of Weyl points $W\subset\T^3$. Intuitively, taking the relative homology means that any boundaries lying in the subset $W$ are ignored; for a more precise definition the reader is referred to e.g. \parencite[\S 2.1]{Hatcher_algebraic-topology}. 
+\end{equation}
+with respect to the set of Weyl points $W\subset\T^3$. Intuitively, taking the relative homology means that any boundaries lying in the subset $W$ are ignored; for a more precise definition the reader is referred to e.g. \parencite[\S 2.1]{Hatcher_algebraic-topology}.
+
+This homology picture provides a classification scheme that is exactly dual to the cohomology classification in Equation (\ref{eq:semimetal-cohomology}); that is, there is an isomorphism
+\begin{equation}\label{eq:semimetal-duality}
+	H^2(\T^3\setminus W) \cong H_1(\T^3, W).
+\end{equation}
+This is not a direct Poincar\'e duality, but it is nevertheless mathematically rigorous and protected by orientability in the same way.\footnote{
+	To be precise, Poincar\'e duality does not hold directly because $\T^3\setminus W$ is not a closed manifold. Instead, for non-compact manifolds $M$ there is a generalized duality $H^n(M)\cong H_{d-n}^{\rm BM}(M)$ where the group on the right is the \emph{Borel--Moore homology}, and this is in turn equivalent to the relative homology in this case. Alternatively, Equation (\ref{eq:semimetal-duality}) can be interpreted as a result of the so-called \emph{Lefschetz duality} $H^n(M)\cong H_{d-n}(M, \partial M)$ for manifolds with a boundary.}
+The interpretation in terms of Chern numbers given in Equation (\ref{eq:duality-scheme}) also still holds here, with the Chern vector and Dirac loops replaced with more general Chern numbers and Dirac strings, respectively.
+
 
 
 \subsection{The Mayer--Vietoris sequence}\label{sec:Mayer-Vietoris}
