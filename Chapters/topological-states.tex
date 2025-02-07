@@ -43,7 +43,7 @@
 		\item SSH is usually introduced "physics first", but we would like to work backwards in a sense, to see how bulk topology gives rise to physical properties of a system.
 	\end{itemize}
 }
-%TODO incorporate latest comments
+
 We will take the approach of deriving the Su--Schrieffer--Heeger (SSH) model by beginning with a generic one-dimensional crystal, and introducing two topologically distinct phases in the simplest way possible.
 
 Concretely, consider an infinite one-dimensional chain of unit cells indexed by $n\in\Z$; at this point, we make no assumptions on the internal structure of these unit cells. A boundary will be introduced later, but its relevant properties will turn out to be determined by the crystal's bulk topology. Suppose the real-space Hamiltonian of the system is periodic in the unit cells. By Bloch's theorem, two crystal momenta $k$ and $k'$ are then equivalent if they differ by an integer multiple of $2\pi$. This means that the Brillouin zone $B$ can be taken to be the interval $[-\pi,\pi]$, with the points $-\pi$ and $\pi$ identified; this space is homeomorphic to the circle $S^1$.
@@ -62,7 +62,7 @@ This situation can be remedied by imposing a constraint on the Hamiltonian: we r
 		h_x(k) \\ h_y(k)
 	\end{pmatrix}.
 \]
-The gapped phases are now classified by the non-trivial fundamental group $\pi_1\big(\R^2\setminus\set{0}\big)\cong\Z$. This group is indexed by winding number: loops that wind around the origin $a\in\Z$ times cannot be deformed into those with a different winding number $b\neq a$. In particular, loops with a non-zero winding number cannot be contracted to a point, and the associated phases are considered topological. Note that imposing a constraint on the Hamiltonian has made this system rather more interesting from a topological point of view, even though it seems like we have simplified it. Once we move to the physical picture, we will see that this restriction corresponds to imposing a certain symmetry on the system.
+The gapped phases are now classified by the non-trivial fundamental group $\pi_1\big(\R^2\setminus\set{0}\big)\cong\Z$. This group is indexed by winding number: loops that wind around the origin $a\in\Z$ times cannot be deformed into those with a different winding number $b\neq a$. In particular, loops with a non-zero winding number cannot be contracted to a point, and the associated phases are considered topological. Note that imposing a constraint on the Hamiltonian has made this system rather more interesting from a topological point of view, even though it seems like it has been simplified. Once we move to the physical picture, we will see that this restriction corresponds to imposing a certain symmetry on the system.
 
 Let us now choose a more specific Hamiltonian to arrive at a concrete physical system. We begin with the simplest possible\footnote{
 	Our particular choice of $x$, $y$, and $z$ coordinates very conveniently leads to the SSH model. However, mathematically speaking, all similar models are related by a simple change of basis.}
@@ -203,7 +203,7 @@ This Hamiltonian contains a term which acts within the unit cells, and terms whi
 		0 & 0
 	\end{pmatrix} + {\rm h.c.}\right),
 \]
-where we have introduced open boundary conditions on the ends of the chain. This will allow us to study the boundary behaviour momentarily. We can then expand the tensor products in order to cast the Hamiltonian into a full $2N\times 2N$ matrix:
+where open boundary conditions have been introduced on the ends of the chain to allow the boundary behaviour to be studied. The tensor products can be expanded in order to cast the Hamiltonian into a full $2N\times 2N$ matrix:
 \[
 	\hat{H} = \begin{pNiceMatrix}
 		\Block[borders={bottom,right,tikz=dashed}]{2-2}{}
@@ -219,7 +219,7 @@ where we have introduced open boundary conditions on the ends of the chain. This
 					   &   &   &   &              0 & 0      & v & 0
 	\end{pNiceMatrix}.
 \]
-A physical interpretation of this system presents itself in the form of this matrix: it describes a chain of $2N$ sites, with alternating hopping amplitudes $v$ and $w$ between neighbouring sites. The unit cells now consist of two of these sites, and $v$ and $w$ are referred to as the \emph{intra-cell} and \emph{inter-cell} hoppings, respectively. When these two hoppings are equal we are in the gapless phase $v=w$, corresponding to a chain where all bonds are equally strong. Intuitively, this homogeneity allows electrons to propagate freely along the chain. On the other hand, in the insulating cases $v\neq w$, one of the two hoppings is stronger than the other, and the electrons tend to be confined around these stronger bonds.
+A physical interpretation of this system presents itself in the form of this matrix: it describes a chain of $2N$ sites, with alternating hopping amplitudes $v$ and $w$ between neighbouring sites. The unit cells now consist of two of these sites, and $v$ and $w$ are referred to as the \emph{intra-cell} and \emph{inter-cell} hoppings, respectively. When these two hoppings are equal, the system is in the gapless phase $v=w$, corresponding to a chain where all bonds are equally strong. Intuitively, this homogeneity allows electrons to propagate freely along the chain. On the other hand, in the insulating cases $v\neq w$, one of the two hoppings is stronger than the other, and the electrons tend to be confined around these stronger bonds.
 
 Dividing the unit cells into two individual sites in this way allows us to distinguish two so-called \emph{sublattices} of the crystal, which we label $A$ and $B$. The notation can then be simplified by labelling quantum states according to the sublattice on which they are localized:
 \[
@@ -243,22 +243,22 @@ The tight-binding model of alternating hoppings is precisely the SSH model: it w
 \end{figure}
 This material displays unexpectedly high conductivity when doped with halogen impurities, and the SSH model affords an explanation for this.
 
-To understand how this metallic behaviour comes about, we need to examine the differences between the trivial and the topological phase more closely. The two phases appear to be identical at a first glance: if we choose the unit cell in polyacetylene in such a way that the stronger double bond represents the intra-cell hopping $v$, then we are in the trivial phase $v>w$, and if we centre the unit cell around a single bond, we have $v<w$ and the phase is topological. In either case, we expect valence electrons to remain localized around the double bonds, leading to the same insulating bulk behaviour.\footnote{
+To understand how this metallic behaviour comes about, the differences between the trivial and the topological phase must be examined more closely. The two phases appear to be identical at a first glance: if the unit cell in polyacetylene is chosen in such a way that the stronger double bond represents the intra-cell hopping $v$, then the system is in the trivial phase $v>w$, and if instead the unit cell is centred around a single bond, $v<w$ and the phase is topological. In either case, valence electrons are expected to remain localized around the double bonds, leading to the same insulating bulk behaviour.\footnote{
 	The attentive reader might wonder why the conducting $v=w$ phase does not occur naturally in this system. This is a result of the so-called Peierls transition: in a nutshell, introducing a band gap locally lowers the energy of the (filled) valence band and raises that of the (empty) conduction band. This makes it energetically favourable for atoms in the chain to pair up, in a process referred to as dimerisation.}
 
-The difference between the two phases only becomes apparent when we look at the endpoints of the chain. \red{[introduce a figure here]}%TODO
+The difference between the two phases only becomes apparent when the endpoints of the chain are studied. \red{[introduce a figure here]}%TODO
 For example, the leftmost atom is not subject to any inter-cell hopping, and it is only connected to the other atom in its unit cell. In the trivial case, this connection is strong and the two atoms share their valence electrons. In the topological phase, on the other hand, the second atom from the left prefers to share electrons with its right-hand neighbour, and the leftmost atom becomes isolated. In the limit where $v$ goes to zero, this isolation becomes complete and the edge sites carry zero-energy eigenstates. In this case, only the second term in the Hamiltonian (\ref{eq:ssh-sublattice}) survives, and the edges obey the eigenvalue equations
 \begin{align*}
 	\hat{H}\ket{1,A} = \hat{H}\ket{N,B} = 0.
 \end{align*}
 These edge modes can be shown to persist for non-zero $v<w$, in which case they become highly localized and approach zero energy in the $N\to\infty$ limit.\footnote{
 	A precise understanding of this is beyond the scope of this review; the interested reader is referred to e.g.\ \cite{Asboth_topo-course}.}
-The salient point is that the boundary modes of the topological phase are gapless: their energy eigenvalues have a degeneracy at the Fermi level $\varepsilon_F = 0$. \red{[Perhaps include dispersion figure]}
+The salient point is that the boundary modes of the topological phase exist inside the energy gap: their energy eigenvalues have a degeneracy at the Fermi level $\varepsilon_F = 0$. \red{[Perhaps include dispersion figure]}
 %TODO picture?
 
-Something remarkable has happened: we have started from a topological description of a gapped bulk phase, and the resulting physical effects appear as gapless edge modes on the boundary of the material. As we will see, this is a fairly\footnote{
-	This is not a completely general statement: topological phases with gapped edge modes have been shown to be theoretically feasible \cite{Freedman_gapped-edge}. For our purposes, it will be sufficient to restrict our attention to the gapless edge modes.}
-general feature of topological phases of matter, called the \emph{bulk-boundary correspondence}. We can think of it as being a result of the inability to go continuously from a topological gapped phase to a trivial one in real space; in particular, the outside boundary of an idealised material connects to the vacuum, which is also considered a trivial gapped phase.
+Something remarkable has happened: we have started from a topological description of a gapped bulk phase, and the resulting physical effects appear as in-gap zero energy modes on the boundary of the material. As will become apparent looking at other examples, the existence of edge modes at the Fermi level is a fairly\footnote{
+	This is not a completely general statement: topological phases with edge modes at energies other than $\varepsilon_F$ have been shown to be theoretically feasible \cite{Freedman_gapped-edge}. For our purposes, it will be sufficient to restrict our attention to edge modes at the Fermi level.}
+general feature of topological phases of matter, captured in the so-called \emph{bulk-boundary correspondence}. It can be thought of as being a result of the inability to go continuously from a topological gapped phase to a trivial one in real space; in particular, the outside boundary of an idealised material connects to the vacuum, which is also considered a trivial gapped phase.
 
 {\color{blue}
 \begin{itemize}
