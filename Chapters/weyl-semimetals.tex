@@ -3,7 +3,7 @@
 \section{Physical aspects}
 
 
-\section{Topological description}
+\section{Topological description}\label{sec:semimetal-topology}
 
 %TODO introductory paragraph
 
@@ -37,8 +37,8 @@ This results in a classification by three distinct Chern numbers $C_x$, $C_y$ an
 \]
 
 Importantly, these three Chern numbers are all induced by a single two-form $\Fc$. In this sense, there is an exact correspondence between topologically distinct Berry curvatures $\Fc$ and Chern vectors $\vb{C}\in\Z^3$. This is precisely what motivates the use of cohomology for classification: just like in the 2D Chern insulator, the two-form $\Fc$ can be considered to represent a class in the second cohomology group,
-\begin{equation}
-	[\Fc]\in H^2(\T^3)\cong\Z^3. \label{eq:2nd-cohom-z3}
+\begin{equation}\label{eq:2nd-cohom-t3}
+	[\Fc]\in H^2(\T^3)\cong\Z^3. 
 \end{equation}
 As a result, this group precisely classifies the distinct topological phases of the system.\footnote{
 	More fundamentally, a complex vector bundle called the \emph{valence bundle} can be associated to a gapped Hamiltonian, and the second cohomology group classifies the different complex vector bundles over a manifold.}
@@ -58,7 +58,7 @@ but it is rather interesting topologically: represents a first homology class in
 	[\ell]\in H_1(\T^3)\cong\Z^3.
 \]
 
-It is not a coincidence that this first homology group is isomorphic to the second cohomology group $H^2(\T^3)$ from Equation (\ref{eq:2nd-cohom-z3}). This equivalence is a result of \emph{Poincar\'e duality}, which is the statement that for any closed oriented $d$-dimensional manifold $M$, the isomorphism
+It is not a coincidence that this first homology group is isomorphic to the second cohomology group $H^2(\T^3)$ from Equation \ref{eq:2nd-cohom-t3}. This equivalence is a result of \emph{Poincar\'e duality}, which is the statement that for any closed oriented $d$-dimensional manifold $M$, the isomorphism
 \[
 	H_n(M) \cong H^{d-n}(M)
 \]
@@ -79,20 +79,27 @@ Then the charge of a Weyl point $w_i$ is given by the Chern number
 \begin{equation}
 	C_w = \int_{S_w^2}\!\Fc,
 \end{equation}
-where $S_w^2$ is a sufficiently small 2-sphere centred at $w$---in particular, it must be small enough to contain no other Weyl points in its interior. The Nielsen--Ninomiya charge cancellation theorem is the statement that all these charges must add to zero:
+where $S_w^2$ is a sufficiently small 2-sphere centred at $w$---in particular, it must be small enough to contain no other Weyl points in its interior. Naively, this might lead us to expect that a semimetal phase is classified by the second cohomology group of the collection of all these spheres:
+\begin{equation}\label{eq:2nd-cohom-spheres}
+	H^2\left(\bigcup_{i=1}^k S_{w_i}^2\right)\cong \bigoplus_{i=1}^k H^2(S_{w_i}^2) \cong \Z^k.
+\end{equation}
+However, this classification runs into two problems: it ignores the global cancellation of charge, and it also ignores the additional topology on two-dimensional slices discussed in the previous subsection. Both of these issues are due to the fact that this group only captures the \emph{local} topology near each Weyl point, and they can be addressed by studying how the different Chern numbers on the Brillouin zone must relate to each other \emph{globally}.
+
+The Nielsen--Ninomiya charge cancellation theorem is one such global relation. It is the statement that all the Chern numbers on these 2-spheres must add to zero:
 \begin{equation}
 	\sum_{i=1}^{k}C_{w_i} = 0.
 \end{equation}
-This cancellation can be demonstrated using Stokes' theorem. The argument goes as follows: imagine the small open 3-ball bounded by $S_w^2$ is removed from $\T^3$ around each Weyl point $w$. The resulting 3-manifold $X$ looks like a 3-torus with small holes, and its boundary is given by the collection of 2-spheres around the Weyl points:
+This cancellation can be demonstrated using Stokes' theorem. The argument goes as follows: imagine that the interior of each sphere $S_{w_i}^2$ (i.e.\ a small open 3-ball centred at $w_i$) is removed from $\T^3$. The resulting 3-manifold $X$ looks like a 3-torus with $k$ small holes, and its boundary is given by the collection of spheres:
 \[
 	\partial X = -\bigcup_{i=1}^k S_{w_i}^2,
 \]
 where the minus sign induces the correct orientation. Then Stokes' theorem gives
 \[
-	0 = \int_{\partial X} \dd{\Fc} = -\sum_{i=1}^{k}\int_{S_{w_i}^2}\!\!\Fc = -\sum_{i=1}^{k}C_{w_i}.
+	0 = \int_{\partial X} \dd{\Fc} = -\sum_{i=1}^{k}\int_{S_{w_i}^2}\!\!\Fc = -\sum_{i=1}^{k}C_{w_i},
 \]
+which is precisely the Nielsen--Ninomiya theorem.
 
-A similar argument can also be applied to study what happens to Chern numbers on two-dimensional slices of the Brillouin zone when Weyl points are introduced. This argument is illustrated in Figure \ref{fig:Weyl-point-Stokes}.
+A similar argument can also be applied to study what happens to Chern numbers on two-dimensional slices of the Brillouin zone in this context. This argument is illustrated in Figure \ref{fig:Weyl-point-Stokes}.
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=.5\linewidth]{Images/Weyl-point-Stokes}
@@ -110,15 +117,17 @@ The same Stokes' theorem argument can then be used to relate the Chern numbers $
 \[
 	C_R = C_L + C_w = C_L + q.
 \]
-That is, the Chern number of a two-dimensional slice increases by $q$ every time it passes over a Weyl point with charge $q$. As a sanity check, it should be noted that this process respects the periodicity of the Brillouin torus: indeed, when the slice is passed over the entire torus, charge cancellation ensures that the added Chern number is zero in total.
+That is, the Chern number of a two-dimensional slice increases by $q$ every time it passes over a Weyl point with charge $q$. As a sanity check, it should be noted that this process respects the periodicity of the Brillouin torus: when the slice is passed over the entire torus, charge cancellation ensures that the added Chern number is zero in total.
 
 All in all, the presence of Weyl points allows for a finer collection of Chern numbers to appear in the Brillouin zone, beyond the $\Z^3$ Chern vector of the insulating case. This behaviour can be captured using cohomology. The key idea is that the Berry curvature $\Fc$ can only be integrated over subspaces where the gap never closes, so that the set of Weyl points $W$ needs to be excluded. This means $\Fc$ now lives in the second cohomology group of the Brillouin zone minus $W$:
-\begin{equation}\label{eq:semimetal-cohomology}
-	[\Fc]\in H^2(\T^3\setminus W) \cong \Z^3\oplus\Z^{k-1},
+\begin{equation}\label{eq:2nd-cohom-semimetal}
+	[\Fc]\in H^2\big(\T^3\setminus W\big) \cong \Z^3\oplus\Z^{k-1},
 \end{equation}
-where $k$ again is the number of Weyl points. Put differently, classification of semimetallic phases given a set of Weyl points $W$ essentially amounts to classifying the gapped phases on $\T^3\setminus W$.
+where $k$ again is the number of Weyl points. Put differently, classification of semimetallic phases given a set of Weyl points $W$ essentially amounts to classifying the gapped phases on the punctured torus $\T^3\setminus W$.
 
-Notably, there are $k-1$ extra factors of $\Z$ involved in the classification of a Weyl semimetal compared to that of a 3D Chern insulator. One might expect this to be $k$ factors, but the reduction by one is a natural result of charge cancellation: for example, if $k=1$ then the Nielsen--Ninomiya theorem implies that the single Weyl point must have a charge of 0, and so it is not topologically protected. A similar intuition holds for general $k\in\N$, in that the $k$ additional ``degrees of freedom'' which are afforded to the system by the Weyl point charges are reduced by one under the charge cancellation condition. This relation will become more explicit once the Mayer--Vietoris sequence is introduced in Section \ref{sec:Mayer-Vietoris}.
+Notably, this classification addresses both issues present in the $\Z^k$ classification on 2-spheres in Equation \ref{eq:2nd-cohom-spheres}. Firstly, it incorporates 3D Chern insulator topology in the first term, in the form of the $\Z^3$ from Equation \ref{eq:2nd-cohom-t3}. Perhaps more subtly, charge cancellation is also incorporated in the form of the reduction by one $\Z$ factor in the second term. This can be understood intuitively: for example, if $k=1$ then the Nielsen--Ninomiya theorem implies that the single Weyl point must have a charge of 0, and so it is not topologically protected. A similar intuition holds for general $k\in\N$, in that the $k$ additional ``degrees of freedom'' which are afforded to the system by the Weyl point charges are reduced by one under the charge cancellation condition. This relation will become more explicit once the Mayer--Vietoris sequence is introduced in Section \ref{sec:Mayer-Vietoris}.
+
+%Notably, there are $k-1$ extra factors of $\Z$ involved in the classification of a Weyl semimetal compared to that of a 3D Chern insulator (cf.\ Equation \ref{eq:2nd-cohom-t3}). This contrasts with the $k$ factors found for the collection of spheres in Equation \ref{eq:2nd-cohom-spheres}. This reduction by one is a natural result of charge cancellation: for example, if $k=1$ then the Nielsen--Ninomiya theorem implies that the single Weyl point must have a charge of 0, and so it is not topologically protected. A similar intuition holds for general $k\in\N$, in that the $k$ additional ``degrees of freedom'' which are afforded to the system by the Weyl point charges are reduced by one under the charge cancellation condition. This relation will become more explicit once the Mayer--Vietoris sequence is introduced in Section \ref{sec:Mayer-Vietoris}.
 
 
 \subsubsection{Fermi arcs}
@@ -147,18 +156,68 @@ Just as Fermi loops can be considered projections of a bulk Dirac loop, so too c
 	A more or less equivalent concept is referred to as \emph{Euler chain} in \cite{Mathai_math-review}, placing the emphasis on topology over physics: ``chain'' here refers the oriented subspaces that homology is founded on.}
 Like Dirac loops, these strings can be given an interpretation in terms of homology. The setup is somewhat more subtle in this case: since the Dirac strings have a boundary, they are not loops and as such do not represent homology classes in $H_1(\T^3)$. Instead, they represent classes in the \emph{relative homology group}
 \begin{equation}
-	H_1(\T^3, W) \cong \Z^3\oplus\Z^{k-1}
+	H_1\big(\T^3, W\big) \cong \Z^3\oplus\Z^{k-1}
 \end{equation}
 with respect to the set of Weyl points $W\subset\T^3$. Intuitively, taking the relative homology means that any boundaries lying in the subset $W$ are ignored; for a more precise definition the reader is referred to e.g. \parencite[\S 2.1]{Hatcher_algebraic-topology}.
 
-This homology picture provides a classification scheme that is exactly dual to the cohomology classification in Equation (\ref{eq:semimetal-cohomology}); that is, there is an isomorphism
+This homology picture provides a classification scheme that is exactly dual to the cohomology classification in Equation \ref{eq:2nd-cohom-semimetal}; that is, there is an isomorphism
 \begin{equation}\label{eq:semimetal-duality}
-	H^2(\T^3\setminus W) \cong H_1(\T^3, W).
+	H^2\big(\T^3\setminus W\big) \cong H_1\big(\T^3, W\big).
 \end{equation}
 This is not a direct Poincar\'e duality, but it is nevertheless mathematically rigorous and protected by orientability in the same way.\footnote{
-	To be precise, Poincar\'e duality does not hold directly because $\T^3\setminus W$ is not a closed manifold. Instead, for non-compact manifolds $M$ there is a generalized duality $H^n(M)\cong H_{d-n}^{\rm BM}(M)$ where the group on the right is the \emph{Borel--Moore homology}, and this is in turn equivalent to the relative homology in this case. Alternatively, Equation (\ref{eq:semimetal-duality}) can be interpreted as a result of the so-called \emph{Lefschetz duality} $H^n(M)\cong H_{d-n}(M, \partial M)$ for manifolds with a boundary.}
-The interpretation in terms of Chern numbers given in Equation (\ref{eq:duality-scheme}) also still holds here, with the Chern vector and Dirac loops replaced with more general Chern numbers and Dirac strings, respectively.
+	To be precise, Poincar\'e duality does not hold directly because $\T^3\setminus W$ is not a closed manifold. Instead, for non-compact manifolds $M$ there is a generalized duality $H^n(M)\cong H_{d-n}^{\rm BM}(M)$ where the group on the right is the \emph{Borel--Moore homology}, and this is in turn equivalent to the relative homology in this case. Alternatively, Equation \ref{eq:semimetal-duality} can be interpreted as a result of the so-called \emph{Lefschetz duality} $H^n(M)\cong H_{d-n}(M, \partial M)$ for manifolds with a boundary.}
+The interpretation in terms of Chern numbers given in Equation \ref{eq:duality-scheme} also still holds here, with the Chern vector and Dirac loops replaced with more general Chern numbers and Dirac strings, respectively.
 
 
+\subsection{The semimetal Mayer--Vietoris sequence}\label{sec:Mayer-Vietoris}
 
-\subsection{The Mayer--Vietoris sequence}\label{sec:Mayer-Vietoris}
+In the previous section a heuristic Stokes' theorem argument was discussed for charge cancellation on Weyl points. This argument can be generalized by moving to a more abstract cohomology setting, where we are not dependent on the integration of forms; this is important because integration will not be well defined once we move to a non-orientable setting. As an added bonus, the abstract description proves to be richer and provide more detailed information on the possible topological phases for a Weyl semimetal.
+
+The idea is that the relation between the global semimetal topology in Equation \ref{eq:2nd-cohom-semimetal} and the local charge data in Equation \ref{eq:2nd-cohom-spheres} can be understood by considering how cohomology classes are mapped between them. That is, one needs to find and study a homomorphism
+\begin{equation*}
+	\beta: H^2\big(\T^3\setminus W\big) \to H^2\left(\bigcup_{i=1}^k S_{w_i}^2\right).
+\end{equation*}
+Such a map arises naturally in the context of the \emph{Mayer--Vietoris sequence} for cohomology.
+
+Mayer--Vietoris sequences are used to study how the homology or cohomology of a topological space relates to that of its subspaces. To be precise, let $X$ be a topological space and let $A,B\subset X$ be two subspaces that cover it (i.e.\ $A\cup B = X$). Then there is an \emph{exact sequence} of homomorphisms between cohomology groups,
+\begin{equation*}
+	\cdots \to H^n(X) \to H^n(A)\oplus H^n(B) \to H^n(A\cup B) \to H^{n+1}(X) \to \cdots,
+\end{equation*}
+which continues indefinitely in both directions. Exactness means that the image of each map in the sequence is exactly equal to the kernel of the next. In other words, the elements in each term in the sequence which are mapped to zero in the next term are precisely those which ``descend'' from the previous term. In particular, the composition of two subsequent maps always yields zero.
+
+In the context of a Weyl semimetal there is a natural way to divide the Brillouin torus $\T^3$ into two subspaces; this is illustrated in Figure \ref{fig:semimetal-MV}.
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=.8\linewidth]{Images/semimetal-MV}
+	\caption{
+		Schematic two-dimensional representation of the Brillouin torus and the subspaces used to cover it.
+		Figure from \cite{Thiang_equivariant}}
+	\label{fig:semimetal-MV}
+\end{figure}
+The first subspace in the covering is the punctured torus $\T^3\setminus W$; we have already encountered this space in classifying topological semimetal phases. The other is the collection $\bigcup_{i=1}^k D_{w_i}^3$ of small open 3-balls centred on the Weyl points $w_i$. The intersection of these two spaces is the same collection of open balls, but each with a single puncture. For our purposes, this intersection has the same topology as the collection of 2-spheres $\bigcup_{i=1}^k S_{w_i}^2$ that we encountered in the context of local Weyl point charges.\footnote{
+	To be precise, the punctured 3-balls can be \emph{deformation retracted} into the 2-spheres, making them \emph{homotopy equivalent}. Homotopy equivalent spaces have the same homology and cohomology groups.}
+A Mayer--Vietoris sequence can now be written down for these subspaces. The section of this sequence which is relevant to classification is referred to as the \emph{semimetal Mayer--Vietoris sequence}:\footnote{
+	Note that the open balls $D_{w_i}^3$ do not appear in this sequence at all. This is because they can be contracted to a point, and hence are topologically trivial in a sense.}
+\begin{equation}\label{eq:semimetal-MV-symbolic}
+	0\ \to\ \underbrace{H^2(\T^3)}_{\mathclap{\text{3D Chern insulator}}}\ \to\ 
+	\underbrace{H^2\big(\T^3\setminus W\big)}_{\text{Semimetal}}\ \overset{\beta}{\to}\ \underbrace{H^2\left(\bigcup_{i=1}^k S_{w_i}^2\right)}_{\text{Local charges}}\ \overset{\Sigma}{\to}\ H^3(\T^3)\ \to\ 0.
+\end{equation}
+The first three groups in this sequence are already familiar from Equations \ref{eq:2nd-cohom-t3}, \ref{eq:2nd-cohom-semimetal} and \ref{eq:2nd-cohom-spheres} respectively. The last group $H^3(\T^3)\cong\Z$ is represented by volume forms\footnote{
+	I.e.\ 3-forms, which are locally proportional to $\dd{k_x}\wedge\dd{k_y}\wedge\dd{k_z}$.}
+on the torus; one notable example of such a form is the trivial 3-form
+\begin{equation*}
+	\dd{\Fc} = 0 \in H^3(\T^3)
+\end{equation*}
+which appeared in the Stokes' theorem arguments previously. Indeed, the map labelled $\Sigma$ above can be loosely interpreted as the exterior derivative $\dd$. However, a more physically useful interpretation is that $\Sigma$ gives the total charge in the system: it sends a set of Chern numbers on the Weyl points to their sum in $\Z$.
+
+Explicitly, then, the semimetal Mayer--Vietoris sequence is
+\begin{equation}\label{eq:semimetal-MV-explicit}
+	0 \to \Z^3 \to \Z^3\oplus\Z^{k-1} \overset{\beta}{\to} \Z^k \overset{\Sigma}{\to} \Z \to 0.
+\end{equation}
+The exactness of this sequence can be used to extract useful information, especially around the group of local charges $\Z^k$. Here exactness means that $\im(\beta) = \ker(\Sigma)$. This implies that the local charges on the Weyl points sum to zero if and only if they descend from a semimetal. In other words, it implies not only the Nielsen--Ninomiya charge cancellation theorem, but also its converse: any set of Weyl points with charges adding to zero is admissible as a topological Weyl semimetal phase.
+
+In fact, more can be inferred by looking at the maps around the semimetal group $\Z^3\oplus\Z^{k-1}$. Here exactness tells us that $ker(\beta)\cong\Z^3$. This makes physical sense: if all local charges are zero, the Weyl points are not topologically protected and the system is really in a 3D Chern insulator phase. However, since $\beta$ is a homomorphism, we also find $\beta^{-1}(c)\cong\Z^3$ for a generic charge configuration $c\neq 0\in\Z^k$; that is, every configuration with total charge zero admits a $\Z^3$ worth of topologically different semimetal phases. This makes precise a principle that is also hinted at in Figure \ref{fig:Fermi-arc-Chern}: Weyl semimetals with identical charge configurations may nevertheless be topologically distinct, and their topologies differ by a bulk Chern vector in $\Z^3$.\footnote{
+	Properly speaking, the set of topological phases for a given charge configuration is an affine space for $H^2(\T^3)$, since there is no canonical zero Chern vector on a Weyl semimetal. This is worked out in greater mathematical detail in Section 3 of \cite{Mathai_math-review}.}
+
+
+\subsubsection{The dual homology sequence}
