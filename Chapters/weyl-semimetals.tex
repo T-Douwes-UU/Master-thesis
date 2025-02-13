@@ -120,7 +120,9 @@ The same Stokes' theorem argument can then be used to relate the Chern numbers $
 \]
 That is, the Chern number of a two-dimensional slice increases by $q$ every time it passes over a Weyl point with charge $q$. As a sanity check, it should be noted that this process respects the periodicity of the Brillouin torus: when the slice is passed over the entire torus, charge cancellation ensures that the added Chern number is zero in total.
 
-All in all, the presence of Weyl points allows for a finer collection of Chern numbers to appear in the Brillouin zone, beyond the $\Z^3$ Chern vector of the insulating case. This behaviour can be captured using cohomology. The key idea is that the Berry curvature $\Fc$ has a singularity at points where the gap closes. As such, it can only be integrated over subspaces where the gap never closes, so that the set of Weyl points $W$ needs to be excluded. This means $\Fc$ now lives in the second cohomology group of the Brillouin zone minus $W$:
+All in all, the presence of Weyl points allows for a finer collection of Chern numbers to appear in the Brillouin zone, beyond the $\Z^3$ Chern vector of the insulating case. This behaviour can be captured using cohomology. The key idea is that the Berry curvature has a singularity at points where the gap closes.\footnote{
+	Note that this singularity is required in order for the Chern number to change suddenly when a slice (i.e.\ the integration domain of $\Fc$) is moved over a Weyl point continuously.}
+As such, it can only be integrated over subspaces where the gap never closes, so that the set of Weyl points $W$ needs to be excluded. This means $\Fc$ now lives in the second cohomology group of the Brillouin zone minus $W$:
 \begin{equation}\label{eq:2nd-cohom-semimetal}
 	[\Fc]\in H^2\big(\T^3\setminus W\big) \cong \Z^3\oplus\Z^{k-1},
 \end{equation}
