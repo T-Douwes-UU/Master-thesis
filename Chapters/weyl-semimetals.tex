@@ -224,3 +224,33 @@ In fact, more can be inferred by looking at the maps around the semimetal group 
 
 
 \subsubsection{The dual homology sequence}
+
+In previous subsections, we have already seen that the cohomology invariants on Chern insulators and Weyl semimetals can be understood equally well in terms of homology groups. As it turns out, this duality can be extended to the semimetal Mayer--Vietoris sequence \eqref{eq:semimetal-MV-symbolic}. The dual of the first two groups was already explored in Equations \eqref{eq:duality-scheme} and \eqref{eq:semimetal-duality}. The latter two groups act on closed manifolds, and so their dual can be obtained from Poincar\'e duality directly:
+\begin{equation*}
+	H^2\left(\bigcup_{i=1}^k S_{w_i}^2\right) \cong H_0\left(\bigcup_{i=1}^k S_{w_i}^2\right), \qquad
+	H^3(\T^3) \cong H_0(\T^3).
+\end{equation*}
+In both cases, we have a top-dimensional cohomology group (containing volume forms) being dualised to a zeroth homology group, which counts the number of connected components. In particular, since the connected components are the important aspect, the 2-spheres $S_w$ may be substituted for the Weyl points $w$ to simplify:
+\begin{equation*}
+	H_0\left(\bigcup_{i=1}^k S_{w_i}^2\right) \cong H_0(W).
+\end{equation*}
+The complete homology dual of \eqref{eq:semimetal-MV-symbolic} is then
+\begin{equation}\label{eq:semimetal-homology-sequence}
+	0\ \to\ \underbrace{H_1(\T^3)}_{\mathclap{\text{Dirac loops}}}\ \to\ 
+	\underbrace{H_1\big(\T^3, W\big)}_{\text{Dirac strings}}\ \overset{\partial}{\to}\ \underbrace{H_0(W)}_{\mathclap{\text{Local charges}}}\ \overset{\Sigma}{\to}\ H_0(\T^3)\ \to\ 0.
+\end{equation}
+
+This exact sequence has arisen through taking Poincaré duals of groups in the Mayer--Vietoris sequence, but somewhat miraculously, it continues to be valid even in the absence of Poincaré duality (e.g.\ on a non-orientable manifold). In fact, it can be considered a more fundamental sequence in some ways: it describes the homology of the torus with respect to a single subspace $W$, whereas the Mayer--Vietoris sequence relies on multiple subspaces that cover the torus.\footnote{
+	Indeed, this is the first exact sequence introduced in the standard algebraic topology textbooks, e.g.\ in Theorem 2.13 of \cite{Hatcher_algebraic-topology}.}
+	
+The map indicated by $\partial$ is the boundary map that is used to define homology groups in the first place.\footnote{
+	To be precise, homology is defined using boundaries of chains; one can think of the present map as acting on \emph{representatives} of homology classes.}
+In this case, it sends classes of oriented Dirac strings in the bulk to the Weyl points that bound them, with a sign given by which end of the string the points are on. For example, for a Weyl semimetal with two Weyl points $W = \set{w_1,w_2}$ connected by a Dirac string $s$, we have $[s]\in H_1(\T^3,W)$ and
+\begin{equation*}
+	\partial\big([s]\big) = (1, -1)\in H_0(W)\cong\Z^2. 
+\end{equation*}
+This gives rise to a very natural interpretation of charge cancellation: it automatically follows from the fact that Weyl points on opposite ends of a Dirac string are assigned opposite signs. These opposite charges are then summed to zero by the total charge map $\Sigma$, i.e.\ $\Sigma\circ\partial = 0$. This can also be inferred from the exactness of \eqref{eq:semimetal-homology-sequence}, which additionally tells us that there exists a configuration of Dirac strings compatible with any set of Weyl points with total charge zero.
+
+As emphasised before, this homology sequence encodes exactly the same information as the cohomology Mayer--Vietoris sequence in the simple case where Poincaré duality is preserved. However, once symmetries are imposed on the system, this duality may be broken, and the two sequences become essentially different. In these cases, it becomes necessary to study which of the sequences contains the essential information about the topological phases of the system. As we will review in the next section, the answer is usually that the cohomology sequence needs to be adapted in some way to restore duality and match the information in the more fundamental homology sequence.
+
+\section{Imposing symmetries}
