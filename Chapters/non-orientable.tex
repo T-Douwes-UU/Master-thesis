@@ -1,9 +1,93 @@
 \markedchapter{Non-orientable mfds}{Non-orientable manifolds}
 
-\markedsection{Mathematics}{Mathematical exploration}
+Symmetries play a crucial role in establishing and differentiating topological properties of physical systems; this much is already evident from the tenfold way classification discussed in Section \ref{sec:symm-classes}. However, in recent years researchers have begun to recognise that symmetries beyond the standard time reversal, charge conjugation and chiral symmetries can give rise to distinct topological invariants that are not fully captured by this classification.
+
+An important class of these extended symmetries is comprised by the space groups acting on periodic lattices. These impose additional structure on the unit cell of the lattice, such as rotational or reflection symmetry. Of special interest here are the so-called non-symmorphic space group symmetries, which combine basic rotation, reflection or inversion with a lattice translation. These symmetries have no fixed points and may induce novel topological states when applied to a material lattice.
+
+Very recently, the feasibility of applying these non-symmorphic symmetries in momentum space has been demonstrated both theoretically and experimentally. This opens up new and interesting avenues of research relating to Brillouin zone topology. In particular, the Brillouin zone may become effectively non-orientable, challenging the notion of chirality for Weyl points.
+
+We begin this chapter with a short review of existing literature surrounding these concepts, culminating in a treatment of a recent paper which applies them to Weyl semimetals. We then present a novel topological analysis of the system described in this paper, in terms of the cohomology and homology tools presented in the last chapter.
+
+\markedsection{Review}{Review of recent literature}
+
+{\color{blue}
+\begin{itemize}
+	\item Chen, Yang and Zhao describe a 2D system in \cite{CYZ_Klein-gauge} where the Brillouin zone has the topology of a Klein bottle. This system features a $\Z_2$ invariant, as opposed to a $\Z$ Chern number, relating to the fact that $H^2(K^2) = \Z_2$.
+	
+	\item Other works have verified this experimentally and generalised the theory to higher dimensions and other non-symmorphic symmetries.
+\end{itemize}
+}
+
+\subsection{Non-orientable Weyl semimetals}
+
+{\color{blue}
+\begin{itemize}
+	\item Fonseca, Vaidya et al.\ report on the properties of Weyl points in a $K^2\times S^1$ Brillouin zone \cite{Foncesca-Vaidya_nonorientable}. This is achieved using a momentum space glide symmetry:
+	\begin{equation*}
+		H(k_x, k_y, k_z) = H(-k_x, k_y + \pi, k_z).
+	\end{equation*}
+	An $\R P^2\times S^1$ topology from a double glide symmetry is also discussed in the supplemental material.
+	
+	\item The fundamental Brillouin zone is parametrised with $k_x,k_z\in[-\pi,\pi]$ and $k_y\in[-\pi,0]$, with the necessary boundary identifications.
+	
+	\item Emphasis is placed on the "orientation-reversing planes" at $k_y = -\pi$ and $k_y = 0$: moving a Weyl point across one of these planes makes it return on the other side with opposite charge. As a result, there is no absolute notion of chirality on the Klein bottle.
+	
+	\item The authors still apply a notion of relative chirality, tied to the choice of fundamental domain. With respect to this notion, it is shown that Nielsen--Ninomiya is circumvented: The total chirality of the Weyl points in the fundamental domain may be non-zero.
+	
+	\item An argument is made relating the breaking of Nielsen--Ninomiya to a claimed discontinuity of the Bloch vector field defining the Hamiltonian.
+	
+	\item Weyl points with unit charge must still be connected via Fermi arcs; a pair of points with the same charge may be connected by a Fermi arc which crosses the orientation-reversing boundary an odd number of times.
+	
+	\item A $\Z_2$ invariant is shown to exist on $K^2$-like slices of the EBZ, and it is claimed that this invariant is sourced by the Weyl points.
+	
+	\item An experimental realisation of the system is demonstrated using 1D photonic crystals with two synthetic momenta.
+\end{itemize}
+}
+
+
+\markedsection{Topology}{Topological exploration}
+
+{\color{blue}
+\begin{itemize}
+	\item This section contains novel topological analysis of the setup described in \cite{Foncesca-Vaidya_nonorientable}.
+	
+	\item There is nothing exceptional about the planes $k_y = -\pi$ and $k_y = 0$ in this context, and the EBZ may be parametrised in a way that does not avoid them. Relative chiralities may change with respect to this parametrisation.
+	
+	\item The $\R P^2$ case is more complicated mathematically than is acknowledged in \cite{Foncesca-Vaidya_nonorientable}, as the total group action is not free in this case. 
+	
+	\item The description of breaking Nielsen--Ninomiya in terms of a discontinuous vector field is somewhat suspect from a mathematical viewpoint; the Bloch vector field should really be taken as a map $K^2\times S^1\to\R^3$ in this case, not as a section of the tangent bundle. A proper description should come from the underlying cohomology.
+	
+	\item Non-orientability of the Brillouin zone forces us to decide between twisted homology and twisted cohomology as a proper description (cf. TRS-invariant Weyl semimetals to be described in Section \ref{sec:T-WSMs}; in that case the cohomology is twisted.)
+	
+	\item The sign of the Chern number respects the symmetry, but the orientation of Dirac strings does not, making twisted homology the natural choice in this instance. [Make a nice figure demonstrating this clearly]. This makes the description fundamentally different from that of T-WSMs.
+	
+	\item On the level of vector bundle classifications, we are classifying complex line bundles over the EBZ, since normal (untwisted) cohomology is used. This agrees well with the K-theory insight that for a free group action, equivariant bundles are equivalent to normal bundles on the quotient space.
+	
+	\item Cohomology is easy to compute, but its dual twisted homology offers a very intuitive perspective of the invariants, demonstrating how the $\Z^3$ invariant on a 3D Chern insulator gets reduced to a $\Z\oplus\Z_2$ under this symmetry. The $\Z_2$ factor is precisely the $\Z_2$ invariant discussed by Fonseca, Vaidya et al.
+	
+	\item Under this description, the semimetal Mayer--Vietoris sequence becomes
+	\begin{equation*}
+		0\to H^2(K^2\times S^1) \to H^2(K^2\times S^1\setminus W) \to H^2(S_W) \to H^3(M) \to 0,
+	\end{equation*}
+	which can be calculated explicitly (using e.g. cellular (co)homology) as
+	\begin{equation*}
+		0\to \mathbb{Z}\oplus\mathbb{Z}_2 \to \mathbb{Z}^{1+k}\oplus\mathbb{Z}_2 \to \mathbb{Z}^k \to \mathbb{Z}_2 \to 0.
+	\end{equation*}
+	From the $\Z_2$ in the last term, we immediately recover the $\Z_2$ charge cancellation no-go theorem. It also becomes clear that a single Weyl point may carry non-trivial topology (i.e. already adds a factor to the group of invariants).
+\end{itemize}
+
+Additionally:
+
+\begin{itemize}
+	\item More elementary systems such as 3D type A with inversion symmetry also exhibit non-orientable EBZs, but in this case the description is complicated by the existence of fixed points (the TRIM).
+\end{itemize}
+}
+
+
 
 {\color{red}
-Concepts explored in personal notes so far:
+\section*{Notes}
+Concepts explored in early personal notes:
 \begin{itemize}
 	\item Calculations of (co)homology and semimetal MV sequence for manifolds in $\geq2$ dimensions:
 	\begin{itemize}
@@ -47,8 +131,6 @@ Concepts explored in personal notes so far:
 	
 	\item Total chirality isn't well defined on a non-orientable manifold (at least in odd dimensions, not sure how to interpret even dimensions). Still there is charge cancellation in the form of Fermi arcs etc.; it may take moving to a different homology system to get the full picture, such as homology with local coefficients or equivariant homology. (See e.g. \cite{Thiang_equivariant})
 	
-	\item It may be worth classifying which manifolds are candidates for physical material Brillouin zones; I have a feeling that this might be restricted to those manifolds for which the $n$-torus is a covering space. In this case a full classification of symmetries on the torus (and e.g. their related equivariant homologies) would be sufficient to classify all material topologies.
+	\item It may be worth classifying which manifolds are candidates for physical material Brillouin zones; I have a feeling that this might be restricted to those manifolds for which the $n$-torus is a covering space. In this case a full classification of symmetries on the torus (and e.g. their related equivariant homologies) would be sufficient to classify all material topologies. This classification is related to space group symmetries.
 \end{itemize}
 }  % end red colour
-
-\section{Physical implications}
