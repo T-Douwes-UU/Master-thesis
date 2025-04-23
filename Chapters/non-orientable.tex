@@ -22,10 +22,10 @@ We begin this chapter with a short review of existing literature surrounding the
 
 {\color{blue}
 \begin{itemize}
-	\item Fonseca, Vaidya et al.\ report on the properties of Weyl points in a $K^2\times S^1$ Brillouin zone \cite{Foncesca-Vaidya_nonorientable}. This is achieved using a momentum space glide symmetry:
-	\begin{equation*}
+	\item Fonseca, Vaidya et al.\ report on the properties of Weyl points in a $K^2\times S^1$ Brillouin zone \cite{Fonseca-Vaidya_nonorientable}. This is achieved using a momentum space glide symmetry:
+	\begin{equation}\label{eq:3D_glide}
 		H(k_x, k_y, k_z) = H(-k_x, k_y + \pi, k_z).
-	\end{equation*}
+	\end{equation}
 	An $\R P^2\times S^1$ topology from a double glide symmetry is also discussed in the supplemental material.
 	
 	\item The fundamental Brillouin zone is parametrised with $k_x,k_z\in[-\pi,\pi]$ and $k_y\in[-\pi,0]$, with the necessary boundary identifications.
@@ -47,23 +47,42 @@ We begin this chapter with a short review of existing literature surrounding the
 
 \markedsection{Topology}{Topological exploration}
 
+The purpose of this section is to reframe and analyse the non-orientable Weyl semimetals described in \cite{Fonseca-Vaidya_nonorientable} in terms of the algebraic topology language from the previous chapter. This approach has the advantage of being coordinate free, and as such it provides a more fundamental understanding of the system's topological properties. We obtain a direct description of how the Nielsen--Ninomiya theorem is modified into a $\Z_2$ charge cancellation condition. We also obtain a more complete picture of the different invariants associated with such a system, and are able to distinguish which are related to the topological insulator phase, and which relate to the introduction of Weyl nodes. To the knowledge of the author, the insights contained in this section are novel.
+
+\subsection{Motivation}
+
+In order to motivate the proposed coordinate-free description, we begin by clearing up some minor points of confusion present in \cite{Fonseca-Vaidya_nonorientable}.
+
+To begin with, there is a relatively strong emphasis on the two ``orientation-reversing planes'' at $k_y=\pm\pi$ and $k_y=0$. For example, it is stated that relative chirality can be defined unambiguously on fundamental domains that avoid these planes. This is true on a technical level, but it creates the impression that the orientation reversal occurs locally at the boundary of the fundamental domain, raising questions about the nature of Weyl points existing on these planes.
+
+In reality, orientation reversal is a global feature. We are free to reparametrise the fundamental domain in a way that includes the planes $k_y=\pm\pi$ and $k_y=0$, and the notion of relative chirality may change as a result; this is illustrated in Figure \ref{fig:BZ_param}.
+\begin{figure}[htb!]
+	\centering
+	\subcaptionbox{$-\pi \leq k_y \leq 0$\label{subfig:BZ_basic}} {\includegraphics[width=.3\textwidth]{Images/BZ_basic}}
+	\hfil
+	\subcaptionbox{$-\pi/2 \leq k_y \leq \pi/2$\label{subfig:BZ_mid}} {\includegraphics[width=.3\textwidth]{Images/BZ_mid}}
+	\hfil
+	\subcaptionbox{\label{subfig:BZ_left}}{\includegraphics[width=.3\textwidth]{Images/BZ_left}}
+	\caption{Top view of the 3D Brillouin torus (or 2D surface torus) for a given Weyl semimetal state obeying the glide symmetry in Equation \eqref{eq:3D_glide}, with Weyl points and oriented Dirac loops (Fermi arcs) drawn in. Different parametrisations of the fundamental domain are shaded in teal: (a) the domain outlined in \cite{Fonseca-Vaidya_nonorientable}; (b) the same domain shifted in the $k_y$ direction; (c) a domain spanning the $k_y$ direction. Each of these domains is homeomorphic to $K^2\times S^1$ ($K^2$) under the boundary identifications shown. Note that the relative chirality of the two Weyl nodes in the fundamental domain changes under both alternative parametrisations.}
+	\label{fig:BZ_param}
+\end{figure}
+For any given set of distinct Weyl points obeying the symmetry, it is possible in principle to achieve any relative chirality by reparametrising the fundamental domain. \red{This may mean that the charge of the Weyl points is fundamentally an $\N$ invariant on $K^2\times S^1$, but this is not clearly reflected in the cohomology description.}
+
+%TODO
+
 {\color{blue}
-\begin{itemize}
-	\item This section contains novel topological analysis of the setup described in \cite{Foncesca-Vaidya_nonorientable}.
-	
-	\item There is nothing exceptional about the planes $k_y = -\pi$ and $k_y = 0$ in this context, and the EBZ may be parametrised in a way that does not avoid them. Relative chiralities may change with respect to this parametrisation.
-	
-	\item The $\R P^2$ case is more complicated mathematically than is acknowledged in \cite{Foncesca-Vaidya_nonorientable}, as the total group action is not free in this case. 
-	
+\begin{itemize}		
 	\item The description of breaking Nielsen--Ninomiya in terms of a discontinuous vector field is somewhat suspect from a mathematical viewpoint; the Bloch vector field should really be taken as a map $K^2\times S^1\to\R^3$ in this case, not as a section of the tangent bundle. A proper description should come from the underlying cohomology.
+	
+	\item The $\R P^2$ case is more complicated mathematically than is acknowledged in \cite{Fonseca-Vaidya_nonorientable}, as the total group action is not free in this case. 
 	
 	\item Non-orientability of the Brillouin zone forces us to decide between twisted homology and twisted cohomology as a proper description (cf. TRS-invariant Weyl semimetals to be described in Section \ref{sec:T-WSMs}; in that case the cohomology is twisted.)
 	
 	\item The sign of the Chern number respects the symmetry, but the orientation of Dirac strings does not, making twisted homology the natural choice in this instance. [Make a nice figure demonstrating this clearly]. This makes the description fundamentally different from that of T-WSMs.
 	
-	\item On the level of vector bundle classifications, we are classifying complex line bundles over the EBZ, since normal (untwisted) cohomology is used. This agrees well with the K-theory insight that for a free group action, equivariant bundles are equivalent to normal bundles on the quotient space.
+	\item On the level of vector bundle classifications, we are classifying complex line bundles over the EBZ, since normal (untwisted) cohomology is used. This agrees well with the K-theory insight that for a free group action, equivariant bundles are equivalent to normal bundles on the quotient space \parencite[Prop. 2.1]{Segal_K-theory}.
 	
-	\item Cohomology is easy to compute, but its dual twisted homology offers a very intuitive perspective of the invariants, demonstrating how the $\Z^3$ invariant on a 3D Chern insulator gets reduced to a $\Z\oplus\Z_2$ under this symmetry. The $\Z_2$ factor is precisely the $\Z_2$ invariant discussed by Fonseca, Vaidya et al.
+	\item Cohomology is easy to compute, but its dual twisted homology offers a very intuitive perspective of the invariants, demonstrating how the $\Z^3$ invariant on a 3D Chern insulator gets reduced to a $\Z\oplus\Z_2$ under this symmetry. The $\Z_2$ factor is precisely the $\Z_2$ invariant discussed by Fonseca, Vaidya et al. This intuition is especially clear when viewed as twisted equivariant homology on $\T^3$. [Include pictures of the action of the symmetry on the three basic homology invariants on $\T^3$.]
 	
 	\item Under this description, the semimetal Mayer--Vietoris sequence becomes
 	\begin{equation*}
@@ -80,6 +99,8 @@ Additionally:
 
 \begin{itemize}
 	\item More elementary systems such as 3D type A with inversion symmetry also exhibit non-orientable EBZs, but in this case the description is complicated by the existence of fixed points (the TRIM).
+	
+	\item Applicability of this description is probably limited under addition of non-trivial additional bands, e.g. 4-band models incorporating spin and orbital degrees of freedom. The full scope of applicability is somewhat of an open question at this point. (E.g., how well are 2D chiral WSMs described by this homology picture?)
 \end{itemize}
 }
 
@@ -110,7 +131,7 @@ Concepts explored in early personal notes:
 	
 	\item A complicating factor in the non-orientable case is that the homology groups are different from the cohomology groups, since the torsion moves up one dimension. This makes the homological semimetal MV different from the cohomological one (it's a short exact sequence in $d\geq3$!), and this leads to additional challenges in interpretation.
 	
-	\item The map $H: \R^3\to\la[su](2),\ \vec{h}\mapsto \vec{h}\cdot\vec{\sigma}$ is an isomorphism of Lie algebras, with the cross product as a Lie bracket on $\R^3$. Still the vector field is discontinuous on a non-orientable manifold, while $H$ is not. This suggests an alternative approach for constructing the valence bundle: consider $h$ as a map $M\to\R^d$ instead of an element of $\vct(M)$, and then pull back the universal bundle along the unit map $\hat{h}:M\setminus\Delta\to S^{d-1}$. That is, we detach $\vec{h}$ from the tangent bundle and consider it a more abstract map. An added ``benefit'' of this is that we lose all coordinate dependence. However, this may also be a downside in the sense that the map will not be subject to the same constraints (Poincaré--Hopf etc.) that the vector field is; for example, $S^2\to\R^2,\ x\mapsto(1,0)$ is a perfectly valid map that would violate the hairy ball theorem as a vector field (and this is a result of being unable to cover $S^2$ by a single chart). At this point the question may become more about which description is more physical in nature, and the non-orientable Weyl point paper\cite{Foncesca-Vaidya_nonorientable} seems to imply there may be more to the $h:M\to\R^3$ story. It also seems to agree better with the intuition of an applied external potential removing all Weyl nodes -- something that's impossible for $\chi\neq0$ if charge corresponds to vector field index. It also explains how the valence bundle can be trivial on the once punctured $S^2$.
+	\item The map $H: \R^3\to\la[su](2),\ \vec{h}\mapsto \vec{h}\cdot\vec{\sigma}$ is an isomorphism of Lie algebras, with the cross product as a Lie bracket on $\R^3$. Still the vector field is discontinuous on a non-orientable manifold, while $H$ is not. This suggests an alternative approach for constructing the valence bundle: consider $h$ as a map $M\to\R^d$ instead of an element of $\vct(M)$, and then pull back the universal bundle along the unit map $\hat{h}:M\setminus\Delta\to S^{d-1}$. That is, we detach $\vec{h}$ from the tangent bundle and consider it a more abstract map. An added ``benefit'' of this is that we lose all coordinate dependence. However, this may also be a downside in the sense that the map will not be subject to the same constraints (Poincaré--Hopf etc.) that the vector field is; for example, $S^2\to\R^2,\ x\mapsto(1,0)$ is a perfectly valid map that would violate the hairy ball theorem as a vector field (and this is a result of being unable to cover $S^2$ by a single chart). At this point the question may become more about which description is more physical in nature, and the non-orientable Weyl point paper\cite{Fonseca-Vaidya_nonorientable} seems to imply there may be more to the $h:M\to\R^3$ story. It also seems to agree better with the intuition of an applied external potential removing all Weyl nodes -- something that's impossible for $\chi\neq0$ if charge corresponds to vector field index. It also explains how the valence bundle can be trivial on the once punctured $S^2$.
 	
 	\item In light of the previous point, this may be an important observation: every $d$-manifold $M$ with $\chi(M)=0$ admits a nowhere-vanishing vector field (\href{https://math.stackexchange.com/questions/47370/if-a-manifold-m-has-zero-euler-characteristic-there-is-a-non-vanishing-vector-f}{link}). \st{This may imply that the vector field description is equivalent to the map to $\R^d$ in these cases, though one needs to be careful about charts. It would be good to find or write a (dis)proof for something like $\vct(M)\cong\Cinf(M,\R^d)$ (or similar for non-vanishing maps) in this case. Or more specifically:}
 	\[
