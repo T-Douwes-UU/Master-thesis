@@ -51,7 +51,7 @@ We begin this chapter with a short review of existing literature surrounding the
 
 The purpose of this section is to reframe and analyse the non-orientable Weyl semimetals described in Ref.\ \cite{Fonseca-Vaidya_nonorientable} in terms of the algebraic topology language from Chapter \ref{chap:WSM}	. This approach has the advantage of being coordinate-free, and as such it provides a more fundamental understanding of the system's topological properties. We obtain a direct description of how the Nielsen--Ninomiya theorem is modified into a $\Z_2$ charge cancellation condition. We also obtain a more complete picture of the different invariants associated with such a system, and are able to distinguish which are related to the topological insulator phase, and which relate to the introduction of Weyl nodes. To the knowledge of the author, the insights contained in this section are novel.
 
-\subsection{Motivation}
+\subsection{Technical notes \red{[unsure what to call this section]}}
 
 As a motivation for the proposed coordinate-free description, we begin by clearing up some minor points of confusion present in Ref.\ \cite{Fonseca-Vaidya_nonorientable}.
 
@@ -60,15 +60,15 @@ To begin with, there is a relatively strong emphasis on the two ``orientation-re
 In reality, orientation reversal is a global feature. We are free to reparametrise the fundamental domain in a way that includes the planes $k_y=\pm\pi$ and $k_y=0$, and the notion of relative chirality may change as a result; this is illustrated in Figure \ref{fig:BZ_param}.
 \begin{figure}[htb!]
 	\centering
-	\subcaptionbox{$-\pi \leq k_y \leq 0$\label{subfig:BZ_basic}} {\includegraphics[width=.3\textwidth]{Images/BZ_basic}}
+	\subcaptionbox{$-\pi \leq k_y \leq 0$} {\includegraphics[width=.3\textwidth]{Images/BZ_basic}}
 	\hfil
-	\subcaptionbox{$-\pi/2 \leq k_y \leq \pi/2$\label{subfig:BZ_mid}} {\includegraphics[width=.3\textwidth]{Images/BZ_mid}}
+	\subcaptionbox{$-\pi/2 \leq k_y \leq \pi/2$} {\includegraphics[width=.3\textwidth]{Images/BZ_mid}}
 	\hfil
-	\subcaptionbox{\label{subfig:BZ_left}}{\includegraphics[width=.3\textwidth]{Images/BZ_left}}
+	\subcaptionbox{$-\pi \leq k_x \leq 0$}{\includegraphics[width=.3\textwidth]{Images/BZ_left}}
 	\caption{Top view of the 3D Brillouin torus (or 2D surface torus) for a given Weyl semimetal state obeying the glide symmetry in Equation \eqref{eq:3D_glide}, with Weyl points and oriented Dirac loops (Fermi arcs) drawn in. Different parametrisations of the fundamental domain are shaded in teal: (a) the domain outlined in Ref.\ \cite{Fonseca-Vaidya_nonorientable}; (b) the same domain shifted in the $k_y$ direction; (c) a domain spanning the $k_y$ direction. Each of these domains is homeomorphic to $K^2\times S^1$ ($K^2$) under the boundary identifications shown. Note that the relative chirality of the two Weyl nodes in the fundamental domain changes under both alternative parametrisations.}
 	\label{fig:BZ_param}
 \end{figure}
-For any given set of distinct Weyl points obeying the symmetry, it is possible in principle to achieve any relative chirality by reparametrising the fundamental domain. \red{This may mean that the charge of the Weyl points is fundamentally an $\N$ invariant on $K^2\times S^1$, but this is not clearly reflected in the cohomology description.}
+For any given set of distinct Weyl points obeying the symmetry, it is possible in principle to achieve any relative chirality by reparametrising the fundamental domain. \red{This may mean that the charge of the Weyl points is fundamentally an $\N$ invariant on $K^2\times S^1$, but this is not clearly reflected in the cohomology description.} It should be noted that there do exist two planes that are of special significance, namely the so-called \emph{glide planes} at $k_x = 0$ and $k_x = \pm\pi$; these planes are (taken as a whole) invariant under the symmetry, and as such they cannot be excluded completely from any given parametrisation.
 
 A similar point of confusion arises in explaining how the usual relation between Nielsen--Ninomiya and the Poincar\'e--Hopf theorem for vector fields breaks down. On the regular Brillouin torus, the factor $\h(\k)$ in the Bloch Hamiltonian can be considered a continuous vector field tangent to the torus. The Poincar\'e--Hopf theorem then tells us that the zeroes of such vector fields must have topological indices (corresponding to Weyl point chiralities) adding up to zero.
 
@@ -90,18 +90,33 @@ However, this mischaracterises the situation somewhat; in reality, $\h(\k)$ cann
 As such, $\h$ should be thought of as a more abstract map $K^2\times S^1\to\R^3$ rather than a tangent vector field, and Poincar\'e--Hopf does not apply to such maps.\footnote{
 	To be precise, $\h$ is a section of the trivial $\R^3$-bundle over $K^2\times S^1$, not of its tangent bundle. In the usual case of the torus, these descriptions are equivalent: $\T^3$ is parallelisable, i.e.\ $T\T^3\cong \T^3\times\R^3$. This is what allows Poincar\'e--Hopf to apply.}
 {\color{red}
-In theory, one could construct a Hamiltonian starting from a proper tangent vector field to $K^2\times S^1$; this requires using gamma matrices that ``twist along'' with the tangent bundle of the manifold instead of the regular vector of Pauli matrices.\footnote{\color{red}
+\st{In theory, one could construct a Hamiltonian starting from a proper tangent vector field to $K^2\times S^1$; this requires using gamma matrices that ``twist along'' with the tangent bundle of the manifold instead of the regular vector of Pauli matrices.}\footnote{\color{red}
 	The proper construction is that of a Clifford algebra bundle over the tangent bundle, see Section 4.2 of Ref.\ \cite{Mathai_math-review}.}
 [This may rely on the existence of a spin$^c$ structure, which probably does not exist in this case. This might also have implications for how ``physical'' a non-orientable BZ really is.]
 }
 
- 
+A final point that merits clarification is the inclusion of a second glide symmetry. The supplement to Ref.\ \cite{Fonseca-Vaidya_nonorientable} discusses imposing Equation \eqref{eq:3D_glide} together with a similar symmetry along the glide plane $k_y = 0$:
+\begin{equation}
+	H(k_x, k_y, k_z) = H(k_x + \pi, -k_y, k_z).
+\end{equation}
+It is claimed that this double symmetry subdivides the 3-torus into four copies of a different non-orientable manifold: namely $\RP^2\times S^1$, where $\RP^2$ is the real projective plane. This is broadly true, but it overlooks a seemingly innocuous detail: while the two glide symmetries have a free $\Z_2$ action on the torus individually, the action of the combined $\Z_2\oplus\Z_2$ symmetry group is no longer free. To be precise, there are four lines of high-symmetry points in the torus that are fixed by the diagonal subgroup of $\Z_2\oplus\Z_2$, similar to the time-reversal invariant momenta discussed in Section \ref{sec:T-WSMs}; see Figure \ref{fig:RP2-corners}.
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=.5\linewidth]{Images/RP2-corners}
+	\caption{Figure adapted from the supplement to Ref.\ \cite{Fonseca-Vaidya_nonorientable}. High-symmetry points (orange, green) exist for $k_x,k_y\in\{-\pi/2,\pi/2\}$; these points are fixed under simultaneous application of both glide symmetries. Similarly coloured points are related by a single glide symmetry and so they are identified on $\RP^2$.}
+	\label{fig:RP2-corners}
+\end{figure}
+As a result, a Weyl point existing on one of these lines must have an even chirality, and it only has one symmetric partner in the 3-torus rather than the three one would expect from four identical copies of $\RP^2\times S^1$.\footnote{
+	One can also argue that this must be the case topologically: if a manifold $M$ has an $n$-sheeted cover $\tilde{M}$, then the Euler characteristics of both spaces must be related by $\chi(\tilde{M}) = n\chi(M)$. Going to two dimensions, we find $\chi(\T^2) = 0$ and $\chi(\RP^2) = 1$, so that the former cannot cover the latter. Instead, the only possible covering space for $\RP^2$ is the double cover $S^2\to\RP^2$, since $\chi(S^2) = 2$.}
+Such Weyl points are physically fine-tuned and are expected to split into pairs under perturbations. Nevertheless, the existence of additional symmetries which force Weyl points to exist on these lines cannot be ruled out a priori. Moreover, the notion of a fundamental Brillouin zone is (sensibly) predicated on a free group action in the main text of Ref. \cite{Fonseca-Vaidya_nonorientable}, and analysis of a purely $\RP^2\times S^1$ Brillouin zone cannot be expected to provide the correct classification for this double glide symmetry. Indeed, similar to the case of time-reversal, a proper classification scheme should involve equivariant cohomology on the torus, bearing in mind the topological role of the high-symmetry points.\footnote{
+	The mathematical description may be further complicated by the fact that the high-symmetry points are fixed only by a proper subgroup of the symmetry group. Beyond equivariant cohomology, it may be necessary to treat $\RP^2\times S^1$ as an \emph{orbifold} rather than a manifold, i.e.\ a space that encodes data about orbits of a group action. For example, the Euler characteristic of $\RP^2$ is zero as an orbifold. These spaces can be analysed using the highly specialised tool of \emph{orbifold cohomology}.}
+This analysis is somewhat beyond the scope of the present text, and in what follows we will restrict our attention to the case of a single glide symmetry.
+
+\subsection{Computing invariants}
 %TODO
 
 {\color{blue}
-\begin{itemize}		
-	\item The $\R P^2$ case is more complicated mathematically than is acknowledged in \cite{Fonseca-Vaidya_nonorientable}, as the total group action is not free in this case. 
-	
+\begin{itemize}
 	\item Non-orientability of the Brillouin zone forces us to decide between twisted homology and twisted cohomology as a proper description (cf. TRS-invariant Weyl semimetals to be described in Section \ref{sec:T-WSMs}; in that case the cohomology is twisted.)
 	
 	\item The sign of the Chern number respects the symmetry, but the orientation of Dirac strings does not, making twisted homology the natural choice in this instance. [Make a nice figure demonstrating this clearly]. This makes the description fundamentally different from that of T-WSMs.
