@@ -36,12 +36,13 @@ This results in a classification by three distinct Chern numbers $C_x$, $C_y$ an
 	\end{pmatrix} \in \Z^3.
 \]
 
-Importantly, these three Chern numbers are all induced by a single two-form $\Fc$. In this sense, there is an exact correspondence between topologically distinct Berry curvatures $\Fc$ and Chern vectors $\vb{C}\in\Z^3$. This is precisely what motivates the use of cohomology for classification: just like in the 2D Chern insulator, the two-form $\Fc$ can be considered to represent a class in the second cohomology group,
+Importantly, these three Chern numbers are all induced by a single two-form $\Fc$. In this sense, there is an exact correspondence between topologically distinct Berry curvatures $\Fc$ and Chern vectors $\vb{C}\in\Z^3$. This is precisely what motivates the use of cohomology for classification: just like in the 2D Chern insulator, the two-form $\Fc$ can be considered to represent a class in the second cohomology group,\footnote{
+	As explained in Appendix \ref{chap:homology}, $\Fc$ more properly represents a class in the real-valued \emph{de Rham cohomology} group $H_{\rm dR}^2(\T^3)\cong\R^3$. The analogy is strong enough to be considered direct here, but de Rham cohomology is too plain to encode features such as $\Z_2$ invariants. This is why we elect to use the richer integer-valued cohomology theory.} %TODO perhaps move to ch.2
 \begin{equation}\label{eq:2nd-cohom-t3}
 	[\Fc]\in H^2(\T^3)\cong\Z^3. 
 \end{equation}
 As a result, this group precisely classifies the distinct topological phases of the system.\footnote{
-	More fundamentally, a complex vector bundle called the \emph{valence bundle} can be associated to a gapped Hamiltonian, and the second cohomology group classifies the different complex vector bundles over a manifold.}
+	More fundamentally, a complex vector bundle called the \emph{valence bundle} can be associated to a gapped Hamiltonian, and the second cohomology group classifies the different complex vector bundles over a manifold.} %TODO maybe move this to ch.2
 
 \subsubsection{Boundary states}
 
@@ -254,3 +255,19 @@ This gives rise to a very natural interpretation of charge cancellation: it auto
 As emphasised before, this homology sequence encodes exactly the same information as the cohomology Mayer--Vietoris sequence in the simple case where Poincaré duality is preserved. However, once symmetries are imposed on the system, this duality may be broken, and the two sequences become essentially different. In these cases, it becomes necessary to study which of the sequences contains the essential information about the topological phases of the system. As we will review in the next section, the answer is usually that the cohomology sequence needs to be adapted in some way to restore duality and match the information in the more fundamental homology sequence.
 
 \section{Imposing symmetries}\label{sec:T-WSMs}
+
+{\color{blue}
+\begin{itemize}
+	\item Weyl semimetals with time reversal symmetry are well studied in the cohomology framework \cite{Thiang_equivariant}.
+	
+	\item In this context Weyl points are considered in a 3D type AII insulator, like the one described in Section \ref{sec:3D-Z2}.
+	
+	\item The symmetry acts on momentum space $\k \leftrightarrow -\k$, but also acts on the configuration space in a non-trivial way.
+	
+	\item The momentum-space symmetry must be encoded in \emph{equivariant cohomology}.
+	
+	\item The cohomology must be \emph{twisted} (given local coefficients) and taken relative to TRIM in order to obtain the correct description, and the homology is left untwisted. This is motivated using the fact that the action on configuration space induces a "Quaternionic" vector bundle structure on the EBZ.
+	
+	\item We will see a more geometric intuition behind this twisting in \ref{sec:non-ori_topology}.
+\end{itemize}
+}
