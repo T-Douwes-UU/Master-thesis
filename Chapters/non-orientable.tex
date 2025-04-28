@@ -12,7 +12,11 @@ We begin this chapter with a short review of existing literature surrounding the
 
 {\color{blue}
 \begin{itemize}
-	\item Chen, Yang and Zhao describe a 2D system in \cite{CYZ_Klein-gauge} where the Brillouin zone has the topology of a Klein bottle. This system features a $\Z_2$ invariant, as opposed to a $\Z$ Chern number, relating to the fact that $H^2(K^2) = \Z_2$.
+	\item Chen, Yang and Zhao describe a 2D system in Ref.\ \cite{CYZ_Klein-gauge} where the Brillouin zone has the topology of a Klein bottle, induced by the glide symmetry
+	\begin{equation}\label{eq:2D_glide}
+		UH(k_x, k_y)U\herm = H(-k_x, k_y + \pi)
+	\end{equation}
+	This system features a $\Z_2$ invariant, as opposed to a $\Z$ Chern number, relating to the fact that $H^2(K^2) = \Z_2$.
 	
 	\item Other works have verified this experimentally and generalised the theory to higher dimensions and other non-symmorphic symmetries.
 \end{itemize}
@@ -45,7 +49,7 @@ We begin this chapter with a short review of existing literature surrounding the
 }
 
 
-\markedsection{Topology}{Topological exploration}
+\markedsection{Topology}{Topological exploration}\label{sec:non-ori_topology}
 
 %TODO implement feedback
 
@@ -108,11 +112,29 @@ It is claimed that this double symmetry subdivides the 3-torus into four copies 
 \end{figure}
 As a result, a Weyl point existing on one of these lines must have an even chirality, and it only has one symmetric partner in the 3-torus rather than the three one would expect from four identical copies of $\RP^2\times S^1$.\footnote{
 	One can also argue that this must be the case topologically: if a manifold $M$ has an $n$-sheeted cover $\tilde{M}$, then the Euler characteristics of both spaces must be related by $\chi(\tilde{M}) = n\chi(M)$. Going to two dimensions, we find $\chi(\T^2) = 0$ and $\chi(\RP^2) = 1$, so that the former cannot cover the latter. Instead, the only possible covering space for $\RP^2$ is the double cover $S^2\to\RP^2$, since $\chi(S^2) = 2$.}
-Such Weyl points are physically fine-tuned and are expected to split into pairs under perturbations. Nevertheless, the existence of additional symmetries which force Weyl points to exist on these lines cannot be ruled out a priori. Moreover, the notion of a fundamental Brillouin zone is (sensibly) predicated on a free group action in the main text of Ref. \cite{Fonseca-Vaidya_nonorientable}, and analysis of a purely $\RP^2\times S^1$ Brillouin zone cannot be expected to provide the correct classification for this double glide symmetry. Indeed, similar to the case of time-reversal, a proper classification scheme should involve equivariant cohomology on the torus, bearing in mind the topological role of the high-symmetry points.\footnote{
-	The mathematical description may be further complicated by the fact that the high-symmetry points are fixed only by a proper subgroup of the symmetry group. Beyond equivariant cohomology, it may be necessary to treat $\RP^2\times S^1$ as an \emph{orbifold} rather than a manifold, i.e.\ a space that encodes data about orbits of a group action. For example, the Euler characteristic of $\RP^2$ is zero as an orbifold. These spaces can be analysed using the highly specialised tool of \emph{orbifold cohomology}.}
+Such Weyl points are physically fine-tuned and are expected to split into pairs under perturbations. Nevertheless, additional symmetries may exist which force Weyl points to exist on these lines, in which case the exceptional behaviour becomes fundamental to the description. %TODO citation/remove?
+Moreover, the notion of a fundamental Brillouin zone is predicated on a free group action in the main text of Ref. \cite{Fonseca-Vaidya_nonorientable}. As such, analysis of a purely $\RP^2\times S^1$ Brillouin zone cannot a priori be expected to provide the correct classification for this double glide symmetry. Indeed, similar to the case of time-reversal, a proper classification scheme should involve equivariant cohomology on the torus, bearing in mind the topological role of the high-symmetry points.\footnote{
+	The mathematical description may be further complicated by the fact that the high-symmetry points are fixed only by a proper subgroup of the symmetry group. Beyond equivariant cohomology, it may be necessary to treat $\RP^2\times S^1$ as an \emph{orbifold} rather than a manifold, i.e.\ a space that encodes data about orbits of a group action. For example, the Euler characteristic of $\RP^2$ is zero as an orbifold. These spaces can be analysed using the highly specialised tool of \emph{orbifold cohomology}.} %TODO citation
 This analysis is somewhat beyond the scope of the present text, and in what follows we will restrict our attention to the case of a single glide symmetry.
 
 \subsection{Computing invariants}
+
+There are two main conceptual challenges that present themselves in attempting to apply consistent cohomology and homology frameworks to non-orientable systems, and in particular in developing a physical intuition for them. First of all, the analogy between second cohomology classes and Berry curvature breaks down in this case, and a statement like Equation \eqref{eq:2nd-cohom-t3} can no longer be taken to hold directly. This is because differential forms like $\Fc$ cannot be integrated over non-orientable manifolds, and the associated (de Rham) cohomology group is actually real-valued---it cannot readily encode the $\Z_2$ invariants induced by changes in orientation. As an example, suppose we are trying to find an invariant for the 2D Klein bottle insulator obeying Equation \eqref{eq:2D_glide}. Integrating a Berry curvature on $K^2$ directly is not well defined, while integrating over the entire Brillouin torus always yields zero: the integration is over two oppositely oriented areas. The correct $\Z_2$ invariant can be interpreted as integration with different signs on both halves of the torus, bearing in mind that the result is only gauge invariant mod 2. In order to capture this behaviour generally, we need to move to the richer but more abstract integer-valued cohomology.
+
+The second obstacle is that Poincaré duality is altered in this context. In Section \ref{sec:semimetal-topology} this form of duality was used to identify the familiar cohomology invariants with homology invariants, in the form of non-trivial oriented loops and Dirac strings. In a non-orientable system, this identification cannot be made directly; in this case, either the homology or the cohomology must be \emph{twisted} by the introduction of a \emph{local coefficient system} $\ext{\Z}$. Such a coefficient system compensates for the twist in orientation by tracking sign changes across the manifold. This is illustrated for the case of a Weyl semimetal in Figure \ref{fig:local_coefficients};
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=.9\linewidth]{Images/local_coefficients}
+	\caption{On the left, the action of an orientation-reversing symmetry (represented by the dashed mirror axis) is shown on a Weyl point (whose chirality is an invariant in $H^2(M\setminus W)$) and a Dirac string  (representing an invariant in $H_1(M,W)$). The Weyl point has its chirality reversed, since the Chern number is a pseudoscalar; on the other hand, the Dirac string is mirrored but maintains its internal orientation. As a result, if the symmetry acts on a set of two Weyl points connected by a Dirac string, the resulting structure has a Dirac string whose orientation is inconsistent with the chirality of the Weyl points (shown in the shaded area)---this is a manifestation of Poincaré duality breaking. This problem can be resolved in one of two ways: either the cohomology is twisted into $H^2(M\setminus W;\ext{\Z})$ to undo the chirality reversal, or the homology is twisted into $H_1(M,W;\ext{\Z})$ to reverse the Dirac string's orientation. Poincaré duality is restored in both cases; the correct approach depends on the physical setup.}
+	\label{fig:local_coefficients}
+\end{figure}
+in this case, Poincaré duality is necessary in order to relate the chirality of Weyl points to the orientation of their corresponding Dirac strings. Introducing local coefficients on an $n$-manifold $M$ gives rise to the twisted homology and cohomology groups $H_k(M;\ext{\Z})$ and $H^k(M;\ext{\Z})$. Poincaré duality then takes the following forms:
+\begin{align*}
+	H_k(M;\ext{\Z}) &\cong H^{n-k}(M), \\
+	H^k(M;\ext{\Z}) &\cong H_{n-k}(M).
+\end{align*}
+When $M$ is orientable, the local coefficients become trivial and the original form of Poincaré duality is recovered from both relations.
+
 %TODO
 
 {\color{blue}
