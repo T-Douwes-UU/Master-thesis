@@ -195,8 +195,8 @@ The reduction to two invariants can be most readily understood from the twisted 
 	\hfil
 	\subcaptionbox{$[\tilde{\ell}_z] = [-\tilde{\ell}_z]$\label{subfig:Z2_invariant}} {\includegraphics[width=.3\textwidth]{Images/Z2_invariant}}
 	\caption{Top view of $\T^3$. Each graphic shows one of the three basic Dirac loops $\ell_{x,y,z}$ [representing the generators of $H_1(\T^3)$] sitting inside a fundamental domain (shaded teal). Each loop is doubled by the action of the symmetry, into what can be considered a twisted Dirac loop $\tilde{\ell}_{x,y,z}$ [representing an invariant in $H_1(K^2\times S^1;\ext{\Z})$] shown in red. (a) In the case of $\ell_x$, the orientation reversal cancels out the $k_x \mapsto -k_x$ parity change from the glide symmetry, and the resulting twisted Dirac string $\tilde{\ell}_x$ has a consistent orientation. It follows that the associated invariant $\nu_x\in\Z$ induces an even Chern number $C_x = 2\nu_x\in 2\Z$ on the full torus.
-		(b) The alternative fundamental domain from Figure \ref{subfig:BZ_right} paints a clearer picture for $\ell_y$. The loop is mirrored along the glide plane $k_x=0$ and has its orientation reversed. The resulting twisted Dirac string $\tilde{\ell}_y$ is trivial: as indicated by the dashed arrows, the two copies can be moved together equivariantly, and they cancel out when they meet on the glide plane. As a result, there is no invariant $\nu_y$.
-		(c) The Dirac loop $\ell_z$ running in the positive $z$ direction (``out of the page'') in the fundamental domain is doubled to a second loop running in the negative $z$ direction (``into the page''). In this case the two loops cannot be brought together while respecting the symmetry, but they can be interchanged by moving them along the dashed arrows. It follows that the resulting twisted Dirac string $\tilde{\ell}_z$ is equivalent to its own inverse $-\tilde{\ell}_z$, meaning it generates a $\Z_2$ invariant $\nu_z$.} %TODO
+		(b) The alternative fundamental domain from Figure \ref{subfig:BZ_right} paints a clearer picture for $\ell_y$. The loop is mirrored along the glide plane $k_x=0$ and has its orientation reversed. The resulting twisted Dirac string $\tilde{\ell}_y$ is trivial: as indicated by the dashed arrows, the two copies can be moved together while maintaining glide symmetry, and they cancel out when they meet on the glide plane. As a result, there is no invariant $\nu_y$.
+		(c) The Dirac loop $\ell_z$ running in the positive $z$ direction (``out of the page'') in the fundamental domain is doubled to a second loop running in the negative $z$ direction (``into the page''). In this case the two loops cannot be brought together while respecting the symmetry, but they can be interchanged by moving them along the dashed arrows. It follows that the resulting twisted Dirac string $\tilde{\ell}_z$ is equivalent to its own inverse $-\tilde{\ell}_z$, meaning it generates a $\Z_2$ invariant $\nu_z$.}
 	\label{fig:K2S1_invariants}
 \end{figure}
 
@@ -206,11 +206,13 @@ The $\Z$ invariant $\nu_x$ appears to be novel; as discussed under Figure~\ref{s
 \begin{equation}\label{eq:z-invariant1}
 	\nu_x = \frac{1}{2}C_x = \frac{1}{2}\int_{\T_{yz}^2}\Fc,
 \end{equation}
-where $\T_{yz}^2$ is any slice of $\T^3$ running in the $yz$-direction. This calculation does not generally respect the glide symmetry, since such a $\T_{yz}^2$ is not invariant outside of the glide planes at $k_x=0$ and $k_x = \pm\pi$. Still, it results in the correct invariant in the insulating case; we will return to the case with Weyl points when we study the full group of semimetal invariants.
+where $\T_{yz}^2$ is any slice of $\T^3$ running in the $yz$-direction. This calculation does not generally respect the glide symmetry, since such a $\T_{yz}^2$ is not invariant outside of the glide planes at $k_x=0$ and $k_x = \pm\pi$. Still, it results in the correct invariant in the insulating case: by regular Poincaré duality on the full torus, the integral over $\T_{yz}^2$ counts the number of $\ell_x$-like Dirac loops, and the generator $\tilde{\ell}_x$ features precisely two such loops on the torus.\footnote{
+	A Dirac loop may in principle also contain $y$ and $z$ components, but these do not affect this integral. From a homology perspective, such loops may be decomposed into their basic $\ell_{x,y,z}$ components because the first homology group is Abelian.}
+We will return to the case with Weyl points when we study the full group of semimetal invariants.
 
 \subsubsection{Mod 2 charge cancellation}
 
-A second feature that stands out is the appearance of a $\Z_2$ group on the far right side of the exact sequence \eqref{eq:explicit-sequence-nonorientable}. It is worth mentioning that this is a general feature of ordinary cohomology on non-orientable manifolds: the rightmost group is the top cohomology group of the Brillouin zone, and any non-orientable $n$-manifold $M$ has $H^n(M)\cong\Z_2$.
+A second feature that stands out is the appearance of a $\Z_2$ group on the far right side of the exact sequence in Equation~\eqref{eq:explicit-sequence-nonorientable}. It is worth mentioning that this is a general feature of ordinary cohomology on non-orientable manifolds: the rightmost group is the top cohomology group of the Brillouin zone, and any non-orientable $n$-manifold $M$ has $H^n(M)\cong\Z_2$.
 
 Recall from Section \ref{sec:Mayer-Vietoris} that the map $\Sigma$ in Equation~\eqref{eq:semimetal-MV-explicit-again} can be interpreted as a sum over all Weyl point charges on $\T^3$. The Nielsen--Ninomiya charge cancellation theorem on the torus then arises from the fact that $\Sigma\circ\beta = 0$; that is, a semimetal structure $a\in\Z^3\oplus\Z^{k-1}$ must always feature a charge configuration $\beta(a)\in\Z^k$ whose charges sum to $\Sigma(\beta(a)) = 0 \in \Z$.
 
@@ -228,11 +230,11 @@ Importantly, the exactness of \eqref{eq:explicit-sequence-nonorientable} also im
 
 \subsubsection{Semimetal invariants}
 
-Finally, central to the sequence \eqref{eq:explicit-sequence-nonorientable} is the group of semimetal invariants
+Finally, central to the sequence in Equation~\eqref{eq:explicit-sequence-nonorientable} is the group of semimetal invariants,
 \begin{equation}\label{eq:semimetal-group-nonor}
 	H^2(K^2\times S^1\setminus W)\cong H_1(K^2\times S^1, W; \ext{\Z})\cong \Z\oplus\Z_2\oplus\Z^k.
 \end{equation}
-Much like the $\Z^3\oplus\Z^{k-1}$ in the case of $\T^3$, this group does not admit a canonical basis of invariants. Rather, the exactness of \eqref{eq:explicit-sequence-nonorientable} around this group provides information about the structure of the different semimetallic phases. The argument is similar to that at the end of Section~\ref{sec:Mayer-Vietoris}: given a charge configuration $c$ in the image of the map $\beta$ (i.e.\ any $c$ with an even total charge), the pre-image must obey
+Much like the $\Z^3\oplus\Z^{k-1}$ in the case of $\T^3$, this group does not admit a canonical basis of invariants. Rather, the exactness of Equation~\eqref{eq:explicit-sequence-nonorientable} around this group provides information about the structure of the different semimetallic phases. The argument is similar to that at the end of Section~\ref{sec:Mayer-Vietoris}: given a charge configuration $c$ in the image of the map $\beta$ (i.e.\ any $c$ with an even total charge), the pre-image must obey
 \begin{equation*}
 	\beta^{-1}(c) \cong \beta^{-1}(0) =: \ker(\beta),
 \end{equation*}
@@ -240,7 +242,7 @@ since $\beta$ is a homomorphism. By exactness, we have $\ker(\beta)\cong\im(\alp
 
 There is a subtle difference from the argument on the torus: on $\T^3$, $\Z$ charge cancellation ensures that the valid charge configurations exist in $\im(\beta)=\ker(\Sigma)\cong\Z^{k-1}$, explaining the $\Z^{k-1}$ summand in the semimetal group. On $K^2\times S^1$, the $\Z_2$ charge cancellation implies that $\im(\beta)=\ker(\Sigma)\cong\Z^k$, and this is the $\Z^k$ which appears in the semimetal group \eqref{eq:semimetal-group-nonor}. We should be careful not to interpret this $\Z^k$ directly in terms of the charges of the $k$ Weyl points; after all, there are charge configurations which are not in $\ker(\Sigma)$. Instead, it should be considered an index 2 subgroup of the charge configurations, stemming from the fact that $\Z^k/\Z_2\cong\Z^k$.
 
-Physically, the $\Z^k$ summand in the semimetal group implies that a system with a single Weyl point ($k=1$ on $K^2\times S^1$ may already feature semimetal topology. The single Weyl point must have even charge by $\Z_2$ charge cancellation; an example of such a system is featured in the supplement to Ref.~\cite{Fonseca-Vaidya_nonorientable} and reproduced in Figure~\ref{fig:double-points}.
+Physically, the $\Z^k$ summand in the semimetal group implies that a system with a single Weyl point ($k=1$) on $K^2\times S^1$ may already feature semimetal topology. The single Weyl point must have even charge by $\Z_2$ charge cancellation; an example of such a system is featured in the supplement to Ref.~\cite{Fonseca-Vaidya_nonorientable} and reproduced in Figure~\ref{fig:double-points}.
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=.4\linewidth]{Images/double-points}
@@ -259,13 +261,14 @@ The $\Z$ invariant $\nu_x$ requires us to define the integration more carefully:
 	\caption{(a) In the presence of Weyl points, a given $\T_{yz}^2$ (orange) may only intersect a single Dirac string, leading to a non-integer value of 1/2 from Equation~\eqref{eq:z-invariant1}. (b) Integration over an invariant surface always yields a well defined $\nu_x$ outside of Weyl points, since it intersects the twisted Dirac strings in a consistent manner. The dashed half of the surface is redundant, since both halves yield the same integral. The pictured setup yields $\nu_x=1$.}
 	\label{fig:nu-x}
 \end{figure}
-Instead, it becomes necessary to integrate over a symmetry-invariant surface $S$ which is continuously deformable to a $\T_{yz}^2$, such as that shown in Figure~\ref{subfig:nu-x_right}. In principle, only the half of the surface $S_{1/2}$ which intersects the fundamental domain at $k_y\leq 0$ needs to be integrated over; this half surface can be considered a compact surface subspace of $K^2\times S^1$. The calculation then takes the form
+Instead, it becomes necessary to integrate over a symmetry-invariant surface $S$ which is continuously deformable to a $\T_{yz}^2$, such as that shown in Figure~\ref{subfig:nu-x_right}. This is similar in spirit to the $\mathcal{T}$-invariant surfaces used to calculate invariants in the time-reversal symmetric case \cite{Thiang_equivariant}. In principle, only the half of the surface $S_{1/2}$ which intersects the fundamental domain at $k_y\leq 0$ needs to be integrated over; this half surface can be considered a compact surface subspace of $K^2\times S^1$. The calculation then takes the form
 \begin{equation}\label{eq:z-invariant2}
 	\nu_x = \int_{S_{1/2}}\Fc.
 \end{equation}
-The question of periodicity is then resolved by the fact that the surface $S$ cannot be moved across the entire Brillouin zone without breaking the symmetry: any such surface can be deformed equivariantly into exactly one of the glide planes at $k_x=0$ and $k_x=\pm\pi$.\footnote{
-	In most cases, which of the two glide planes $S$ deforms to can be inferred from an odd number of intersections between $S$ and the relevant plane at $-\pi<k_y\leq 0$. For example, the surface in Figure~\ref{subfig:nu-x_right} intersects $k_x=0$ once in the fundamental domain.}
-\red{[This is intuitively clear to me, does it need a simple proof?]}
+The question of periodicity is then resolved by the fact that the surface $S$ cannot be moved across the entire Brillouin zone without breaking the symmetry: any such surface can be deformed equivariantly into exactly one of the glide planes at $k_x=0$ and $k_x=\pm\pi$, but one cannot be deformed into the other. For example, if we start with $S$ at the $k_x=0$ plane and perturb a small section of $S$ continuously in the positive $x$ direction, then another section must be moved in the negative $x$ direction at the same time to maintain glide symmetry. By continuity, it follows that $S$ must still intersect $k_x=0$ somewhere.\footnote{
+	The argument can be formalised using the mean-value theorem if we take the momenta to live in $\R^3$ rather than identifying equivalent momenta into a torus.}
+As such, there is no deformation that can completely remove $S$ from the $k_x=0$ plane, and in particular it cannot be taken fully to the glide plane at $k_x=\pm\pi$. An analogous argument holds the other way around.\footnote{
+	By the same logic, we can generally infer which of the two glide planes $S$ deforms to by studying these intersections: for example, the surface in Figure~\ref{subfig:nu-x_right} does not intersect the plane at $k_x=\pm\pi$, and so it must deform to $k_x=0$. In general, we can count the number of times $S$ intersects with $k_x=0$ in the range $-\pi<k_y\leq 0$ (at any $k_z$); an odd number of intersections [such as the single crossing in the fundamental domain in Figure~\ref{subfig:nu-x_right}] indicates that the surface deforms to $k_x=0$.}
 	
 \subsection{Outlook}
 
