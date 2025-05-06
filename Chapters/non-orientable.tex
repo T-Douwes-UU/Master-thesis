@@ -12,7 +12,7 @@ We begin this chapter with a short review of existing literature surrounding the
 
 {\color{blue}
 \begin{itemize}
-	\item Chen, Yang and Zhao describe a 2D system in Ref.\ \cite{CYZ_Klein-gauge} where the Brillouin zone has the topology of a Klein bottle, induced by the glide symmetry
+	\item Chen, Yang and Zhao describe a 2D system in Ref.~\cite{CYZ_Klein-gauge} where the Brillouin zone has the topology of a Klein bottle, induced by the glide symmetry
 	\begin{equation}\label{eq:2D_glide}
 		UH(k_x, k_y)U\herm = H(-k_x, k_y + \pi)
 	\end{equation}
@@ -51,13 +51,11 @@ We begin this chapter with a short review of existing literature surrounding the
 
 \markedsection{Topology}{Topological exploration}\label{sec:non-ori_topology}
 
-%TODO implement feedback
-
-The purpose of this section is to reframe and analyse the non-orientable Weyl semimetals described in Ref.\ \cite{Fonseca-Vaidya_nonorientable} in terms of the algebraic topology language from Chapter \ref{chap:WSM}	. This approach has the advantage of being coordinate-free, and as such it provides a more fundamental understanding of the system's topological properties. We obtain a direct description of how the Nielsen--Ninomiya theorem is modified into a $\Z_2$ charge cancellation condition. We also obtain a more complete picture of the different invariants associated with such a system, and are able to distinguish which are related to the topological insulator phase, and which relate to the introduction of Weyl nodes. To the knowledge of the author, the insights contained in this section are novel.
+The purpose of this section is to reframe and analyse the non-orientable Weyl semimetals described in Ref.~\cite{Fonseca-Vaidya_nonorientable} in terms of the algebraic topology language from Chapter \ref{chap:WSM}	. This approach has the advantage of being coordinate-free, and as such it provides a more fundamental understanding of the system's topological properties. We obtain a direct description of how the Nielsen--Ninomiya theorem is modified into a $\Z_2$ charge cancellation condition. We also obtain a more complete picture of the different invariants associated with such a system, and are able to distinguish which are related to the topological insulator phase, and which relate to the introduction of Weyl nodes. To the knowledge of the author, the insights contained in this section are novel.
 
 \subsection{Preliminary clarifications}
 
-As a motivation for the proposed coordinate-free description, we begin by clearing up some minor points of confusion present in Ref.\ \cite{Fonseca-Vaidya_nonorientable}.
+As a motivation for the proposed coordinate-free description, we begin by clearing up some minor points of confusion present in Ref.~\cite{Fonseca-Vaidya_nonorientable}.
 
 First of all, there is a relatively strong emphasis on the two ``orientation-reversing planes'' at $k_y=\pm\pi$ and $k_y=0$. For example, it is stated that relative chirality can be defined unambiguously on fundamental domains that avoid these planes. This is true on a technical level, but it creates the impression that the orientation reversal occurs locally at the boundary of the fundamental domain, raising questions about the nature of Weyl points existing on these planes.
 
@@ -68,19 +66,19 @@ In reality, orientation reversal is a global feature. We are free to reparametri
 	\hfil
 	\subcaptionbox{$-\pi/2 \leq k_y \leq \pi/2$}{\includegraphics[width=.3\textwidth]{Images/BZ_mid}}
 	\hfil
-	\subcaptionbox{$-\pi \leq k_x \leq 0$}{\includegraphics[width=.3\textwidth]{Images/BZ_left}}
-	\caption{Top view of the 3D Brillouin torus (or 2D surface torus) for a given Weyl semimetal state obeying the glide symmetry in Equation~\eqref{eq:3D_glide}, with Weyl points and oriented Dirac strings (Fermi arcs) drawn in. Different parametrisations of the fundamental domain are shaded in teal: (a) the domain outlined in Ref.\ \cite{Fonseca-Vaidya_nonorientable}; (b) the same domain shifted in the $k_y$ direction; (c) a domain spanning the $k_y$ direction. Each of these domains is homeomorphic to $K^2\times S^1$ ($K^2$) under the boundary identifications shown. Note that the relative chirality of the two Weyl nodes in the fundamental domain changes under both alternative parametrisations.}
+	\subcaptionbox{$0 \leq k_x \leq \pi$\label{subfig:BZ_right}} {\includegraphics[width=.3\textwidth]{Images/BZ_right}}
+	\caption{Top view of the 3D Brillouin torus (or 2D surface torus) for a given Weyl semimetal state obeying the glide symmetry in Equation~\eqref{eq:3D_glide}, with Weyl points and oriented Dirac strings (Fermi arcs) drawn in. Different parametrisations of the fundamental domain are shaded in teal: (a) the domain outlined in Ref.~\cite{Fonseca-Vaidya_nonorientable}; (b) the same domain shifted in the $k_y$ direction; (c) a domain spanning the $k_y$ direction. Each of these domains is homeomorphic to $K^2\times S^1$ ($K^2$) under the boundary identifications shown. Note that both the absolute and relative chirality of the two Weyl nodes in the fundamental domain changes under these alternative parametrisations.}
 	\label{fig:BZ_param}
 \end{figure}
-For any given set of distinct Weyl points obeying the symmetry, it is possible in principle to achieve any relative chirality by reparametrising the fundamental domain. \red{This may mean that the charge of the Weyl points is fundamentally an $\N$ invariant on $K^2\times S^1$, but this is not clearly reflected in the cohomology description.} It should be noted that there do exist two planes that are of special significance, namely the so-called \emph{glide planes} at $k_x = 0$ and $k_x = \pm\pi$; these planes are (taken as a whole) invariant under the symmetry, and as such they cannot be excluded completely from any given parametrisation.
+For any given set of distinct Weyl points obeying the symmetry, it is possible in principle to achieve any relative chirality by reparametrising the fundamental domain. It should be noted that there do exist two planes that are of special significance, namely the so-called \emph{glide planes} at $k_x = 0$ and $k_x = \pm\pi$; these planes are (taken as a whole) invariant under the symmetry, and as such they cannot be excluded completely from any given parametrisation.
 
 A similar point of confusion arises in explaining how the usual relation between Nielsen--Ninomiya and the Poincaré--Hopf theorem for vector fields breaks down. On the regular Brillouin torus, the factor $\h(\k)$ in the Bloch Hamiltonian can be considered a continuous vector field tangent to the torus. The Poincaré--Hopf theorem then tells us that the zeroes of such vector fields must have topological indices (corresponding to Weyl point chiralities) adding up to zero.
 
-In the supplement to Ref.\ \cite{Fonseca-Vaidya_nonorientable}, the failure of Poincaré--Hopf is attributed to a discontinuity of the vector field at the planes $k_y=\pm\pi$ and $k_y=0$, see Figure~\ref{fig:Klein-discontinuity}.
+In the supplement to Ref.~\cite{Fonseca-Vaidya_nonorientable}, the failure of Poincaré--Hopf is attributed to a discontinuity of the vector field at the planes $k_y=\pm\pi$ and $k_y=0$, see Figure~\ref{fig:Klein-discontinuity}.
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=.8\linewidth]{Images/Klein-discontinuity}
-	\caption{Figure~from the supplement to Ref.\ \cite{Fonseca-Vaidya_nonorientable}. The $k_x$ component of an example $\h(\k)$ is mapped onto a $K^2$ slice of the fundamental Brillouin zone and then ``bent into shape'' to demonstrate discontinuity.
+	\caption{Figure~from the supplement to Ref.~\cite{Fonseca-Vaidya_nonorientable}. The $k_x$ component of an example $\h(\k)$ is mapped onto a $K^2$ slice of the fundamental Brillouin zone and then ``bent into shape'' to demonstrate discontinuity.
 	}
 	\label{fig:Klein-discontinuity}
 \end{figure}
@@ -95,11 +93,11 @@ As such, $\h$ should be thought of as a more abstract map $K^2\times S^1\to\R^3$
 	To be precise, $\h$ is a section of the trivial $\R^3$-bundle over $K^2\times S^1$, not of its tangent bundle. In the usual case of the torus, these descriptions are equivalent: $\T^3$ is parallelisable, i.e.\ $T\T^3\cong \T^3\times\R^3$. This is what allows Poincaré--Hopf to apply.}
 {\color{red}
 \st{In theory, one could construct a Hamiltonian starting from a proper tangent vector field to $K^2\times S^1$; this requires using gamma matrices that ``twist along'' with the tangent bundle of the manifold instead of the regular vector of Pauli matrices.}\footnote{\color{red}
-	The proper construction is that of a Clifford algebra bundle over the tangent bundle, see Section 4.2 of Ref.\ \cite{Mathai_math-review}.}
+	The proper construction is that of a Clifford algebra bundle over the tangent bundle, see Section 4.2 of Ref.~\cite{Mathai_math-review}.}
 [This may rely on the existence of a spin$^c$ structure, which probably does not exist in this case. This might also have implications for how ``physical'' a non-orientable BZ really is.]
 }
 
-A final point that merits clarification is the inclusion of a second glide symmetry. The supplement to Ref.\ \cite{Fonseca-Vaidya_nonorientable} discusses imposing Equation~\eqref{eq:3D_glide} together with a similar symmetry along the glide plane $k_y = 0$:
+A final point that merits clarification is the inclusion of a second glide symmetry. The supplement to Ref.~\cite{Fonseca-Vaidya_nonorientable} discusses imposing Equation~\eqref{eq:3D_glide} together with a similar symmetry along the glide plane $k_y = 0$:
 \begin{equation}
 	H(k_x, k_y, k_z) = H(k_x + \pi, -k_y, k_z).
 \end{equation}
@@ -107,7 +105,7 @@ It is claimed that this double symmetry subdivides the 3-torus into four copies 
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=.5\linewidth]{Images/RP2-corners}
-	\caption{Figure~adapted from the supplement to Ref.\ \cite{Fonseca-Vaidya_nonorientable}. High-symmetry points (orange, green) exist for $k_x,k_y\in\{-\pi/2,\pi/2\}$; these points are fixed under simultaneous application of both glide symmetries. Similarly coloured points are related by a single glide symmetry and so they are identified on $\RP^2$.}
+	\caption{Figure~adapted from the supplement to Ref.~\cite{Fonseca-Vaidya_nonorientable}. High-symmetry points (orange, green) exist for $k_x,k_y\in\{-\pi/2,\pi/2\}$; these points are fixed under simultaneous application of both glide symmetries. Similarly coloured points are related by a single glide symmetry and so they are identified on $\RP^2$.}
 	\label{fig:RP2-corners}
 \end{figure}
 As a result, a Weyl point existing on one of these lines must have an even chirality, and it only has one symmetric partner in the 3-torus rather than the three one would expect from four identical copies of $\RP^2\times S^1$.\footnote{
@@ -144,58 +142,138 @@ As an example, we may apply this line of reasoning to the time reversal invarian
 	\subcaptionbox{\label{subfig:TRS_orientation}}{\includegraphics[width=.4\textwidth]{Images/TRS_EBZ_orientation}}
 	\hfil
 	\subcaptionbox{\label{subfig:TRS_Kramers}}{\includegraphics[width=.5\textwidth]{Images/Kramers_pairs}}
-	\caption{(a) Figure~adapted from Ref.\ \cite{Thiang_equivariant}. The effective Brillouin zone under time reversal symmetry is half of $\T^3$, with additional identifications of the coloured areas as $k\sim -k$. The resulting space is non-orientable: a ``test particle'' with a given helicity is shown travelling out through the boundary at $\k = (0,\pi/2,\pi/2)\tran$, and reappearing at $\k = (0,-\pi/2,-\pi/2)\tran$ with the opposite helicity. (b) Top view of a time reversal invariant Weyl semimetal, featuring same-chirality Kramers pairs at conjugate momenta, indicating a twist in the cohomology. On the other hand, the orientation of Dirac strings is maintained by the symmetry, indicating ordinary (``untwisted'') homology.}
+	\caption{(a) Figure~adapted from Ref.~\cite{Thiang_equivariant}. The effective Brillouin zone under time reversal symmetry is half of $\T^3$, with additional identifications of the coloured areas as $k\sim -k$. The resulting space is non-orientable: a ``test particle'' with a given helicity is shown travelling out through the boundary at $\k = (0,\pi/2,\pi/2)\tran$, and reappearing at $\k = (0,-\pi/2,-\pi/2)\tran$ with the opposite helicity. (b) Top view of a time reversal invariant Weyl semimetal, featuring same-chirality Kramers pairs at conjugate momenta, indicating a twist in the cohomology. On the other hand, the orientation of Dirac strings is maintained by the symmetry, indicating ordinary (``untwisted'') homology.}
 	\label{fig:TRS_twist}
 \end{figure}
 As discussed before, such systems feature Kramers pairs of Weyl points at opposite momenta related by $\k\leftrightarrow -\k$, both of which always have the same chirality; see Figure~\ref{subfig:TRS_Kramers}.
-Again, these same-chirality pairs are an indication that the Chern numbers of Weyl points do not transform as expected, and so the cohomology must be twisted. It follows that the homology should not be twisted; this can also be seen directly from the fact that the Dirac strings in Figure~\ref{subfig:TRS_Kramers} have the same relative orientation. This description in terms of twisted cohomology and ordinary homology agrees exactly with the one given in Section \ref{sec:T-WSMs}, which was derived from more abstract vector bundle classification arguments in Ref.\ \cite{Thiang_equivariant}. In this particular case, direct calculation of the (co)homology groups on the effective Brillouin zone is complicated by the existence of high-symmetry points (i.e.\ the action of the symmetry is not free), which is why the authors of Ref.\ \cite{Thiang_equivariant} elect to use equivariant (co)homology on the full torus.
+Again, these same-chirality pairs are an indication that the Chern numbers of Weyl points do not transform as expected, and so the cohomology must be twisted. It follows that the homology should not be twisted; this can also be seen directly from the fact that the Dirac strings in Figure~\ref{subfig:TRS_Kramers} have the same relative orientation. This description in terms of twisted cohomology and ordinary homology agrees exactly with the one given in Section \ref{sec:T-WSMs}, which was derived from more abstract vector bundle classification arguments in Ref.~\cite{Thiang_equivariant}. In this particular case, direct calculation of the (co)homology groups on the effective Brillouin zone is complicated by the existence of high-symmetry points (i.e.\ the action of the symmetry is not free), which is why the authors of Ref.~\cite{Thiang_equivariant} elect to use equivariant (co)homology on the full torus.
 
 Returning to the case of a momentum-space glide symmetry, we can see from Figure~\ref{subfig:BZ_basic} that the situation is different here. Every Weyl point in the fundamental domain is related by symmetry to an oppositely charged point in the other half of the torus, while the orientation of Dirac strings is reversed under the symmetry. It follows that the classification of topological phases should rely on twisted \emph{homology}, and equivalently, ordinary cohomology. Since there is a proper fundamental domain in this case, there is no need to compute equivariant (co)homology groups, and we may instead rely on ordinary cohomology and twisted homology on $K^2\times S^1$.\footnote{\label{ft:eq_cohom}
 	Formally speaking, equivariant cohomology of a space $M$ with a free action of the group $G$ is equivalent to ordinary cohomology on the quotient space $M/G$ \parencite[Cor. 9.6]{Tu_equivariant}.}
 
 The choice of ordinary cohomology can be corroborated in two important ways. Firstly, the use of ordinary second cohomology classes indicates that we are classifying complex line bundles over the fundamental domain. An important insight from K-theory tells us that this is equivalent to classifying equivariant line bundles over the full torus \parencite[Prop. 2.1]{Segal_K-theory}.\footnote{
 	This is related to footnote \ref{ft:eq_cohom} in the sense that K-theory is a \emph{generalised cohomology} theory.}
-That is, we are classifying states that respect the symmetry directly. Secondly, the $\Z_2$ invariant found in Ref.\ \cite{Fonseca-Vaidya_nonorientable} on $K^2$-like slices of constant $k_z$ is recovered using ordinary cohomology, related to the fact that $H^2(K^2)\cong\Z_2$. Twisted cohomology would give a $H^2(K^2;\ext{\Z})\cong\Z$ invariant on these slices.
+That is, we are classifying states that respect the symmetry directly. Secondly, the $\Z_2$ invariant found in Ref.~\cite{Fonseca-Vaidya_nonorientable} on $K^2$-like slices of constant $k_z$ is recovered using ordinary cohomology, related to the fact that $H^2(K^2)\cong\Z_2$. Twisted cohomology would give a $H^2(K^2;\ext{\Z})\cong\Z$ invariant on these slices.
 
-All in all, we find that the correct classification of semimetal phases in this system is given by the following Mayer--Vietoris sequence of cohomology groups on $M := K^2\times S^1$:
+All in all, we find that the correct classification of semimetal phases in this system is given by the following Mayer--Vietoris exact sequence of cohomology groups on $M := K^2\times S^1$:
 \begin{equation}\label{eq:MV-nonorientable}
-	0 \to H^2(M) \to H^2\big(M\setminus W\big) \to H^2\left(\bigcup_{i=1}^k S_{w_i}^2\right) \to H^3(M) \to 0,
+	0\ \to\ \underbrace{H^2(M)}_{\mathclap{\text{Insulator}}}\ \to\ \underbrace{H^2\big(M\setminus W\big)}_{\mathclap{\text{Semimetal}}}\ \to\ H^2\!\left(\bigcup_{i=1}^k S_{w_i}^2\right)\ \overset{\Sigma}{\to}\ H^3(M)\ \to\ 0,
 \end{equation}
-where $S_{w_i}^2$ is a 2-sphere surrounding the Weyl point $w_i\in W$ as before. Equivalently, the classification may be given in terms of the following dual \emph{twisted} homology sequence:
+where as before, $W$ is the set of Weyl points on $M$ and $S_{w_i}^2$ is a small 2-sphere surrounding the Weyl point $w_i\in W$. Equivalently, the classification may be given in terms of the following dual \emph{twisted} homology sequence:
 \begin{equation}\label{eq:homology-sequence-nonorientable}
-	0 \to H_1(M;\ext{\Z}) \to H_1\big(M, W;\ext{\Z}\big) \overset{\partial}{\to} H_0(W;\ext{\Z}) \to H_0(M;\ext{\Z}) \to 0.
+	0\ \to\ \underbrace{H_1(M;\ext{\Z})}_{\mathclap{\text{Twisted Dirac loops}}}\ \to\ \underbrace{H_1\big(M, W;\ext{\Z}\big)}_{\mathclap{\text{Twisted Dirac strings}}}\ \overset{\partial}{\to}\ H_0(W;\ext{\Z})\ \overset{\Sigma}{\to}\ H_0(M;\ext{\Z})\ \to\ 0,
 \end{equation}
-In what follows, we will provide explicit computations of these groups and discuss the associated invariants.
+where we refer to the Dirac loops and Dirac strings as twisted to emphasise the non-trivial action of the symmetry on their orientation. The concept of a twisted Dirac string on $K^2\times S^1$ can be difficult to intuit, leading to Dirac strings that appear to change orientation at orientation-reversing boundaries of the fundamental domain in a setup such as Figure~\ref{subfig:BZ_right}. As such, they are more readily understood as equivariant (i.e.\ symmetry-related) pairs of Dirac strings on the full torus $\T^3$, whose orientation is reversed under the symmetry.
+
+In what follows, we will provide explicit computations of these sequences and discuss the associated invariants.
 
 
-\subsection{Computing invariants}
+\subsection{Computing invariants on $K^2\times S^1$}
 
-The use of ordinary cohomology groups in the Mayer--Vietoris sequence \eqref{eq:MV-nonorientable} means calculations are relatively straightforward, and standard techniques such as cellular cohomology can be applied. \red{[Should I make a small Appendix B containing an example cellular cohomology calculation?]} Using these methods, we calculate the sequence to be
+The use of ordinary cohomology groups in the Mayer--Vietoris sequence \eqref{eq:MV-nonorientable} means calculations are relatively straightforward, and standard techniques such as cellular cohomology can be applied. \red{[Given enough time, I can include a small Appendix B containing an example cellular cohomology calculation.]} Using these methods, we calculate the sequence to be
+\begin{equation}\label{eq:explicit-sequence-nonorientable}
+	0\to \Z\oplus\Z_2 \overset{\alpha}{\to} \Z\oplus\Z_2\oplus\Z^k \overset{\beta}{\to} \Z^k \overset{\Sigma}{\to} \Z_2 \to 0,
+\end{equation}
+where $k = |W|$ is the number of Weyl points. Given that the twisted homology sequence \eqref{eq:homology-sequence-nonorientable} is related to the Mayer--Vietoris sequence by Poincaré duality, it features the exact same groups in the same order; the difference is only in the interpretation. 
+
+For comparison, we recall here the semimetal Mayer--Vietoris sequence on $\T^3$ from Section \ref{sec:Mayer-Vietoris}:
+\begin{equation}\label{eq:semimetal-MV-explicit-again}
+	0 \to \Z^3 \to \Z^3\oplus\Z^{k-1} \overset{\beta}{\to} \Z^k \overset{\Sigma}{\to} \Z \to 0.
+\end{equation}
+Some relevant differences between these two sequences are highlighted below.
+
+\subsubsection{Insulating phases}
+
+The first difference lies in the insulating topology of the system, absent any Weyl points. Whereas the 3D Chern insulator on the plain torus features a Chern vector in $H^2(\T^3)\cong\Z^3$, this group is reduced to $H^2(K^2\times S^1)\cong\Z\oplus\Z_2$ under the action of the glide symmetry. As a result, the $K^2\times S^1$ insulator is not classified by three Chern numbers $C_{x,y,z}\in\Z$, but by a $\Z$ invariant $\nu_x$ and a $\Z_2$ invariant $\nu_z$---the reasoning behind our choice of symbols will become apparent shortly.
+
+The reduction to two invariants can be most readily understood from the twisted homology point of view. On $\T^3$, the three generators of $H_1(\T^3)\cong\Z^3$ are represented by oriented Dirac loops $\ell_{x,y,z}$ that wind around the 3-torus once in each respective coordinate direction. Under glide symmetry, each of these loops obtains a symmetric partner $\ell_{x,y,z}'$ whose internal orientation is reversed---this is due to the twist in the homology. Taken together with the original loop, $\ell_{x,y,z} + \ell_{x,y,z}'$ is equivalent to a twisted Dirac loop $\tilde{\ell}_{x,y,z}$ on $K^2\times S^1$, representing an invariant in $H_1(K^2\times S^1;\ext{\Z})$. The reduction to $\Z\oplus\Z_2$ is then caused by specific degeneracies in these twisted Dirac strings: $\tilde{\ell}_x$ generates the full $\Z$ invariant $\nu_x$, $\tilde{\ell}_y$ turns out to be trivial, and $\tilde{\ell}_z$ generates the $\Z_2$ invariant $\nu_z$. This is illustrated in more detail in Figure \ref{fig:K2S1_invariants}.
+\begin{figure}[htb!]
+	\centering
+	\subcaptionbox{$[\tilde{\ell}_x]$\label{subfig:Z_invariant}} {\includegraphics[width=.3\textwidth]{Images/Z_invariant}}
+	\hfil
+	\subcaptionbox{$[\tilde{\ell}_y] = 0$\label{subfig:0_invariant}} {\includegraphics[width=.3\textwidth]{Images/0_invariant}}
+	\hfil
+	\subcaptionbox{$[\tilde{\ell}_z] = [-\tilde{\ell}_z]$\label{subfig:Z2_invariant}} {\includegraphics[width=.3\textwidth]{Images/Z2_invariant}}
+	\caption{Top view of $\T^3$. Each graphic shows one of the three basic Dirac loops $\ell_{x,y,z}$ [representing the generators of $H_1(\T^3)$] sitting inside a fundamental domain (shaded teal). Each loop is doubled by the action of the symmetry, into what can be considered a twisted Dirac loop $\tilde{\ell}_{x,y,z}$ [representing an invariant in $H_1(K^2\times S^1;\ext{\Z})$] shown in red. (a) In the case of $\ell_x$, the orientation reversal cancels out the $k_x \mapsto -k_x$ parity change from the glide symmetry, and the resulting twisted Dirac string $\tilde{\ell}_x$ has a consistent orientation. It follows that the associated invariant $\nu_x\in\Z$ induces an even Chern number $C_x = 2\nu_x\in 2\Z$ on the full torus.
+		(b) The alternative fundamental domain from Figure \ref{subfig:BZ_right} paints a clearer picture for $\ell_y$. The loop is mirrored along the glide plane $k_x=0$ and has its orientation reversed. The resulting twisted Dirac string $\tilde{\ell}_y$ is trivial: as indicated by the dashed arrows, the two copies can be moved together equivariantly, and they cancel out when they meet on the glide plane. As a result, there is no invariant $\nu_y$.
+		(c) The Dirac loop $\ell_z$ running in the positive $z$ direction (``out of the page'') in the fundamental domain is doubled to a second loop running in the negative $z$ direction (``into the page''). In this case the two loops cannot be brought together while respecting the symmetry, but they can be interchanged by moving them along the dashed arrows. It follows that the resulting twisted Dirac string $\tilde{\ell}_z$ is equivalent to its own inverse $-\tilde{\ell}_z$, meaning it generates a $\Z_2$ invariant $\nu_z$.} %TODO
+	\label{fig:K2S1_invariants}
+\end{figure}
+
+The invariant $\nu_z\in\Z_2$ corresponds precisely to the $\Z_2$ invariant on $K^2$ slices described in Ref.~\cite{Fonseca-Vaidya_nonorientable}, and stems from the 2D Klein bottle insulator in Ref.~\cite{CYZ_Klein-gauge}. It may be calculated on any $K^2$ slice using Equation~\red{[refer to review section]}. %TODO eqref
+
+The $\Z$ invariant $\nu_x$ appears to be novel; as discussed under Figure~\ref{subfig:Z_invariant}, it manifests as an even Chern number $C_x = 2\nu_x\in 2\Z$ on the full Brillouin torus, relating to the fact that the torus contains two copies of $K^2\times S^1$. This suggests one way of calculating this invariant in practice: it may be obtained from $\T^3$ as
+\begin{equation}\label{eq:z-invariant1}
+	\nu_x = \frac{1}{2}C_x = \frac{1}{2}\int_{\T_{yz}^2}\Fc,
+\end{equation}
+where $\T_{yz}^2$ is any slice of $\T^3$ running in the $yz$-direction. This calculation does not generally respect the glide symmetry, since such a $\T_{yz}^2$ is not invariant outside of the glide planes at $k_x=0$ and $k_x = \pm\pi$. Still, it results in the correct invariant in the insulating case; we will return to the case with Weyl points when we study the full group of semimetal invariants.
+
+\subsubsection{Mod 2 charge cancellation}
+
+A second feature that stands out is the appearance of a $\Z_2$ group on the far right side of the exact sequence \eqref{eq:explicit-sequence-nonorientable}. It is worth mentioning that this is a general feature of ordinary cohomology on non-orientable manifolds: the rightmost group is the top cohomology group of the Brillouin zone, and any non-orientable $n$-manifold $M$ has $H^n(M)\cong\Z_2$.
+
+Recall from Section \ref{sec:Mayer-Vietoris} that the map $\Sigma$ in Equation~\eqref{eq:semimetal-MV-explicit-again} can be interpreted as a sum over all Weyl point charges on $\T^3$. The Nielsen--Ninomiya charge cancellation theorem on the torus then arises from the fact that $\Sigma\circ\beta = 0$; that is, a semimetal structure $a\in\Z^3\oplus\Z^{k-1}$ must always feature a charge configuration $\beta(a)\in\Z^k$ whose charges sum to $\Sigma(\beta(a)) = 0 \in \Z$.
+
+The situation is somewhat more subtle on $K^2\times S^1$: the $\Z^k$ group $H^2\!\left(\bigcup_{i=1}^k S_{w_i}^2\right)$ and its dual $H_0(W;\ext{\Z})$ no longer have a direct interpretation in terms of Weyl point charges, since both the absolute and relative chiralities of these points are ill defined here---as seen in Figure \ref{fig:BZ_param}. That is, the spheres $S_{w_i}$ no longer have a canonical orientation descending from the ambient manifold. Instead, $H^2\!\left(\bigcup_{i=1}^k S_{w_i}^2\right)$ must be interpreted as the group of charges $\chi_i$ \emph{given a choice of orientation} at each Weyl point $w_i$. Nevertheless, the map $\Sigma$ can still be interpreted as a sum over these charges, precisely because it maps into $\Z_2$: to be exact, the map
+\begin{equation}\label{eq:map-sigma}
+	\Sigma: \Z^k\to\Z_2,\quad (\chi_1,\ldots,\chi_k) \mapsto \sum_{i=1}^{k}\chi_i \mod 2
+\end{equation}
+is invariant under change of orientation at each $w_i$ because
 \begin{equation*}
-	0\to \mathbb{Z}\oplus\mathbb{Z}_2 \to \mathbb{Z}^{1+k}\oplus\mathbb{Z}_2 \to \mathbb{Z}^k \to \mathbb{Z}_2 \to 0.
+	\chi_i \equiv -\chi_i \mod 2.
 \end{equation*}
+It follows that the tail end of the sequence \eqref{eq:explicit-sequence-nonorientable} can be interpreted unambiguously in terms of $\Z_2$ charge cancellation: regardless of the parametrisation of the fundamental domain, the charges belonging to a semimetal (i.e.\ mapped into $\Z^k$ by $\beta$) must sum to $0\in\Z_2$. In other words, the total charge must be even on any fundamental domain. This is the same charge cancellation condition also found in Ref.~\cite{Fonseca-Vaidya_nonorientable}.
 
-%TODO
+Importantly, the exactness of \eqref{eq:explicit-sequence-nonorientable} also implies the converse statement by $\im(\beta) = \ker(\Sigma)$: for a given set of Weyl points $W\subset K^2\times S^1$, any configuration of charges with an even total [i.e.\ an element of $\ker(\Sigma)$] must be realised in some set of semimetal invariants [i.e.\ be an element of $\im(\beta)$]. In the homology picture, this means there must exist configurations of twisted Dirac strings in $H_1\big(M, W;\ext{\Z}\big)$ realising any given set of charges adding to $0\in\Z_2$.
+
+\subsubsection{Semimetal invariants}
+
+Finally, central to the sequence \eqref{eq:explicit-sequence-nonorientable} is the group of semimetal invariants
+\begin{equation}\label{eq:semimetal-group-nonor}
+	H^2(K^2\times S^1\setminus W)\cong H_1(K^2\times S^1, W; \ext{\Z})\cong \Z\oplus\Z_2\oplus\Z^k.
+\end{equation}
+Much like the $\Z^3\oplus\Z^{k-1}$ in the case of $\T^3$, this group does not admit a canonical basis of invariants. Rather, the exactness of \eqref{eq:explicit-sequence-nonorientable} around this group provides information about the structure of the different semimetallic phases. The argument is similar to that at the end of Section~\ref{sec:Mayer-Vietoris}: given a charge configuration $c$ in the image of the map $\beta$ (i.e.\ any $c$ with an even total charge), the pre-image must obey
+\begin{equation*}
+	\beta^{-1}(c) \cong \beta^{-1}(0) =: \ker(\beta),
+\end{equation*}
+since $\beta$ is a homomorphism. By exactness, we have $\ker(\beta)\cong\im(\alpha)\cong\Z\oplus\Z_2$. That is, for each $c\in\im(\beta)$ we have $\Z\oplus\Z_2$ worth of semimetal invariants (or equivalently, twisted Dirac string configurations) in its pre-image, differing from each other by the bulk invariants $\nu_x\in\Z$ and $\nu_z\in\Z_2$.
+
+There is a subtle difference from the argument on the torus: on $\T^3$, $\Z$ charge cancellation ensures that the valid charge configurations exist in $\im(\beta)=\ker(\Sigma)\cong\Z^{k-1}$, explaining the $\Z^{k-1}$ summand in the semimetal group. On $K^2\times S^1$, the $\Z_2$ charge cancellation implies that $\im(\beta)=\ker(\Sigma)\cong\Z^k$, and this is the $\Z^k$ which appears in the semimetal group \eqref{eq:semimetal-group-nonor}. We should be careful not to interpret this $\Z^k$ directly in terms of the charges of the $k$ Weyl points; after all, there are charge configurations which are not in $\ker(\Sigma)$. Instead, it should be considered an index 2 subgroup of the charge configurations, stemming from the fact that $\Z^k/\Z_2\cong\Z^k$.
+
+Physically, the $\Z^k$ summand in the semimetal group implies that a system with a single Weyl point ($k=1$ on $K^2\times S^1$ may already feature semimetal topology. The single Weyl point must have even charge by $\Z_2$ charge cancellation; an example of such a system is featured in the supplement to Ref.~\cite{Fonseca-Vaidya_nonorientable} and reproduced in Figure~\ref{fig:double-points}.
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=.4\linewidth]{Images/double-points}
+	\caption{Figure from the supplement to Ref.~\cite{Fonseca-Vaidya_nonorientable}. Originally intended as a surface Brillouin zone with Fermi arcs, it can be interpreted equally well as a top view of a 3D system with two Dirac strings. Both Dirac strings are oriented towards the positively charged point.}
+	\label{fig:double-points}
+\end{figure}
+
+Finally, we have seen in Section~\ref{sec:Weyl-point-topology} that the Chern number on a 2D slice of $\T^3$ changes by $q\in\Z$ as the slice is passed over a Weyl point of charge $q$. We might expect this to be problematic in the non-orientable case, given that the Brillouin zone is periodic and the total charge need not add up to zero. This is resolved in two different ways for the two invariants $\nu_x$ and $\nu_z$. The latter is saved by being a $\Z_2$ invariant, restoring the periodicity over an even total charge---as was also observed in Ref.\ \cite{Fonseca-Vaidya_nonorientable}.
+
+The $\Z$ invariant $\nu_x$ requires us to define the integration more carefully: as noted before, the integration in Equation~\eqref{eq:z-invariant1} does not respect the symmetry, and it may not yield the right invariant when Weyl points are introduced. This is illustrated in Figure~\ref{subfig:nu-x_wrong}.
+\begin{figure}[htb!]
+	\centering
+	\subcaptionbox{\label{subfig:nu-x_wrong}} {\includegraphics[width=.3\textwidth]{Images/nu-x_wrong}}
+	\hfil
+	\subcaptionbox{\label{subfig:nu-x_right}} {\includegraphics[width=.3\textwidth]{Images/nu-x_right}}
+	\caption{(a) In the presence of Weyl points, a given $\T_{yz}^2$ (orange) may only intersect a single Dirac string, leading to a non-integer value of 1/2 from Equation~\eqref{eq:z-invariant1}. (b) Integration over an invariant surface always yields a well defined $\nu_x$ outside of Weyl points, since it intersects the twisted Dirac strings in a consistent manner. The dashed half of the surface is redundant, since both halves yield the same integral. The pictured setup yields $\nu_x=1$.}
+	\label{fig:nu-x}
+\end{figure}
+Instead, it becomes necessary to integrate over a symmetry-invariant surface $S$ which is continuously deformable to a $\T_{yz}^2$, such as that shown in Figure~\ref{subfig:nu-x_right}. In principle, only the half of the surface $S_{1/2}$ which intersects the fundamental domain at $k_y\leq 0$ needs to be integrated over; this half surface can be considered a compact surface subspace of $K^2\times S^1$. The calculation then takes the form
+\begin{equation}\label{eq:z-invariant2}
+	\nu_x = \int_{S_{1/2}}\Fc.
+\end{equation}
+The question of periodicity is then resolved by the fact that the surface $S$ cannot be moved across the entire Brillouin zone without breaking the symmetry: any such surface can be deformed equivariantly into exactly one of the glide planes at $k_x=0$ and $k_x=\pm\pi$.\footnote{
+	In most cases, which of the two glide planes $S$ deforms to can be inferred from an odd number of intersections between $S$ and the relevant plane at $-\pi<k_y\leq 0$. For example, the surface in Figure~\ref{subfig:nu-x_right} intersects $k_x=0$ once in the fundamental domain.}
+\red{[This is intuitively clear to me, does it need a simple proof?]}
+	
+\subsection{Outlook}
 
 {\color{blue}
-\begin{itemize}	
-	\item Cohomology is easy to compute, but its dual twisted homology offers a very intuitive perspective of the invariants, demonstrating how the $\Z^3$ invariant on a 3D Chern insulator gets reduced to a $\Z\oplus\Z_2$ under this symmetry. The $\Z_2$ factor is precisely the $\Z_2$ invariant discussed by Fonseca, Vaidya et al. This intuition is especially clear when viewed as twisted equivariant homology on $\T^3$. [Include pictures of the action of the symmetry on the three basic homology invariants on $\T^3$.]
-	
-	\item Under this description, the semimetal Mayer--Vietoris sequence becomes
-	\begin{equation*}
-		0\to H^2(K^2\times S^1) \to H^2(K^2\times S^1\setminus W) \to H^2(S_W) \to H^3(M) \to 0,
-	\end{equation*}
-	which can be calculated explicitly (using e.g. cellular (co)homology) as
-	\begin{equation*}
-		0\to \mathbb{Z}\oplus\mathbb{Z}_2 \to \mathbb{Z}^{1+k}\oplus\mathbb{Z}_2 \to \mathbb{Z}^k \to \mathbb{Z}_2 \to 0.
-	\end{equation*}
-	From the $\Z_2$ in the last term, we immediately recover the $\Z_2$ charge cancellation no-go theorem. It also becomes clear that a single Weyl point may carry non-trivial topology (i.e. already adds a factor to the group of invariants).
-\end{itemize}
-
-Additionally:
-
 \begin{itemize}
-	\item The description can easily be extended to a 2D type AIII Klein bottle WSM with chiral symmetry; in this case, 1st cohomology invariants (winding numbers) are dual to twisted 1st homology invariants (Fermi arcs/loops).
+	\item The $K^2$ surface topology is probably also easily captured using twisted homology/ordinary 1st cohomology. The other two surfaces are more complicated: in the front ($xz$) surface, the chirality change is induced by mirroring across $k_x=0$ (probably can be captured using equivariant cohomology on the surface), while in the $yz$ surface it is induced by a change of projection direction (cannot be captured using equivariant homology, the effective surface BZ is a torus).
+	
+	\item This description may be easily extendable to a 2D type AIII Klein bottle WSM with chiral symmetry; in this case, 1st cohomology invariants (winding numbers) are dual to twisted 1st homology invariants (Fermi arcs/loops).
 	
 	\item More elementary systems such as 3D type A with inversion symmetry also exhibit non-orientable EBZs, but in this case the description is complicated by the existence of fixed points (the TRIM).
 	
@@ -238,7 +316,7 @@ Concepts explored in early personal notes:
 	\]
 	Update: I think the real requirement for equivalence is that the base manifold $M$ is parallelisable (i.e.\ has a trivial tangent bundle), since we're essentially using a trivial $\R^d$-bundle in this construction.
 	
-	\item Any smooth $d$-manifold can be given a CW complex structure with one $d$-cell (\href{https://mathoverflow.net/questions/120799/manifolds-admitting-cw-structure-with-single-n-cell}{link}). On this $d$-cell there is an exact correspondence between vector fields and maps to $\R^d$, since it can be embedded in $\R^d$. What distinguishes the two is how points on the boundary of the $d$-cell are identified with each other; this determines whether the ``vectors'' need to change orientation. To illustrate:
+	\item Any smooth $d$-manifold can be given a CW complex structure with one $d$-cell (\href{https://mathoverflow.net/questions/120799/manifolds-admitting-cw-structure-with-single-n-cell}{link}). On this $d$-cell there is an exact correspondence between vector fields and maps to $\R^d$, since it can be embedded in $\R^d$. What distinguishes the two is how points on the boundary of the $d$-cell are identified with each other; this determines whether the ``vectors'' need to change orientation. To illustrate:\\
 	\includegraphics[width=.9\textwidth]{Images/vectorfield-vs-map}
 	
 	\item On any orientable manifold, the Stokes' theorem argument shows that the total charge must be zero regardless of Euler characteristic:
