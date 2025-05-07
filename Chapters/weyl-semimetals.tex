@@ -27,8 +27,11 @@ the full topological classification of materials depends not only on the top-dim
 
 There are three topologically distinct ways to slice up the three-torus, all perpendicular to one of the three coordinate directions.\footnote{
 	Other 2D slices exist, such as those going diagonally across, but these can all be considered linear combinations of the three ``orthogonal'' slices. To be precise, the different classes of 2D subspaces of $\T^3$ form the second homology group $H_2(\T^3)\cong\Z^3$, and this group is \emph{generated} by the orthogonal slices.}
-These slices have the topology of a two-torus $\T^2$, and a Chern number can be obtained by integrating the Berry curvature $\Fc$ of the system over them: for example, perpendicular to the $x$ direction there is a Chern number $C_{x} = \int_{\T_{yz}^2}\mathcal{F}$.\footnote{
-	Note that it does not matter where along the Brillouin zone this $yz$-slice is taken: the Chern number is an integer, while the system is continuous. This means the $x$ coordinate can be changed continuously without changing the resulting Chern number.}
+These slices have the topology of a two-torus $\T^2$, and a Chern number can be obtained by integrating the Berry curvature $\Fc$ of the system over them: for example, perpendicular to the $x$ direction there is a Chern number\footnote{
+	Note that it does not matter where along the Brillouin zone the $yz$-slice $\T_{yz}^2$ is taken: the Chern number is an integer, while the system is continuous. This means the $x$ coordinate can be changed continuously without changing the resulting Chern number.}
+\begin{equation*}
+	C_{x} = \frac{1}{2\pi}\int_{\T_{yz}^2}\!\Fc.
+\end{equation*}.
 This results in a classification by three distinct Chern numbers $C_x$, $C_y$ and $C_z$, and in the literature (e.g. \cites{Vanderbilt_2018}{Liu_photonic-Chern-vector}) these are commonly arranged in a so-called \emph{Chern vector}
 \[
 	\vb{C} = \begin{pmatrix}
@@ -78,9 +81,9 @@ Consider a Weyl semimetal with a set of $k$ Weyl points
 	W \equiv \set{w_1,w_2,\ldots,w_k}\subset \T^3.
 \]
 Then the charge of a Weyl point $w_i$ is given by the Chern number
-\begin{equation}
-	C_w = \int_{S_w^2}\!\Fc,
-\end{equation}
+\begin{equation*}
+	C_w = \frac{1}{2\pi}\int_{S_w^2}\!\Fc,
+\end{equation*}
 where $S_w^2$ is a sufficiently small 2-sphere centred at $w$---in particular, it must be small enough to contain no other Weyl points in its interior. Naively, this might lead us to expect that a semimetal phase is classified by the second cohomology group of the collection of all these spheres:
 \begin{equation}\label{eq:2nd-cohom-spheres}
 	H^2\left(\bigcup_{i=1}^k S_{w_i}^2\right)\cong \bigoplus_{i=1}^k H^2(S_{w_i}^2) \cong \Z^k.
@@ -97,7 +100,7 @@ This cancellation can be demonstrated using Stokes' theorem. The argument goes a
 \]
 where the minus sign induces the correct orientation. Then Stokes' theorem gives
 \[
-	0 = \int_{\partial X} \dd{\Fc} = -\sum_{i=1}^{k}\int_{S_{w_i}^2}\!\!\Fc = -\sum_{i=1}^{k}C_{w_i},
+	0 = \frac{1}{2\pi}\int_{\partial X} \dd{\Fc} = -\sum_{i=1}^{k}\frac{1}{2\pi}\int_{S_{w_i}^2}\!\!\Fc = -\sum_{i=1}^{k}C_{w_i},
 \]
 which is precisely the Nielsen--Ninomiya theorem.
 
