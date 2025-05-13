@@ -29,7 +29,7 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \setlength{\headheight}{13.6pt}
-\usepackage[sorting=none]{biblatex} %[style=alphabetic]
+\usepackage[sorting=none,style=numeric-comp]{biblatex} %[style=alphabetic]
 \addbibresource{references.bib}
 \usepackage{tocloft}
 \usepackage{microtype}
@@ -109,6 +109,9 @@
 \newcommand{\herm}{^\dag}
 \newcommand{\ext}[1]{\widetilde{#1}}
 \newcommand{\argdot}{\makebox[1ex]{\textbf{$\cdot$}}}
+\newcommand{\dee}{\partial}
+
+\setlength{\headheight}{14.5pt}
 
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
@@ -201,6 +204,7 @@
 \pagenumbering{arabic}
 
 %TODO check -ize vs. -ise in final report
+%TODO figure copyright
 
 \include{Chapters/introduction}
 	
@@ -213,6 +217,8 @@
 \appendix 
 
 \include{Chapters/appendix}
+
+\emergencystretch=1em
 
 \printbibliography
 
