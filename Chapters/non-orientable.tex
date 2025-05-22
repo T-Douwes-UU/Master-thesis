@@ -1,4 +1,4 @@
-\markedchapter{Non-orientable mfds}{Non-orientable systems}
+\markedchapter{Non-orientable systems}{Non-orientable systems}\label{chap:non-orientable}
 
 Symmetries play a crucial role in establishing and differentiating topological properties of physical systems; this much is already evident from the tenfold way classification discussed in Section \ref{sec:symm-classes}. However, in recent years researchers have begun to recognise that symmetries beyond the standard time reversal, charge conjugation and chiral symmetries can give rise to distinct topological invariants that are not fully captured by this classification.
 
@@ -166,6 +166,12 @@ It is worth emphasizing that this disconnection from Poincaré--Hopf is a genera
 	The proper construction is that of a Clifford algebra bundle over the tangent bundle, see Section 4.2 of Ref.~\cite{Mathai_math-review}. This construction relies on the existence of a spin$^c$ structure on the base manifold, but non-orientable manifolds do not admit such a structure. \red{[The non-existence of a spin$^c$ structure might also have implications for how ``physical'' a non-orientable BZ really is---I think we may not be able to interpret the Weyl points on as Weyl fermion modes on $\KS$, for example. However, there are modified non-orientable analogues of spin structures (Pin$^\pm$ and pin$^c$ structures) that may be somehow applicable here.]}} %TODO pin^c structures
 As a result, the notion of a tangent vector field loses some of its utility in studying the topological properties of a non-orientable system. Instead, any topological analysis must be performed in terms of more fundamental algebraic topology tools, such as the homology and cohomology relied on in the present work.
 
+{\color{blue}
+\begin{itemize} %TODO write this out, relate to chiral anomaly? Should be given some weight as a "result"
+	\item This may have very important implications for physical interpretation; for example, it may not be possible to define an effective field theory with an explicit chiral anomaly based on the tangent vector field. Even if the Hamiltonian is constructed as this map $\KS\to\R^3$, explicit calculations still rely on writing down coordinates for $\k\in\KS$---but $\KS$ cannot be covered in a single coordinate chart. Choosing coordinates comes down to this choice of fundamental domain in $\R^3$ again, which means any possible anomalous features will not be robust under change of coordinates (i.e. not physical).
+\end{itemize}
+}
+
 A final point that merits clarification is the inclusion of a second glide symmetry. The supplement to Ref.~\cite{Fonseca-Vaidya_nonorientable} discusses imposing Equation~\eqref{eq:3D_glide} together with a similar symmetry along the glide plane $k_y = 0$:
 \begin{equation}
 	H(k_x, k_y, k_z) = H(k_x + \pi, -k_y, k_z).
@@ -201,7 +207,7 @@ Given the fact that Poincaré duality can be restored by twisting either the hom
 The decision of which group must be twisted can thus be made by noting how the chirality of Weyl points (outside of high-symmetry points) relates to that of their symmetric partners in the full Brillouin torus. To be precise, the presence of same-chirality pairs indicates that the (cohomological) Chern number is not reversed as expected, and the cohomology must be twisted. Meanwhile, pairs with opposite chiralities indicate that the cohomology behaves naturally, and the homology (i.e.\ the Dirac string orientations) must be twisted to follow suit.
 
 {\color{red}
-[This is subject to change, e.g.\ the sign of $\mathcal{T}^2$ appears to matter as well.] Physically, this twisting of the homology may be related to the unitarity or anti-unitarity of the symmetry operation. This can be seen as follows: in the case of a unitary symmetry relating $\k\leftrightarrow\k'$, the Hamiltonian obeys
+[The next few paragraphs are subject to change, the maths don't quite work out -- e.g.\ the sign of $\TRS^2$ appears to be relevant as well. Their contents do not influence the logic in the later paragraphs in any significant way.] Physically, this twisting of the homology may be related to the unitarity or anti-unitarity of the symmetry operation. This can be seen as follows: in the case of a unitary symmetry relating $\k\leftrightarrow\k'$, the Hamiltonian obeys
 \begin{equation*}
 	U\Hc(\k)U\herm = \Hc(\k').
 \end{equation*}
@@ -214,7 +220,7 @@ If $\ket{\psi(\k)}$ is an eigenstate of $\Hc(\k)$, it follows that $\ket{\psi(\k
 \end{DispWithArrows*}
 Since the Berry connection one-form is left invariant, so is the Berry curvature two-form. A final minus sign is then induced by the change of orientation when integrating this two-form, so that the Chern number (Weyl point chirality) changes sign under unitary orientation-reversing symmetries. This is exactly what is implied when the Chern number is called a pseudoscalar. Looking back at Figure~\ref{fig:local_coefficients}, twisted homology (and its dual ordinary cohomology) must be used to obtain the correct invariants.
 
-On the other hand, under an anti-unitary symmetry the Hamiltonian transforms as
+On the other hand, under an anti-unitary symmetry the Hamiltonian transforms as \red{[for $\TRS^2=-1$]}
 \begin{equation*}
 	U\Hc(\k)U\herm = \Hc^*(\k'),
 \end{equation*}
@@ -308,7 +314,7 @@ A second feature that stands out is the appearance of a $\Z_2$ group on the far 
 
 Recall from Section \ref{sec:Mayer-Vietoris} that the map $\Sigma$ in Equation~\eqref{eq:semimetal-MV-explicit-again} can be interpreted as a sum over all Weyl point charges on $\T^3$. The Nielsen--Ninomiya charge cancellation theorem on the torus then arises from the fact that $\Sigma\circ\beta = 0$; that is, a semimetal structure $a\in\Z^3\oplus\Z^{k-1}$ must always feature a charge configuration $\beta(a)\in\Z^k$ whose charges sum to $\Sigma(\beta(a)) = 0 \in \Z$.
 
-The situation is somewhat more subtle on $\KS$: the $\Z^k$ group $H^2\!\left(\bigcup_{i=1}^k S_{w_i}^2\right)$ and its dual $H_0(W;\ext{\Z})$ no longer have a direct interpretation in terms of Weyl point charges, since both the absolute and relative chiralities of these points are ill defined here---as seen in Figure \ref{fig:BZ_param}. That is, the spheres $S_{w_i}$ no longer have a canonical orientation descending from the ambient manifold. Instead, $H^2\!\left(\bigcup_{i=1}^k S_{w_i}^2\right)$ must be interpreted as the group of charges $\chi_i$ \emph{given a choice of orientation} at each Weyl point $w_i$. Nevertheless, the map $\Sigma$ can still be interpreted as a sum over these charges, precisely because it maps into $\Z_2$: to be exact, the map
+The situation is somewhat more subtle on $\KS$: the $\Z^k$ group $H^2\!\left(\bigcup_{i=1}^k S_{w_i}^2\right)$ and its dual $H_0(W;\ext{\Z})$ no longer have a direct interpretation in terms of Weyl point charges, since both the absolute and relative chiralities of these points are ill defined here---as seen in Figure \ref{fig:BZ_param}. That is, the spheres $S_{w_i}$ no longer have a canonical orientation descending from the ambient manifold. Instead, $H^2\!\left(\bigcup_{i=1}^k S_{w_i}^2\right)$ must be interpreted as the group of charges $\chi_i$ \emph{given a choice of orientation} at each Weyl point $w_i$. This choice of orientation is exactly what is induced by choosing a specific fundamental domain: the changes of (absolute and relative) chirality in Figure~\ref{fig:BZ_param} correspond to a change of basis of this $\Z^k$. Nevertheless, the map $\Sigma$ can still be interpreted as a sum over these charges, precisely because it maps into $\Z_2$: to be exact, the map
 \begin{equation}\label{eq:map-sigma}
 	\Sigma: \Z^k\to\Z_2,\quad (\chi_1,\ldots,\chi_k) \mapsto \sum_{i=1}^{k}\chi_i \mod 2
 \end{equation}
@@ -376,13 +382,19 @@ Instead, the $\Z_2$ invariant on gapped $K^2$-like slices should be taken to be 
 \begin{equation*}
 	\nu_z' = \nu_z + C \mod 2,
 \end{equation*}
-requiring no $\Z_2$ charge on the Weyl point.
+requiring no $\Z_2$ charge on the Weyl point. This is also the position taken with respect to time-reversal invariant Weyl semimetals in Ref.~\cite{Thiang_equivariant}.
 	
-\subsection{Outlook}
+\subsection{Conclusions and outlook}
+
+\red{[Should outlook be a stand-alone chapter?]}
+
+%TODO Conclude
 
 %TODO Outlook
 
 {\color{blue}
+Outlook points:	
+	
 \begin{itemize}
 	\item The $K^2$ surface topology is probably also easily captured using twisted homology/ordinary 1st cohomology. The other two surfaces are more complicated: in the front ($xz$) surface, the chirality change is induced by mirroring across $k_x=0$ (probably can be captured using equivariant cohomology on the surface), while in the $yz$ surface it is induced by a change of projection direction (cannot be captured using equivariant homology, the effective surface BZ is a torus).
 	
