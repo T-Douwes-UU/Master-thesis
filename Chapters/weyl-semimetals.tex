@@ -8,55 +8,84 @@
 	
 	\item Credit review papers in introduction
 	
-	\item This chapter contains no new results, its purpose is to provide the necessary background to our results in the next chapter.
+	\item This chapter contains no new results, its purpose is to provide the necessary background to our results in Chapter~\ref{chap:non-orientable}.
 	
-	\item The first section reviews physical aspects of WSM, 
+	\item Section~\ref{sec:semimetal-physics} reviews physical aspects of WSM, Section~\ref{sec:semimetal-topology} goes into the topological details.
 \end{itemize}
 }
 
 \section{Physical aspects}\label{sec:semimetal-physics}
 
-%TODO Physics writing
+The concept of Weyl semimetals arises naturally when studying how different energy bands interact in three-dimensional solids. Whereas one and two-dimensional materials are generally gapped unless additional symmetries force the bands to touch, the situation is different in three dimensions. In this context, so-called \emph{accidental band crossings} are expected based on geometric arguments.
+
+Accidental crossings can be understood by studying how any two of the energy bands interact. In most physically relevant scenarios these will be the valence and conduction band, since these determine the conductive properties of a material. Recall that the generic Hermitian two-band Hamiltonian can be written as
+\begin{equation*}
+	\Hc(\k) = h_0(\k)\Id + \h(\k)\cdot\bm{\upsigma},
+\end{equation*}
+where $\k$ lives in the three-dimensional Brillouin torus $\T^3$ in this case. The eigenvalues of this Hamiltonian are
+\begin{equation*}
+	E(\k) = h_0(\k) \pm \abs{\h(\k)},
+\end{equation*}
+so that the gap between the two bands closes exactly when $\h(\k) = 0$. That is, band crossings occur at the simultaneous zeroes of three functions $h_i$ for $i\in\set{1,2,3}$, all depending on three momentum degrees of freedom. Such a system of three equations with three parameters generically has point-like solutions: the zeroes of each individual $h_i$ normally form a surface in $\T^3$, two such surfaces intersect in a set of curves, and the third surface intersects these curves in a set of points. This means that two bands in a three-dimensional system generically have point-like intersections where the gap closes, given that the bands are close enough together (i.e.\ the functions $h_i$ each have zeroes to begin with). These band crossings are called accidental because they are not enforced by any symmetry of the system, but as we will review shortly, they are actually topologically robust and cannot be gapped out by small perturbations.
+
+\subsection{Weyl points}
+Near a band intersection at $\k=\k_0$, the Hamiltonian can be linearized: writing $\delta\k := \k - \k_0$, it can be expanded as
+\begin{equation}\label{eq:linearized-Hamiltonian}
+	\Hc(\k) = h_0(\k_0)\Id + \vb{v}_0\cdot\delta\k\Id + \sum_{i=1}^{3}\vb{v}_i\cdot\delta\k \sigma^i + \order{\delta\k^2},
+\end{equation}
+where $(\vb{v}_\mu)_i := \dee_{k^i}h_\mu |_{\k=\k_0}$ records the rate of change of the different components of the Hamiltonian. The spectrum associated with this linear equation looks like two cones which touch at $\k=\k_0$, often collectively called the \emph{Weyl cone}; see Figure~\red{[figure]}. %TODO
+%TODO figure
+The different components of Equation~\eqref{eq:linearized-Hamiltonian} can all be given an interpretation in terms of this Weyl cone: for example, $h_0(\k_0)$ is the energy at which the bands touch, and it determines how far this crossing is from the Fermi energy $\varepsilon_F=0$. If $h_0$ is sufficiently far from the Fermi level, the Fermi surface expands to connect with those around other band crossings and gains an extensive two-dimensional structure. Normal metallic dispersive behaviour dominates in this case. However, if $h_0$ is close enough to zero, then the Fermi surface around $\k_0$ becomes approximately point-like, and there is a low-energy bulk conductive mode at $\k_0$. In this case the point $\k_0$ is called a \emph{Weyl point} or \emph{Weyl node}. When all of the crossings between the valence and conduction band have this property, the material is referred to as a \emph{Weyl semimetal}.\footnote{
+	The term \emph{Weyl metal} is also sometimes used for materials in which the Fermi surface is not point-like, but still confined to closed surfaces around the band crossings \cite{Burkov_Weyl-metals}. The topology of such Weyl metals is equivalent to that of their semimetal counterparts, and we will pay them no further mind.}
+
+This nomenclature is derived from the traceless $\vb{v}_i$ term in Equation~\eqref{eq:linearized-Hamiltonian}: it bears resemblance to the Hamiltonians describing individual Weyl fermions
+\begin{equation*}
+	H_\pm = \mp c\vb{p}\cdot\bm{\upsigma},
+\end{equation*}
+where the speed of light $c$ is replaced by the smaller effective velocities $\vb{v}_i$ in different directions. In a Weyl semimetal, the aforementioned low-energy modes have similar dispersive properties to Weyl fermions. This is one of the reasons Weyl semimetals are a desirable object of study, especially since---despite their mathematical simplicity---Weyl fermions have not been observed as fundamental particles in nature.
+
+One particularly interesting feature of Weyl fermions is that they have a non-zero chirality associated with them, which leads to a chiral anomaly upon quantisation. It turns out that a similar truth holds for the band crossings described by Equation~\eqref{eq:linearized-Hamiltonian}. They feature an intrinsic chirality $\chi$, which can be calculated in generic cases by collecting the velocities $\vb{v}_i$ into a $3\times 3$ matrix $V_{ij} := (\vb{v}_i)_j$ and computing the sign of its determinant:
+\begin{equation*}
+	\chi = \sign{|V_{ij}|},
+\end{equation*} 
+giving a chirality of $\chi=\pm1$. In special cases where the band crossing is non-linear, the chirality may take on other integer values; this is captured more generally using a Berry curvature integral on a two-dimensional sphere surrounding the Weyl point. In this light, it becomes apparent that the chirality of a Weyl point is topological in nature, which is exactly why they are robust to perturbations. The implications of this topological perspective will be explored in greater detail in Section~\ref{sec:semimetal-topology}.
+
+A final feature of Equation~\eqref{eq:linearized-Hamiltonian} that bears mentioning is the inclusion of the $\vb{v}_0$ term. This term can be interpreted in terms of a tilting of the associated Weyl cone. For small $\vb{v}_0$, the Fermi surface of a Weyl point remains point-like, and the dispersive properties of the virtual Weyl fermion aren't greatly affected. However, for large enough $\vb{v}_0$, the Weyl cone may begin to intersect the Fermi level, causing electron and hole pockets to form on either side of the Weyl point; see Figure~\ref{fig:Weyl-cone-tilt}.
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=.7\linewidth]{Images/Weyl-cone-tilt}
+	\caption{Figure from Ref.~\cite{Soluyanov_Type-II}. Left: Weyl cone in a normal (type I) Weyl semimetal. Right: ``Overtilted'' Weyl cone in a type II Weyl semimetal. Electron and hole pockets are outlined in red and blue, respectively.}
+	\label{fig:Weyl-cone-tilt}
+\end{figure}
+This tipping of the Weyl cone induces significantly altered dispersion, leading to different electronic properties. Such materials are categorised separately as so-called \emph{type II} Weyl semimetals. This distinction is purely physical, however; the different types of Weyl semimetals cannot be distinguished topologically.
+
+\subsection{Nielsen--Ninomiya charge cancellation}
+
+%TODO NN
+
+\subsection{Fermi arcs}
+
+%TODO arcs
+
+\subsection{Semimetals with symmetries}
+
+Thus far, we have discussed Weyl semimetals without assuming any additional symmetry constraints. However, real crystalline solids often naturally possess symmetries beyond simple translational symmetry. Two such symmetries which are especially relevant to the discussion of Weyl semimetals are time-reversal symmetry and inversion symmetry.
+
+%TODO inversion
+
+%TODO time-reversal
+
+%TODO why must one be broken
 
 {\color{blue}
 \begin{itemize}
-	\item The generic Hermitian two-band Hamiltonian in three dimensions is
-	\begin{equation*}
-		\Hc(\k) = h_0(\k)\Id + \h(\k)\cdot\bm{\upsigma}.
-	\end{equation*}
-	The eigenvalues of this Hamiltonian are
-	\begin{equation*}
-		E(\k) = h_0(\k) \pm \abs{\h(\k)},
-	\end{equation*}
-	so that the gap between the two bands closes exactly when $\h(\k) = 0$. Since $\h(\k)$ has three components that all depend on three momentum degrees of freedom, these band crossings are expected to appear generically at discrete points in the Brillouin zone. These band crossings are ``accidental'' in the sense that they are not enforced by any symmetry of the system, but they are generally robust to perturbations.
-	
-	\item Near a band intersection at $\k=\k_0$, the Hamiltonian can be linearized: writing $\delta\k := \k - \k_0$, it can be expanded as
-	\begin{equation}\label{eq:linearized-Hamiltonian}
-		\Hc(\k) = h_0(k_0)\Id + \vb{v}_0\cdot\delta\k\Id + \sum_{i=1}^{3}\vb{v}_i\cdot\delta\k \sigma^i + \order{\delta\k^2},
-	\end{equation}
-	where $(\vb{v}_\mu)_i := \dee_{k^i}h_\mu |_{\k=\k_0}$ records the rate of change of the different components of the Hamiltonian. The traceless linear term containing the sigma matrices is of particular interest: it bears resemblance to (and in specific cases, reduces to) the Hamiltonians describing individual Weyl fermions:
-	\begin{equation*}
-		H_\pm = \mp \vb{p}\cdot\bm{\upsigma}.
-	\end{equation*}
-	This similarity is the reason the point $k_0$ is called a \emph{Weyl point} or \emph{Weyl node}. It hints at an important feature of these band crossings: like Weyl fermions, they have an intrinsic chirality associated with them. This chirality $\chi$ can be calculated in generic cases by collecting the velocities $\vb{v}$ into a $3\times 3$ matrix $V_{ij} := (\vb{v}_i)_j$ and calculating the sign of its determinant:
-	\begin{equation*}
-		\chi = \sign{|V_{ij}|},
-	\end{equation*} 
-	giving a chirality of $\chi=\pm1$. In special cases where the band crossing is non-linear, the chirality may take on other integer values; this is captured more generally using a Berry curvature integral on a two-dimensional sphere surrounding the Weyl point. In this light, it becomes apparent that the chirality of a Weyl point is topological in nature, which is exactly why they are robust to perturbations. The implications of this topological perspective will be explored in greater detail in Section~\ref{sec:semimetal-topology}.
-	
-	\item Band crossings may occur between any two bands, but degeneracies in bands other than the conduction and valence bands generally do not affect the electronic properties of a material. Even between the valence and conduction bands, the different gap closings can occur at any energy in principle, determined by $h_0(\k)$. If this energy is sufficiently far from the Fermi level, the Fermi surface has an extensive two-dimensional structure, and normal metallic dispersive behaviour dominates. If $h_0(\k)$ is close enough to the Fermi level at all band intersections, the Fermi surface becomes point-like to good approximation, and the material is in a semimetallic phase. This is what is referred to as a (type I) Weyl semimetal.
-	
-	\item Small note on $\vb{v}_0$ and cone tilt/type II WSMs
-	
-	\item Nielsen--Ninomiya
-	
-	\item Discuss the role of inversion + time-reversal symmetry (why one of the two needs to be broken). Topologically different: minimum of 2 vs. 4 Weyl nodes.
+	\item Nielsen--Ninomiya (Chiral anomaly cancelling?)
 	
 	\item Fermi arcs
 	
-	\item Non-linear electric field current response
+	\item Discuss the role of inversion + time-reversal symmetry (why one of the two needs to be broken). Topologically different: minimum of 2 vs. 4 Weyl nodes.
 	
-	\item Chiral anomaly cancelling $\leftrightarrow$ Nielsen--Ninomiya?
+	\item (Non-linear electric field current response)
 \end{itemize}
 }
 
@@ -339,7 +368,7 @@ As discussed in Section~\ref{sec:semimetal-physics}, time reversal symmetry squa
 \end{figure}
 
 The cohomology description must be altered in several ways in order to accommodate this more complex topology. First of all, the cohomology classes must respect the $\k\leftrightarrow-\k$ symmetry on the Brillouin zone, leading to the use of \emph{equivariant} cohomology groups $H_{\Z_2}^n$, where the $\Z_2$ stands for the $\Z_2$ action of the symmetry. Mathematically, this is similar in spirit to studying the topology of the \emph{effective Brillouin zone} covering half the torus $\T^3$, obtained from the quotient $\T^3/\Z_2$ of the symmetric action. However, the presence of high-symmetry points means some topological information is lost in passing to this effective Brillouin zone, and so a somewhat more involved construction called the \emph{homotopy quotient} must be employed instead.\footnote{
-	This homotopy quotient is obtained from the \emph{Borel construction}, relying on the fact that there is always a contractible space $EG$ (the total space of the so-called \emph{universal bundle}, in this case $S^\infty$) on which the symmetry group $G$ acts freely. The product space $EG\times\T^3$ is then homotopy equivalent to $\T^3$, but the diagonal action has no fixed points. The equivariant cohomology is then the cohomology of the associated quotient space: $H_G^n(\T^3) := H^n(EG\times_G\T^3)$.}
+	This homotopy quotient is obtained from the \emph{Borel construction}, relying on the fact that there is always a contractible space $EG$ (the total space of the so-called \emph{universal bundle}, in this case $S^\infty$) on which the symmetry group $G$ acts freely. The product space $EG\times\T^3$ is then homotopy equivalent to $\T^3$, but the diagonal action has no fixed points. Equivariant cohomology is defined as the cohomology of the quotient space of this action: $H_G^n(\T^3) := H^n(EG\times_G\T^3)$.}
 
 Secondly, the non-trivial topology existing at the time-reversal invariant momenta (TRIM) necessitates that the cohomology groups be calculated relative to these points. This relative cohomology is defined in much the same way as the relative \emph{homology} featured in Equation~\eqref{eq:relative-homology}.
 
