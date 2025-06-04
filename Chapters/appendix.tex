@@ -1,16 +1,111 @@
 \cftaddtitleline{toc}{chapter}{$\qquad$APPENDICES}{}
 \chapter{Homology and cohomology}\label{chap:homology}
 
-The concepts of homology and its counterpart cohomology are indispensable in algebraic topology. \red{[\ldots]}  %TODO
+The concepts of homology and its dual counterpart cohomology are indispensable tools in the mathematical field of algebraic topology. While seemingly abstract to from a physics point of view, many fundamental elements of the physicist's toolbox---such as Stokes' theorem---are formulated most naturally in the context of this theory. Additionally, there are deep results relating the cohomology of a space to the classification of different types of vector bundles over this space. Physically, this relates to the classification of topological phases of matter to which this work is dedicated.
 
-Here we offer a brief introduction to these concepts, aimed at the uninitiated physicist. The goal here is not to be completely rigorous, but to give a sufficiently complete understanding that the applications discussed in the main text may be understood in their proper context. For a more complete picture, the interested reader is referred to standard texts in algebraic topology such as \cite{Hatcher_algebraic-topology} and \cite{Bredon_topo-geometry}. A more geometric treatment is also found in \cite{Bott-Tu_differential-forms}.
+Here we offer a brief introduction to these concepts, aimed at the uninitiated physicist. The goal here is not to be completely rigorous, but to give a sufficiently comprehensive understanding that the applications discussed in the main text %TODO in later chapters?
+may be understood in their proper context. For a more complete picture, the interested reader is referred to standard texts in algebraic topology such as Refs.~\cite{Hatcher_algebraic-topology} and \cite{Bredon_topo-geometry}. A more geometric treatment relying on differential forms is also found in Ref.~\cite{Bott-Tu_differential-forms}.
+
+The basic idea underlying homology is that information about the topology of a space $M$ can be gained from studying non-trivial subspaces of $M$ of various dimensions. Perhaps the simplest conceptual realisation of this idea exists in the closely related \emph{homotopy} theory. In this theory, one defines the $n$th homotopy group $\pi_n(M)$ in terms of maps from the $n$-dimensional sphere $S^n$ into $M$. For example, the first homotopy group $\pi_1(M)$ (also known as the \emph{fundamental group}) records the topologically different ways in which loops $\gamma:S^1\to M$ can sit inside $M$. If two such loops cannot be transformed continuously into each other, then they represent different elements of $\pi_1(M)$. %TODO physical applications
+
+Despite their conceptual simplicity, homotopy groups can be rather unwieldy in practice: they are generally difficult to compute and may have unpredictable structures. For example, even maps from $S^n$ to a lower-dimensional $S^m$ with $m<n$ may be non-trivial, and calculating the associated higher homotopy groups $\pi_n(S^m)$ of the spheres is an important open problem in algebraic topology.
+
+This is where the closely related homology enters the stage. It is conceptually somewhat more involved than homotopy, and strictly speaking it contains less information. However, there is a great payoff: homology groups are generally much easier to compute and structurally simpler than their homology counterparts. Moreover, homology can be dualized into cohomology, which is a construction which is both mathematically and physically very natural.
 
 
-\section{Homology}
+\section*{Homology}
 
-Suppose we have some topological space---for example, the torus $\T^2$---and we want to study \red{[\ldots]}%TODO
+The basic building blocks of homology theory are oriented subspaces of a space $M$.\footnote{
+	There are several different ways of formally defining these oriented subspaces, such as mapping simplices (the $n$-dimensional analog of triangles) into $M$ or defining a so-called \emph{cell structure} on $M$. Importantly, these different constructions usually give rise to the same homology groups; because of this, we will be agnostic to the details and focus on the conceptual basis instead.} %TODO perhaps refer to app. B
+Some such subspaces are illustrated for the two-dimensional torus in Figure~\ref{fig:homology-chains}.
+\begin{figure}[htb!]
+	\centering
+	\def\svgwidth{.6\linewidth}
+	\import{Images}{homology-chains.pdf_tex}
+	\caption{The two-torus $\T^2$. Some of the oriented subspaces that make up chains in the homology theory are highlighted: components of 0, 1, and 2-chains are coloured blue, red and orange, respectively. The orientation of the 0D and 2D subspaces can be canonically induced from an orientation on the torus in this case.}
+	\label{fig:homology-chains}
+\end{figure}
+Topological information can be gained from these subspaces by studying their (oriented) boundaries. The goal of homology is to find subspaces such as $d$ and $e$ in Figure~\ref{fig:homology-chains}, which do not have a boundary, but cannot themselves be written as the boundary of another subset either---unlike $c$, for instance, which is the boundary of $S$. Spaces like $d$ and $e$ detect topological features of the space, such as the hole in the centre of the torus.
 
-The basic idea underlying homology is that information about the topology of a space can be gained from studying non-trivial subspaces. In the related \emph{homotopy} theory, this is achieved by mapping $n$-dimensional spheres into the space; if the image of such a map cannot be contracted to a point, the map represents a non-zero element of a homotopy group.
+To properly define oriented boundaries, we must work in the context of so-called $n$-\emph{chains}, which are linear combinations of $n$-dimensional subspaces of $M$. For example, $a+b$ is a 1-chain on the torus in Figure~\ref{fig:homology-chains}, as is $3a-2c$. Using $n$-chains makes boundaries well-behaved under addition. For example, we may define the boundary of $a$ as the 0-chain $\dee a = p - q$, and similarly $\dee b = q - r$; adding these up, we obtain
+\begin{equation*}
+	\dee a + \dee b = (p - q) + (q - r) = p - r,
+\end{equation*}
+which is precisely the boundary of the 1-chain $a+b$.
+
+Formally, an $n$-chain takes the form
+\begin{equation*}
+	\sum_i c_i X_i,
+\end{equation*}
+where $X_i\subset M$ are oriented $n$-dimensional subsets of $M$. The coefficients $c_i$ are usually taken to be integers in $\Z$, but they may also be e.g.\ real numbers, rationals or elements of $\Z_2$; to be precise, they must be elements of any fixed Abelian group $G$, which is called the \emph{coefficient group}. A powerful result called the universal coefficient theorem %TODO cite
+tells us that taking coefficients in the integers $G=\Z$ always results in the richest possible homology theory; this is why the coefficients are usually assumed to be elements of $\Z$ unless explicitly stated otherwise.
+
+The $n$-chains on $M$ naturally form a group under addition in the coefficient group $G$, which we notate $C_n(M;G)$---or simply $C_n(M)$ when $G=\Z$. The inverses in this group act to invert the orientation of a chain: for example, the chain $-c$ on our torus looks like $c$ with the arrow pointing in the opposite direction.
+
+The boundary of an $n$-chain is always an $(n-1)$-chain. This is even true for $n=0$; points have no boundary, so their boundary is the empty ``$(-1)$-chain'' in $C_{-1}(M;G) = 0$. This means taking the boundary defines\footnote{
+	The precise definition of the boundary map depends on the way subspaces are defined, but the properties we discuss here are universal.}
+a map $\dee_n$ from $C_n(M;G)$ to $C_{n-1}(M;G)$ for every integer $n$. These maps are group homomorphisms---that is, for integer or real coefficients, they are linear: for instance, we have already seen that $\dee(a+b) = \dee a + \dee b$ on our torus.
+
+The boundary maps $\dee_n$ can be used to arrange the chain groups in a so-called \emph{chain complex}:
+\begin{equation*}
+	0 \overset{\dee_0}{\leftarrow} C_0(M;G) \overset{\dee_1}{\leftarrow} C_1(M;G) \overset{\dee_2}{\leftarrow} C_2(M;G) \overset{\dee_3}{\leftarrow} \cdots.
+\end{equation*}
+These chain complexes are usually finite: for example, the 2-torus in Figure~\ref{fig:homology-chains} has no 3-dimensional subspaces, so its chain complex (with integer coefficients) reads
+\begin{equation*}
+	0 \overset{\dee_0}{\leftarrow} C_0(\T^2) \overset{\dee_1}{\leftarrow} C_1(\T^2) \overset{\dee_2}{\leftarrow} C_2(\T^2) \overset{\dee_3}{\leftarrow} 0.
+\end{equation*}
+In practice, the subscript on the maps $\dee_n$ is often dropped when talking about specific subspaces.
+
+A very important property of the chain complex is that composing two boundary maps always yields zero; this is often abbreviated as $\dee^2 = 0$. In other words, boundaries have no boundaries. An example of this can be seen in Figure~\ref{fig:homology-chains}: the 1-chain $c$ is the boundary of the 2-chain $S$, but it does not have a boundary itself. In homology terms, chains like $c$ which have no boundaries are called \emph{cycles}. The set of $n$-cycles is denoted $Z_n$ and it forms a subgroup of the $n$-chain group. It is defined in terms of the kernel of $\dee_n$, i.e.\ the $n$-chains that map to the empty chain 0:
+\begin{equation*}
+	Z_n(M;G) := \ker(\dee_n) \subset C_n(M;G).
+\end{equation*}
+
+The property $\dee^2 = 0$ implies that all boundaries are cycles, but crucially, it does not imply the opposite: there may be cycles which are not boundaries. In Figure~\ref{fig:homology-chains}, $d$ and $e$ are such 1-cycles: we cannot find a 2-chain of which $d$ is the boundary, for instance. This implies that the set of $n$-chains which are boundaries is a subgroup of the group of $n$-cycles $Z_n$. The former group is called the group of $n$-\emph{boundaries} and denoted $B_n$. It is defined as the image of $\dee_{n+1}$:
+\begin{equation*}
+	B_n(M;G) := \im(\dee_{n+1}) \subset Z_n(M;G) \subset C_n(M;G).
+\end{equation*}
+
+We can now finally define the homology on $M$. The \emph{$n$th homology group} $H_n$ consists of all $n$-cycles modulo $n$-boundaries:
+\begin{equation*}
+	H_n(M;G) := \frac{Z_n(M;G)}{B_n(M;G)} = \ker(\dee_n) / \im(\dee_{n+1}).
+\end{equation*}
+Again, the coefficient group $G$ is often dropped from the notation under integer coefficients $G=\Z$. The elements of $H_n$ are called \emph{homology classes}, and they are equivalence classes of $n$-cycles. Two $n$-cycles $\gamma_1$ and $\gamma_2$ are called \emph{homologous} if they differ only by a boundary, i.e.\ if $\gamma_1 = \gamma_2 + \dee\Gamma$ for some $n+1$ chain $\Gamma$. In this case they represent the same homology class, and we write $[\gamma_1] = [\gamma_2]\in H_n(M;G)$. For example, the 1-cycle $c$ in Figure~\ref{fig:homology-chains} is the boundary of the 2-chain $S$, and so it is homologous to the empty cycle: $c= 0 + \dee S$, meaning $[c] = 0\in H_1(\T^2)$. Similarly, any $n$-boundary represents the trivial class in $H_n$ in general. Intuitively, this is because a boundary can always be continuously retracted to a point (for example, $c$ can be retracted by shrinking $S$), where it vanishes and becomes the empty cycle.
+
+Another important example of homologous cycles is illustrated in Figure~\ref{fig:homology-classes}.
+\begin{figure}[htb!]
+	\centering
+	\def\svgwidth{.6\linewidth}
+	\import{Images}{homology-classes.pdf_tex}
+	\caption{The 2-torus $\T^2$, featuring the same 1-cycle $e$ as before, and also a 1-cycle $f$ which is obtained by moving $e$ along the torus. The boundary of the 2-chain $V$ indicated in orange is precisely the difference of these cycles: $\dee V = e - f$. Since $e$ and $f$ differ by a boundary, they are homologous, i.e.\ $[e]=[f]\in H_1(\T^2)$.} %TODO
+	\label{fig:homology-classes}
+\end{figure}
+In this case, we see that non-trivial cycles may also represent the same homology class if they can be deformed into each other continuously.
+
+These examples demonstrate an important general property: the homology group classifies cycles that differ from each other topologically, i.e.\ cannot be deformed into one another. As a result, the homology groups $H_n$ have a much simpler structure than the underlying chain groups. For example, the first homology group of the 2-torus $H_1(\T^2)$ consists precisely of elements of the form
+\begin{equation*}
+	m_d[d] + m_e[e],\quad m_d,m_e\in G=\Z,
+\end{equation*}
+where $d$ and $e$ are as in Figure~\ref{fig:homology-chains}. It follows that this group looks like two copies of $\Z$:
+\begin{equation*}
+	H_1(\T^2) \cong \Z^2.
+\end{equation*}
+
+The 0th homology group can be obtained by similar logic: all single points on $\T^2$ can be continuously moved to a single point $p$, so that elements of $H_0(\T^2)$ are of the form
+\begin{equation*}
+	m_p[p],\quad m_p\in\Z,
+\end{equation*}
+and consequently
+\begin{equation*}
+	H_0(\T^2) \cong \Z.
+\end{equation*}
+For similar reasons, if $M$ consists of $k$ connected components, then $H_0(M) = \Z^k$ in general.
+
+Finally, the only two-dimensional subspace of $\T^2$ that represents a non-trivial homology class turns out to be the whole torus itself; as a result, $H_2$ also has a single generator:
+\begin{equation*}
+	H_2(\T^2) \cong \Z.
+\end{equation*}
+These three groups completely classify the homology of the 2-torus, since it only admits $n$-chains for $0\leq n\leq 2$. This is a general property of homology: unlike homotopy, where higher homotopy groups may have a highly non-trivial structure, the homology groups $H_n$ of a $d$-dimensional manifold are always 0 for $n>d$ and $n<0$.
 
 
-\section{Cohomology}
+\section*{Cohomology}
