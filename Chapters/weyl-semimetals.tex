@@ -1,54 +1,52 @@
 \chapter{Weyl semimetals}\label{chap:WSM}
 
-%TODO Intro
+In recent years, interest in topological materials has expanded beyond the purely gapped phases in insulators and superconductors, into the realm of metals and other related gapless phases. Some of the topological conductors that are of the greatest interest are called Weyl semimetals, which form the focus of the rest of the present work.
 
-{\color{blue}
-\begin{itemize}
-	\item Give a very brief few-sentence overview of the history behind Weyl fermions (Weyl 1929) and accidental band crossings (Herring 1937) etc.\ here, so the physics section can focus on modern descriptions straight away
-	
-	\item Credit review papers in introduction
-	
-	\item This chapter contains no new results, its purpose is to provide the necessary background to our results in Chapter~\ref{chap:non-orientable}.
-	
-	\item Section~\ref{sec:semimetal-physics} reviews physical aspects of WSM, Section~\ref{sec:semimetal-topology} goes into the topological details.
-\end{itemize}
-}
+Weyl semimetals are materials that host gapless modes only at very specific momenta in the Brillouin zone. They have a myriad of properties that make them worthy subjects of study, not only from a theoretical perspective but also in potential experimental and engineering applications. Practically, Weyl semimetals have exotic transport properties such as a resistance which is highly sensitive to the application of a magnetic field, opening up countless possibilities for electronic applications. 
+
+Experimentally, Weyl semimetals may comprise the first platform in which the chiral fermions described by Herman Weyl in 1929 can be studied in the wild, %TODO ref
+in the form of bulk quasiparticle excitations---despite their mathematical simplicity, Weyl fermions do not appear to exist as fundamental particles in nature. %TODO wording
+
+This aspect of Weyl semimetals is also of theoretical interest, since their fermionic modes may be altered in different ways beyond the simple description originally given by Weyl. Additionally, the topology of Weyl semimetals is intrinsically rich and generalises many aspects of insulator topology. It is this latter topological point of view which is the main focus of this chapter; the interested reader is referred to Refs.~\red{[Armitage]} and \red{[Hosur]} for more complete physically-minded overviews. %TODO refs
+
+This chapter does not contain any new results; instead, its purpose is to provide the necessary context for the results contained in Chapter~\ref{chap:non-orientable}. We begin by introducing the most important physical aspects of Weyl semimetals in Section~\ref{sec:semimetal-physics}, with a focus on the features that are of topological relevance. Section~\ref{sec:semimetal-topology} then dives deeper into the underlying topology, introducing many of the relevant mathematical concepts at a fairly elementary level.
 
 \section{Physical aspects}\label{sec:semimetal-physics}
 
-The concept of Weyl semimetals arises naturally when studying how different energy bands interact in three-dimensional solids. Whereas one and two-dimensional materials are generally gapped unless additional symmetries force the bands to touch, the situation is different in three dimensions. In this context, so-called \emph{accidental band crossings} are expected based on geometric arguments.
+The concept of Weyl semimetals arises naturally when studying how different energy bands relate to each other in three-dimensional solids. Whereas one and two-dimensional materials are generally gapped unless additional symmetries force the bands to touch, the situation is different in three dimensions. In this context, so-called \emph{accidental band crossings} are expected based on geometric arguments \red{[Herring, 1937]}. %TODO Herring 1937
 
-Accidental crossings can be understood by studying how any two of the energy bands interact. In most physically relevant scenarios these will be the valence and conduction band, since these determine the conductive properties of a material. Recall that the generic Hermitian two-band Hamiltonian can be written as
+Accidental crossings can be understood by studying the interplay between any two of the energy bands. In most physically relevant scenarios these will be the valence and conduction band, since these determine the conductive properties of a material. Recall that the generic Hermitian two-band Hamiltonian can be written as
 \begin{equation*}
 	\Hc(\k) = h_0(\k)\Id + \h(\k)\cdot\bm{\upsigma},
 \end{equation*}
 where $\k$ lives in the three-dimensional Brillouin torus $\T^3$ in this case. The eigenvalues of this Hamiltonian are
 \begin{equation*}
-	E(\k) = h_0(\k) \pm \abs{\h(\k)},
+	E(\k) = h_0(\k) \pm \abs{\h(\k)} = h_0(\k) \pm \sqrt{h_1^2(\k) + h_2^2(\k) + h_3^2(\k)},
 \end{equation*}
-so that the gap between the two bands closes exactly when $\h(\k) = 0$. That is, band crossings occur at the simultaneous zeroes of three functions $h_i$ for $i\in\set{1,2,3}$, all depending on three momentum degrees of freedom. Such a system of three equations with three parameters generically has point-like solutions: the zeroes of each individual $h_i$ normally form a surface in $\T^3$, two such surfaces intersect in a set of curves, and the third surface intersects these curves in a set of points. This means that two bands in a three-dimensional system generically have point-like intersections where the gap closes, given that the bands are close enough together (i.e.\ the functions $h_i$ each have zeroes to begin with). These band crossings are called accidental because they are not enforced by any symmetry of the system, but as we will review shortly, they are actually topologically robust and cannot be gapped out by small perturbations.
+so that the gap between the two bands closes exactly when $\h(\k) = 0$. That is, band crossings occur at the simultaneous zeroes of three functions $h_i$ for $i\in\set{1,2,3}$, all depending on three momentum degrees of freedom. Such a system of three equations with three parameters generically has point-like solutions: the zeroes of each individual $h_i$ normally form a surface in $\T^3$, two such surfaces intersect in a set of curves, and the third surface intersects these curves in a set of points. This means that two bands in a three-dimensional system generically have point-like intersections where the gap closes, given that the bands are close enough together (i.e.\ the functions $h_i$ each have zeroes to begin with). %TODO repetitions
+These band crossings are called accidental because they are not enforced by any symmetry of the system, but as we will review shortly, they are actually topologically robust and cannot be gapped out by small perturbations.
 
 \subsection{Weyl points}
-Near a band intersection at $\k=\k_0$, the Hamiltonian can be linearized: writing $\delta\k := \k - \k_0$, it can be expanded as
+Near a band intersection at $\k=\k_w$, the Hamiltonian can be linearized: writing $\delta\k := \k - \k_w$, it can be expanded as
 \begin{equation}\label{eq:linearized-Hamiltonian}
-	\Hc(\k) = h_0(\k_0)\Id + \vb{v}_0\cdot\delta\k\Id + \sum_{i=1}^{3}\vb{v}_i\cdot\delta\k \sigma^i + \order{\delta\k^2},
-\end{equation}
-where $(\vb{v}_\mu)_i := \dee_{k^i}h_\mu |_{\k=\k_0}$ records the rate of change of the different components of the Hamiltonian. The spectrum associated with this linear equation looks like two cones which touch at $\k=\k_0$, often collectively called the \emph{Weyl cone}; see Figure~\red{[figure]}. %TODO
+	\Hc(\delta\k) = h_0(\k_w)\Id + \vb{v}_0\cdot\delta\k\Id + \sum_{i=1}^{3}\vb{v}_i\cdot\delta\k \sigma^i + \order{\delta\k^2},
+\end{equation} %TODO mention Fermi velocities?
+where $(\vb{v}_\mu)_i := \dee_{k^i}h_\mu |_{\k=\k_w}$ records the rate of change of the different components of the Hamiltonian. The spectrum associated with this linear equation looks like two cones which touch at $\k=\k_w$, often collectively called the \emph{Weyl cone}; see Figure~\red{[figure]}. %TODO
 %TODO figure
-The different components of Equation~\eqref{eq:linearized-Hamiltonian} can all be given an interpretation in terms of this Weyl cone: for example, $h_0(\k_0)$ is the energy at which the bands touch, and it determines how far this crossing is from the Fermi energy $\varepsilon_F=0$. If $h_0$ is sufficiently far from the Fermi level, the Fermi surface expands to connect with those around other band crossings and gains an extensive two-dimensional structure. Normal metallic dispersive behaviour dominates in this case. However, if $h_0$ is close enough to zero, then the Fermi surface around $\k_0$ becomes approximately point-like, and there is a low-energy bulk conductive mode at $\k_0$. In this case the point $\k_0$ is called a \emph{Weyl point} or \emph{Weyl node}. When all of the crossings between the valence and conduction band have this property, the material is referred to as a \emph{Weyl semimetal}.\footnote{
-	The term \emph{Weyl metal} is also sometimes used for materials in which the Fermi surface is not point-like, but still confined to closed surfaces around the band crossings \cite{Burkov_Weyl-metals}. The topology of such Weyl metals is equivalent to that of their semimetal counterparts, and we will pay them no further mind.}
+The different components of Equation~\eqref{eq:linearized-Hamiltonian} can all be given an interpretation in terms of this Weyl cone: for example, $h_0(\k_w)$ is the energy at which the bands touch, and it determines how far this crossing is from the Fermi energy $\varepsilon_F=0$. If $h_0$ is sufficiently far from the Fermi level, the Fermi surface expands to connect with those around other band crossings and gains an extensive two-dimensional structure. Normal metallic dispersive behaviour dominates in this case. However, if $h_0$ is close enough to zero, then the Fermi surface around $\k_w$ becomes approximately point-like, and there is a low-energy bulk conductive mode at $\k_w$. In this case the point $\k_w$ is called a \emph{Weyl point} or \emph{Weyl node}. When all of the crossings between the valence and conduction band have this property, the material is referred to as a \emph{Weyl semimetal}.\footnote{
+	The term \emph{Weyl metal} is also sometimes used for materials in which the Fermi surface is not point-like due to large $h_0$, but still confined to closed surfaces around the band crossings \cite{Burkov_Weyl-metals}. The topology of such Weyl metals is equivalent to that of their semimetal counterparts, and we will pay them no further mind.}
 
-This nomenclature is derived from the traceless $\vb{v}_i$ term in Equation~\eqref{eq:linearized-Hamiltonian}: it bears resemblance to the Hamiltonians describing individual Weyl fermions
+This nomenclature is derived from the traceless $\vb{v}_i$ term in Equation~\eqref{eq:linearized-Hamiltonian}: it bears resemblance to the simple chiral fermions described by Herman Weyl in 1929 \red{[Weyl, 1929]}, %TODO Weyl 1929 %it bears resemblance to the Hamiltonians describing individual Weyl fermions
 \begin{equation*}
 	H_\pm = \mp c\vb{p}\cdot\bm{\upsigma},
 \end{equation*}
 where the speed of light $c$ is replaced by the smaller effective velocities $\vb{v}_i$ in different directions. In a Weyl semimetal, the aforementioned low-energy modes have similar dispersive properties to Weyl fermions. This is one of the reasons Weyl semimetals are a desirable object of study, especially since---despite their mathematical simplicity---Weyl fermions have not been observed as fundamental particles in nature.
 
-One particularly interesting feature of Weyl fermions is that they have a non-zero chirality associated with them, which leads to a chiral anomaly upon quantisation. It turns out that a similar truth holds for the band crossings described by Equation~\eqref{eq:linearized-Hamiltonian}. They feature an intrinsic chirality $\chi$, which can be calculated in generic cases by collecting the velocities $\vb{v}_i$ into a $3\times 3$ matrix $V_{ij} := (\vb{v}_i)_j$ and computing the sign of its determinant:
-\begin{equation*}
-	\chi = \sign{|V_{ij}|},
-\end{equation*} 
-giving a chirality of $\chi=\pm1$. In special cases where the band crossing is non-linear, the chirality may take on other integer values; this is captured more generally using a Berry curvature integral on a two-dimensional sphere surrounding the Weyl point. In this light, it becomes apparent that the chirality of a Weyl point is topological in nature, which is exactly why they are robust to perturbations. The implications of this topological perspective will be explored in greater detail in Section~\ref{sec:semimetal-topology}.
+One particularly interesting feature of Weyl fermions is that they have a non-zero chirality associated with them, which leads to certain non-conserved charges upon quantisation---this is known as the chiral anomaly. It turns out that a similar truth holds for the band crossings described by Equation~\eqref{eq:linearized-Hamiltonian}. They feature an intrinsic chirality $\chi$, which can be calculated in generic cases by collecting the velocities $\vb{v}_i$ into a $3\times 3$ matrix $V_i^j := (\vb{v}_i)_j$ and computing the sign of its determinant:
+\begin{equation}\label{eq:determinant_chirality}
+	\chi = \sign{|V_i^j|},
+\end{equation} 
+giving a chirality of $\chi=\pm1$. In special cases where the band crossing is non-linear, the chirality may take on other integer values; this is captured more generally using a Berry curvature integral on a two-dimensional sphere surrounding the Weyl point. In this light, Weyl points can be viewed as sources or sinks of the Berry field, with a quantized integer charge. This charge is topological in nature, which is exactly why Weyl points are robust to perturbations. The implications of this topological perspective will be explored in greater detail in Section~\ref{sec:semimetal-topology}.
 
 A final feature of Equation~\eqref{eq:linearized-Hamiltonian} that bears mentioning is the inclusion of the $\vb{v}_0$ term. This term can be interpreted in terms of a tilting of the associated Weyl cone. For small $\vb{v}_0$, the Fermi surface of a Weyl point remains point-like, and the dispersive properties of the virtual Weyl fermion aren't greatly affected. However, for large enough $\vb{v}_0$, the Weyl cone may begin to intersect the Fermi level, causing electron and hole pockets to form on either side of the Weyl point; see Figure~\ref{fig:Weyl-cone-tilt}.
 \begin{figure}[htb!]
@@ -57,55 +55,74 @@ A final feature of Equation~\eqref{eq:linearized-Hamiltonian} that bears mention
 	\caption{Figure from Ref.~\cite{Soluyanov_Type-II}. Left: Weyl cone in a normal (type I) Weyl semimetal. Right: ``Overtilted'' Weyl cone in a type II Weyl semimetal. Electron and hole pockets are outlined in red and blue, respectively.}
 	\label{fig:Weyl-cone-tilt}
 \end{figure}
-This tipping of the Weyl cone induces significantly altered dispersion, leading to different electronic properties. Such materials are categorised separately as so-called \emph{type II} Weyl semimetals. This distinction is purely physical, however; the different types of Weyl semimetals cannot be distinguished topologically.
+This tipping of the Weyl cone induces significantly altered dispersion, leading to different electronic properties. Such materials are categorised separately as so-called \emph{type II} Weyl semimetals. %TODO type II NODES; also mention type I
+This distinction is purely physical, however; the different types of Weyl semimetals cannot be distinguished topologically.
 
-\subsection{Nielsen--Ninomiya charge cancellation}
+\subsection{Global features}
 
-%TODO NN
+One important restriction on Weyl semimetals is that the total chirality of all Weyl points in the Brillouin zone must sum to zero---that is, for every source of the Berry field (Weyl point with $\chi>0$) there must also be a sink ($\chi<0$), and vice versa. This result is known as the Nielsen--Ninomiya theorem, after Holger Bech Nielsen and Masao Ninomiya who proved it in a more general context in 1981 \cite{NielsenNinomiya_I,NielsenNinomiya_II}. We will explore the topological nature of this theorem in more detail in Section~\ref{sec:semimetal-topology}. Physically, this charge cancellation is related to the aforementioned chiral anomaly: electric charge is locally non-conserved near a Weyl point under the application of electric and magnetic fields, and this effect must be cancelled by a Weyl point of the opposite chirality. More details on the chiral anomaly in Weyl semimetals are reviewed in Ref.~\cite{Hosur_WSM-transport}.
 
-\subsection{Fermi arcs}
+The Nielsen--Ninomiya theorem is an indication that Weyl points must communicate with their opposite-chirality counterparts in some way to allow transport of charge. This connection manifests itself on the surface of a Weyl semimetal: there, gapless states called \emph{Fermi arcs} appear in the form of curves connecting the projections of oppositely-charged Weyl points; see Figure~\ref{fig:WSM_bulk+arc}.
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=.5\linewidth]{Images/WSM_bulk+arc}
+	\caption{Figure by Alan Stonebraker. The 3D bulk Brillouin zone is shown of a Weyl semimetal with two Weyl points of negative and positive chirality, depicted as a sink and a source of the Berry field respectively. A 2D surface Brillouin zone is also depicted in grey at the top, featuring the projection of the two Weyl nodes connected by a Fermi arc of gapless states.}
+	\label{fig:WSM_bulk+arc}
+\end{figure}
+Fermi arcs serve as important experimental signatures of Weyl semimetals, and they have been observed in both electronic and artificial crystals since 2015  \cite{Weng_WSM-candidates,Huang_WSM-candidates,Lv_WSM-TaAs,Xu_WSM-experiment,Belopolski_minimal-WSM,Liu_photonic-Chern-vector}; see Figure~\ref{fig:TaAs_experiment}.
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=.6\linewidth]{Images/TaAs_experiment}
+	\caption{Figures from Ref.~\cite{Xu_WSM-experiment}. Experimental bulk (orange) and surface (green) Fermi surfaces, obtained through angle-resolved photoemission spectroscopy (ARPES). Bottom left: Two Weyl points appearing close together in the bulk. Top left: Fermi arcs are shown to terminate on the surface Brillouin zone above these Weyl points. Right: Bulk measurements are overlaid on the surface measurements at matching $k_x$ and $k_y$ values, showing good agreement between the position of the Weyl nodes and the tail ends of the Fermi arcs. In this case the two distinct Fermi arcs appear because there are two separate sets of Weyl nodes with the same $k_x$ and $k_y$ coordinates.}
+	\label{fig:TaAs_experiment}
+\end{figure}
 
-%TODO arcs
 
 \subsection{Semimetals with symmetries}
 
 Thus far, we have discussed Weyl semimetals without assuming any additional symmetry constraints. However, real crystalline solids often naturally possess symmetries beyond simple translational symmetry. Two such symmetries which are especially relevant to the discussion of Weyl semimetals are time-reversal symmetry and inversion symmetry.
 
-%TODO inversion
+Inversion symmetry is a natural property of many real-space lattices: it implies that there is an inversion centre $\vb{x}_0$ in the unit cell around which the lattice is symmetric as $\vb{x}\leftrightarrow\vb{x}_0-\vb{x}$. In momentum space, this symmetry acts on the Hamiltonian as
+\begin{equation}\label{eq:inversion-symmetry}
+	\Hc(\k) = U\Hc(-\k)U\herm,
+\end{equation}
+where $U$ is some unitary transformation. In particular, this implies that a Weyl point at $\k=\k_w$ has a partner at $\k=-\k_w$ with the opposite chirality. Take for example the case of $U=\Id$ and a Weyl point with the simple linearized Hamiltonian 
+\begin{equation*}
+	\Hc(\delta\k) = \sum_{i,j}V_i^j\delta k_j \sigma^i.
+\end{equation*}
+This point has chirality $\chi = \sign\abs{V_i^j}$, and Equation~\eqref{eq:inversion-symmetry} implies that
+\begin{equation*}
+	\Hc(-\delta\k) = \sum_{i,j}(V')_i^j(-\delta k_j)\sigma^i = \Hc(\delta\k),
+\end{equation*}
+meaning there is a Weyl point at $\k=-\k_w$ with chirality $\chi' = \sign\abs{(V')_i^j} = \sign\abs{-V_i^j} = -\chi$. This reversal of chirality means Nielsen--Ninomiya is automatically satisfied under inversion symmetry. As a result, the minimum number of Weyl points in such a system is two; a Weyl point may be connected to its own symmetric partner via surface Fermi arcs.
 
-%TODO time-reversal
+Time-reversal symmetry has a similar action in momentum space, since momentum has a time component. It differs in the sense that time-reversal is an anti-unitary symmetry, meaning it also induces complex conjugation on the Hamiltonian:
+\begin{equation*}
+	\Hc(\k) = U\Hc^*(-\k)U\herm.
+\end{equation*}
+This complex conjugation changes the sign of the $\sigma^2$ term in the Hamiltonian; for Weyl points, this changes the sign of $\vb{v}_2$, inducing a sign change in the determinant of $V_i^j$. This cancels the sign change discussed above, meaning a Weyl point at $\k=\k_w$ always comes with a symmetric partner of \emph{equal} chirality at $\k=-\k_w$. Such a pair of equal-chirality points is sometimes referred to as a \emph{Kramers pair}. The presence of Kramers pairs means the minimum number of Weyl points in a time-reversal invariant Weyl semimetal is four: following Nielsen--Ninomiya, a pair of $\chi = +1$ points must always be accompanied by a pair of $\chi=-1$ points and vice versa.
 
-%TODO why must one be broken
+The fact that the chirality of Weyl points is reflected in different ways under inversion and time-reversal symmetry immediately implies that a Weyl semimetal cannot satisfy both symmetries at once: if a Weyl point has a non-zero chirality $\chi$, then inversion implies its partner has chirality $-\chi$, while time-reversal implies it should have chirality $\chi$. Physically, this is because the combination of inversion and time-reversal induces a spin degeneracy in the band structure, making modes of opposite chiralities coincide. This is in close analogy to the way in which a Dirac fermion combines two Weyl fermions of opposite chirality into a single description; this is precisely why band touching points of this nature are called \emph{Dirac cones}, and systems featuring them are referred to as \emph{Dirac semimetals}. Because of the lack of non-zero chiralities, such materials are topologically less rich than their Weyl counterparts, and we will not expand on them further.
 
-{\color{blue}
-\begin{itemize}
-	\item Nielsen--Ninomiya (Chiral anomaly cancelling?)
-	
-	\item Fermi arcs
-	
-	\item Discuss the role of inversion + time-reversal symmetry (why one of the two needs to be broken). Topologically different: minimum of 2 vs. 4 Weyl nodes.
-	
-	\item (Non-linear electric field current response)
-\end{itemize}
-}
+All in all, a candidate Weyl semimetallic material must break either inversion or time-reversal symmetry. Of the two, breaking time-reversal symmetry is conceptually simpler in theory: the minimum amount of Weyl points is lower, and the symmetry is straightforwardly broken in the presence of a magnetic field. However, in practice the experimental detection of Fermi arcs and other spectral features relies on angle-resolved photoemission spectroscopy (ARPES), which is sensitive to magnetic fields. This is why to date, all experimentally confirmed electronic Weyl semimetals have preserved time-reversal symmetry and broken inversion symmetry instead  \cite{Weng_WSM-candidates,Huang_WSM-candidates,Lv_WSM-TaAs,Xu_WSM-experiment,Belopolski_minimal-WSM}.
 
 
 \section{Topological description}\label{sec:semimetal-topology}
 
-%TODO introductory paragraph, give proper credit to Mathai & Thiang
+In all the systems studied in Chapter~\ref{chap:topo-states}, the underlying approach to topological classification has been to study which band structures cannot be deformed into each other without closing the band gap anywhere in the Brillouin zone. Weyl semimetals already feature band crossings in the bulk to begin with, meaning this approach needs to be modified. The basic idea involves fixing a number of gapless points in place first, and then studying what gapped topologies are admitted on the rest of the Brillouin zone outside of these points. There are many intricacies to this idea, some of which we attempt to review pedagogically in this section.
 
-{\color{blue}
-\begin{itemize}
-	\item Intro paragraph, credit Mathai \& Thiang \cite{Mathai_math-review,Mathai_math-paper}
-\end{itemize}
-}
+Though most of the experimental candidates for Weyl semimetals feature either inversion or time-reversal symmetry, the conceptual topology framework is simplest in the absence of any symmetries beyond lattice translation. The majority of this section is written with this context in mind. Most of the concepts here are borrowed from two superb (if fairly technical) works by Vargese Mathai and Guo Chuan Thiang \cite{Mathai_math-review,Mathai_math-paper}.
+
+Only in the final part of this section will we return to time reversal symmetric systems, and review how the inclusion of this symmetry alters the topological description. This provides important context to our treatment of other symmetries in Chapter~\ref{chap:non-orientable}.
+
+The topological arguments in this section rely heavily on the concepts of cohomology and homology. Where possible, an attempt is made to explain the relevant ideas ``just enough'' in their proper physical context so that the main flow of the text may be followed without the relevant mathematical background. Readers seeking a somewhat more fundamental understanding are invited to refer to Appendix~\ref{chap:homology} as needed.
 
 \subsection{3D Chern insulators}
 
-To get a good intuition for the topological description of Weyl semimetals, it is useful to first consider a fully insulating material with similar properties. Suppose we have a three-dimensional material that is not subject to any additional symmetries. Such a material is called a 3D Chern insulator, in analogy to the 2D Chern insulator studied in Section~\ref{sec:Chern} \cite{Vanderbilt_2018,Liu_photonic-Chern-vector,Devescovi_3D-Chern}. This system is not a semimetal, but it provides the relevant topological backdrop: Weyl semimetals can be obtained by letting the bands touch in a 3D Chern insulator. As we will discuss shortly, this allows them to act as transitional phases between different insulating topological states.
+To get a good intuition for the topological description of Weyl semimetals, it is useful to first consider a fully insulating material with similar properties. Suppose we have a three-dimensional material that is not subject to any additional symmetries. Such a material is called a 3D Chern insulator \cite{Vanderbilt_2018,Liu_photonic-Chern-vector,Devescovi_3D-Chern}, in analogy to the 2D Chern insulator studied in Section~\ref{sec:Chern}. This system is not a semimetal, but it provides the relevant topological backdrop: Weyl semimetals can be obtained by letting the bands touch in a 3D Chern insulator. As we will discuss shortly, this allows them to act as transitional phases between different insulating topological states.
 
 From the Atland--Zirnbauer classification in Table~\red{[reference]}, %TODO ref. to tenfold way table
-one might expect a 3D Chern insulator to be topologically trivial. However, as seen before in Equation~\red{[reference] (and perhaps also in 3D BHZ/Kane--Mele if I discuss this in ch. 2)}, %TODO ref. to weak topology equation
+one might expect such a 3D type A system to be topologically trivial. However, as seen before in Equation~\red{[reference] (and perhaps also in 3D BHZ/Kane--Mele if I discuss this in ch. 2)}, %TODO ref. to weak topology equation
 the full topological classification of materials depends not only on the top-dimensional topology, but also on that borrowed from lower-dimensional subspaces. In the case of a 3D Chern insulator, this topology arises on two-dimensional slices of the Brillouin zone; an example of such a slice is highlighted in Figure~\ref{fig:3D_Chern_insulator}.
 \begin{figure}[htb!]
 	\centering
@@ -129,7 +146,7 @@ This results in a classification by three distinct Chern numbers $C_x$, $C_y$ an
 \]
 
 Importantly, these three Chern numbers are all induced by a single two-form $\Fc$. In this sense, there is an exact correspondence between topologically distinct Berry curvatures $\Fc$ and Chern vectors $\vb{C}\in\Z^3$. This is precisely what motivates the use of cohomology for classification: just like in the 2D Chern insulator, the two-form $\Fc$ can be considered to represent a class in the second cohomology group,\footnote{
-	As explained in Appendix \ref{chap:homology}, $\Fc$ more properly represents a class in the real-valued \emph{de Rham cohomology} group $H_{\rm dR}^2(\T^3)\cong\R^3$. The analogy is strong enough to be considered direct here, but de Rham cohomology is too plain to encode features such as $\Z_2$ invariants. This is why we elect to use the richer integer-valued cohomology theory.} %TODO perhaps move to ch.2
+	As explained in Appendix \ref{chap:homology}, $\Fc$ more properly represents a class in the real-valued \emph{de Rham cohomology} group $H_{\rm dR}^2(\T^3)\cong\R^3$. The analogy is strong enough to be considered direct here, but de Rham cohomology is too plain to encode features such as $\Z_2$ invariants. This is why we make use of the richer integer-valued cohomology theory.} %TODO perhaps move to ch.2
 \begin{equation}\label{eq:2nd-cohom-t3}
 	[\Fc]\in H^2(\T^3)\cong\Z^3. 
 \end{equation}
@@ -142,7 +159,7 @@ Before moving on to a system with Weyl points, it will be instructive to study t
 
 Recall from our discussion in Section \ref{sec:Chern} that a 2D Chern insulator with a Chern number of 1 has a single chiral edge mode, which manifests as a gapless state on the one-dimensional surface Brillouin zone. This logic can be translated to the the three-dimensional case, where such slices are stacked in the $x$ direction. Suppose there is a projection $\pi$ along the $z$ direction, onto a two-dimensional surface Brillouin zone $\ext{\T}_{xy}^2$. Then the two-dimensional slices $\T_{yz}^2$ project down to a one-dimensional loop $\pi(\T_{yz}^2)\cong S^1$ containing a single point-like gapless state. As the $\T_{yz}^2$ slice is moved around in the $x$ direction, this band crossing point moves continuously along the $y$ direction, by continuity of the Hamiltonian. It follows that the full two-dimensional surface Brillouin zone must contain a loop of gapless states going across the $x$ direction, as depicted in the figure. This loop is called a \emph{Fermi loop}, in analogy with the Fermi arcs in a Weyl semimetal . Moreover, the chirality of the edge modes can be used to assign a consistent orientation to this loop. %TODO note about linked loops, extra topology etc? Might be unnecessary
 
-Fermi loops admit a natural topological description in terms of homology. Being oriented loops, they precisely represent a class in the first homology group $H_1(\ext{\T}^2)$ of the surface Brillouin zone. Furthermore, it is possible to define an oriented \emph{Dirac loop} $\ell$ in the bulk Brillouin zone in such a way that its projection $\pi(\ell)$ onto the surface in any direction is exactly the Fermi loop. This loop $\ell$ is not a gapless feature,\footnote{
+Fermi loops admit a natural topological description in terms of homology. Being oriented loops, they precisely represent a class in the first homology group $H_1(\ext{\T}^2)$ of the surface Brillouin zone. Furthermore, it is possible to define an oriented \emph{Dirac loop} $\ell$ in the bulk Brillouin zone in such a way that its projection $\pi(\ell)$ onto the surface in any direction is exactly the Fermi loop. This loop $\ell$ is not a gapless feature,\footnote{ %TODO wording: "gapless feature" not necessarily standard, explain more
 	Dirac loops do still admit a physical interpretation: they represent points at which the Berry connection $\Ac$ has a gauge singularity. Such singularities depend on the choice of gauge, meaning the loop can be moved around by gauge transformations; however, this does not change their topology. The same goes for the Dirac strings that will be discussed in a moment.}
 but it is rather interesting topologically: it represents a first homology class in the bulk Brillouin zone,
 \[
@@ -163,7 +180,7 @@ This duality can be summarised schematically as follows:
 This Poincar\'e duality ensures that the classifications in terms of first homology and second cohomology are completely equivalent in this case. Importantly, however, Poincar\'e duality depends on orientability, and it will not hold when we consider non-orientable Brillouin zones in the next chapter. As such, the question of which group provides the right classification of such a system will be key. For the moment, we turn our attention to the topology of Weyl points in the simpler orientable setting.
 
 
-\subsection{Introducing Weyl points}\label{sec:Weyl-point-topology}
+\subsection{Topology with Weyl points}\label{sec:Weyl-point-topology}
 
 Consider a Weyl semimetal with a set of $k$ Weyl points
 \[
@@ -203,7 +220,7 @@ A similar argument can also be applied to study what happens to Chern numbers on
 	}
 	\label{fig:Weyl-point-Stokes}
 \end{figure}
-Here two slices $\T_L^2$ and $\T_R^2$ are placed on either side of a Weyl point $w$ with charge $C_w = q$, along with a small sphere $S_w^2$ surrounding it. These spaces then bound a three-dimensional manifold $Y$ as indicated in the figure, given the following orientations:
+Here, two slices $\T_L^2$ and $\T_R^2$ are placed on either side of a Weyl point $w$ with charge $C_w = q$, along with a small sphere $S_w^2$ surrounding it. These spaces then bound a three-dimensional manifold $Y$ as indicated in the figure, given the following orientations:
 \[
 	\partial Y = \T_R^2 - \T_L^2 - S_w^2.
 \]
@@ -221,7 +238,8 @@ As such, it can only be integrated over subspaces where the gap never closes, so
 \end{equation}
 where $k$ again is the number of Weyl points. Put differently, classification of semimetallic phases given a set of Weyl points $W$ essentially amounts to classifying the gapped phases on the punctured torus $\T^3\setminus W$.
 
-Notably, this classification addresses both issues present in the $\Z^k$ classification on 2-spheres in Equation~\eqref{eq:2nd-cohom-spheres}. Firstly, it incorporates 3D Chern insulator topology in the first term, in the form of the $\Z^3$ from Equation~\eqref{eq:2nd-cohom-t3}. Perhaps more subtly, charge cancellation is also incorporated in the form of the reduction by one $\Z$ factor in the second term. This can be understood intuitively: for example, if $k=1$ then the Nielsen--Ninomiya theorem implies that the single Weyl point must have a charge of 0, and so it is not topologically protected. A similar intuition holds for larger $k$, in that the $k$ additional ``degrees of freedom'' which are afforded to the system by the Weyl point charges are reduced by one under the charge cancellation condition. This relation will become more explicit once the Mayer--Vietoris sequence is introduced in Section \ref{sec:Mayer-Vietoris}.
+Notably, this classification addresses both issues present in the $\Z^k$ classification on 2-spheres in Equation~\eqref{eq:2nd-cohom-spheres}. Firstly, it incorporates 3D Chern insulator topology in the first term, in the form of the $\Z^3$ from Equation~\eqref{eq:2nd-cohom-t3}. Perhaps more subtly, charge cancellation is also incorporated in the form of the reduction by one $\Z$ factor in the second term. This can be understood intuitively: for example, if $k=1$ then the Nielsen--Ninomiya theorem implies that the single Weyl point must have a charge of 0, and so it is not topologically protected. A similar intuition holds for larger $k$, in that the $k$ ``degrees of freedom'' which are afforded to the system by the Weyl point charges are reduced by one under the charge cancellation condition. %TODO wording: 1 equation on k dof
+This relation will become more explicit once the Mayer--Vietoris sequence is introduced in Section \ref{sec:Mayer-Vietoris}.
 
 %Notably, there are $k-1$ extra factors of $\Z$ involved in the classification of a Weyl semimetal compared to that of a 3D Chern insulator (cf.\ Equation~\eqref{eq:2nd-cohom-t3}). This contrasts with the $k$ factors found for the collection of spheres in Equation~\eqref{eqeq:2nd-cohom-spheres}. This reduction by one is a natural result of charge cancellation: for example, if $k=1$ then the Nielsen--Ninomiya theorem implies that the single Weyl point must have a charge of 0, and so it is not topologically protected. A similar intuition holds for general $k\in\N$, in that the $k$ additional ``degrees of freedom'' which are afforded to the system by the Weyl point charges are reduced by one under the charge cancellation condition. This relation will become more explicit once the Mayer--Vietoris sequence is introduced in Section \ref{sec:Mayer-Vietoris}.
 
@@ -240,7 +258,7 @@ The varying Chern numbers over Weyl points help explain how Fermi arcs arise on 
 
 This feature of Weyl semimetals implies they can mediate phase transitions between 3D Chern insulators with different Chern vectors. For example, suppose a pair of Weyl points is created at some point in the Brillouin zone of a trivial insulator ($\vb{C}=0$). These points can then be moved apart in the $z$ direction until they meet again and annihilate at the other end of the torus. In the process, a Fermi arc extends between the projections of the Weyl points on the $xz$ and $yz$-planes, which eventually closes into a Fermi loop. In its final state, the system features a non-zero Chern vector of $\vb{C} = (0,0,1)\tran$.
 
-This process was first observed experimentally in a seminal work by Gui-Geng Liu et al.\ in 2022. The authors construct a photonic crystal, which is a type of artificial crystal where the different energy levels are represented by frequencies of light. Under application of a magnetic field, this crystal undergoes a transition between trivial and topological insulating phases, mediated by the creation and annihilation of two Weyl points; see Figure~\ref{fig:Weyl-phase-transition}.
+This process was first observed experimentally in a seminal work by Gui-Geng Liu et al.\ in 2022 \cite{Liu_photonic-Chern-vector}. The authors construct a photonic crystal, which is a type of artificial crystal where the different energy levels are represented by frequencies of light. Under application of a magnetic field, this crystal undergoes a transition between trivial and topological insulating phases, mediated by the creation and annihilation of two Weyl points; see Figure~\ref{fig:Weyl-phase-transition}.
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=\linewidth]{Images/Weyl-phase-transition}
@@ -248,15 +266,15 @@ This process was first observed experimentally in a seminal work by Gui-Geng Liu
 		Top: measured frequency response (i.e.\ ``band structure'') at increasing magnetic field strength. Yellow regions represent a band gap in the spectrum, indicating insulating phases. The white line represents the calculated frequency of the two Weyl nodes in the system. Bottom: measured response on a surface Brillouin zone, at the frequencies indicated on the white line above. Simulated Fermi arcs and loops are shown in green. A Fermi loop can clearly be seen to form, confirming a phase change to a topological insulator.}
 	\label{fig:Weyl-phase-transition}
 \end{figure}
-This was also the first experimental realisation of a 3D Chern insulator \cite{Liu_photonic-Chern-vector}, and of a system featuring a single Fermi arc.
+This was also the first experimental realisation of a 3D Chern insulator, and of a system featuring a single Fermi arc.
 
 Just as Fermi loops can be considered projections of a bulk Dirac loop, so too can Fermi arcs be considered a projection of a bulk \emph{Dirac string}.\footnote{
-	A more or less equivalent concept is referred to as \emph{Euler chain} in \cite{Mathai_math-review}, placing the emphasis on topology over physics: ``chain'' here refers the oriented subspaces that homology is founded on.}
+	A more or less equivalent concept is referred to as \emph{Euler chain} in Ref.~\cite{Mathai_math-review}, placing the emphasis on topology over physics: ``chain'' here refers the oriented subspaces that homology is founded on.}
 Like Dirac loops, these strings can be given an interpretation in terms of homology. The setup is somewhat more subtle in this case: since the Dirac strings have a boundary, they are not loops and as such do not represent homology classes in $H_1(\T^3)$. Instead, they represent classes in the \emph{relative homology group}
 \begin{equation}\label{eq:relative-homology}
 	H_1\big(\T^3, W\big) \cong \Z^3\oplus\Z^{k-1}
 \end{equation}
-with respect to the set of Weyl points $W\subset\T^3$. Intuitively, taking the relative homology means that any boundaries lying in the subset $W$ are ignored; for a more precise definition the reader is referred to \parencite[\S 2.1]{Hatcher_algebraic-topology}.
+with respect to the set of Weyl points $W\subset\T^3$. Intuitively, taking the relative homology means that any boundaries lying in the subset $W$ are ignored; for a more precise definition the reader is referred to Ref.~\parencite[\S 2.1]{Hatcher_algebraic-topology}.
 
 This homology picture provides a classification scheme that is exactly dual to the cohomology classification in Equation~\eqref{eq:2nd-cohom-semimetal}; that is, there is an isomorphism
 \begin{equation}\label{eq:semimetal-duality}
@@ -269,7 +287,7 @@ The interpretation in terms of Chern numbers given in Equation~\eqref{eq:duality
 
 \subsection{The semimetal Mayer--Vietoris sequence}\label{sec:Mayer-Vietoris}
 
-In the previous section a heuristic Stokes' theorem argument was discussed for charge cancellation on Weyl points. This argument can be generalized by moving to a more abstract cohomology setting, where we are not dependent on the integration of forms; this is important because integration will not be well defined once we move to a non-orientable setting. As an added bonus, the abstract description proves to be richer and provide more detailed information on the possible topological phases for a Weyl semimetal.
+In the previous section, a heuristic Stokes' theorem argument was presented for charge cancellation on Weyl points. This argument can be generalized by moving to a more abstract cohomology setting, where we are not dependent on the integration of forms; this is important because integration will not be well defined once we move to a non-orientable setting. As an added bonus, the abstract description proves to be richer and provide more detailed information on the possible topological phases for a Weyl semimetal.
 
 The idea is that the relation between the global semimetal topology in Equation~\eqref{eq:2nd-cohom-semimetal} and the local charge data in Equation~\eqref{eq:2nd-cohom-spheres} can be understood by considering how cohomology classes are mapped between them. That is, one needs to find and study a homomorphism
 \begin{equation*}
@@ -277,19 +295,21 @@ The idea is that the relation between the global semimetal topology in Equation~
 \end{equation*}
 Such a map arises naturally in the context of the \emph{Mayer--Vietoris sequence} for cohomology.
 
-Mayer--Vietoris sequences are used to study how the homology or cohomology of a topological space relates to that of its subspaces. To be precise, let $X$ be a topological space and let $A,B\subset X$ be two subspaces that cover it (i.e.\ $A\cup B = X$). Then there is an \emph{exact sequence} of homomorphisms between cohomology groups,
+Mayer--Vietoris sequences are used to study how the homology or cohomology of a topological space relates to that of its subspaces. To be precise, let $X$ be a topological space and let $A,B\subset X$ be two subspaces that cover it (i.e.\ $A\cup B = X$). Then, there is an \emph{exact sequence} of homomorphisms between cohomology groups,
 \begin{equation*}
 	\cdots \to H^n(X) \to H^n(A)\oplus H^n(B) \to H^n(A\cup B) \to H^{n+1}(X) \to \cdots,
 \end{equation*}
-which continues indefinitely in both directions. Exactness means that the image of each map in the sequence is exactly equal to the kernel of the next. In other words, the elements in each term in the sequence which are mapped to zero in the next term are precisely those which ``descend'' from the previous term. In particular, the composition of two subsequent maps always yields zero.
+which continues indefinitely %TODO not really indefinitely
+in both directions. Exactness means that the image of each map in the sequence is exactly equal to the kernel of the next. %TODO introduce notation
+In other words, the elements in each term in the sequence which are mapped to zero in the next term are precisely those which ``descend'' from the previous term. In particular, the composition of two subsequent maps always yields zero.
 
-In the context of a Weyl semimetal there is a natural way to divide the Brillouin torus $\T^3$ into two subspaces; this is illustrated in Figure~\ref{fig:semimetal-MV}.
+In the context of a Weyl semimetal, there is a natural way to divide the Brillouin torus $\T^3$ into two subspaces; this is illustrated in Figure~\ref{fig:semimetal-MV}.
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=.8\linewidth]{Images/semimetal-MV}
 	\caption{
 		Schematic two-dimensional representation of the Brillouin torus and the subspaces used to cover it.
-		Figure from Ref.~\cite{Thiang_equivariant}}
+		Figure from Ref.~\cite{Thiang_equivariant}.}
 	\label{fig:semimetal-MV}
 \end{figure}
 The first subspace in the covering is the punctured torus $\T^3\setminus W$; we have already encountered this space in classifying topological semimetal phases. The other is the collection $\bigcup_{i=1}^k D_{w_i}^3$ of small open 3-balls centred on the Weyl points $w_i$. The intersection of these two spaces is the same collection of open balls, but each with a single puncture. For our purposes, this intersection has the same topology as the collection of 2-spheres $\bigcup_{i=1}^k S_{w_i}^2$ that we encountered in the context of local Weyl point charges.\footnote{
@@ -300,7 +320,8 @@ A Mayer--Vietoris sequence can now be written down for these subspaces. The sect
 	0\ \to\ \underbrace{H^2(\T^3)}_{\mathclap{\text{3D Chern insulator}}}\ \to\ 
 	\underbrace{H^2\big(\T^3\setminus W\big)}_{\text{Semimetal}}\ \overset{\beta}{\to}\ \underbrace{H^2\!\left(\bigcup_{i=1}^k S_{w_i}^2\right)}_{\text{Local charges}}\ \overset{\Sigma}{\to}\ H^3(\T^3)\ \to\ 0.
 \end{equation}
-The first three groups in this sequence are already familiar from Equations \eqref{eq:2nd-cohom-t3}, \eqref{eq:2nd-cohom-semimetal} and \eqref{eq:2nd-cohom-spheres} respectively. The last group $H^3(\T^3)\cong\Z$ is represented by volume forms\footnote{
+The first three groups in this sequence are already familiar from Equations \eqref{eq:2nd-cohom-t3}, \eqref{eq:2nd-cohom-semimetal}, and \eqref{eq:2nd-cohom-spheres} respectively. \red{[The comma before respectively is not necessary in British English, which I'm writing in (similarly for things like i.e.\ and e.g.)]} %TODO remove
+The last group $H^3(\T^3)\cong\Z$ is represented by volume forms\footnote{
 	I.e.\ 3-forms, which are locally proportional to $\dd{k_x}\wedge\dd{k_y}\wedge\dd{k_z}$.}
 on the torus; one notable example of such a form is the trivial 3-form
 \begin{equation*}
@@ -313,10 +334,12 @@ Explicitly, the semimetal Mayer--Vietoris sequence is\footnote{
 \begin{equation}\label{eq:semimetal-MV-explicit}
 	0 \to \Z^3 \to \Z^3\oplus\Z^{k-1} \overset{\beta}{\to} \Z^k \overset{\Sigma}{\to} \Z \to 0.
 \end{equation}
-The exactness of this sequence can be used to extract useful information, especially around the group of local charges $\Z^k$. Here exactness means that $\im(\beta) = \ker(\Sigma)$. This implies that the local charges on the Weyl points sum to zero if and only if they descend from a semimetal. In other words, it implies not only the Nielsen--Ninomiya charge cancellation theorem, but also its converse: any set of Weyl points with charges adding to zero is admissible as a topological Weyl semimetal phase.
+The exactness of this sequence can be used to extract useful information, especially around the group of local charges $\Z^k$. Here, exactness means that $\im(\beta) = \ker(\Sigma)$. %TODO explain image
+This implies that the local charges on the Weyl points sum to zero if and only if they descend from a semimetal. In other words, it implies not only the Nielsen--Ninomiya charge cancellation theorem, but also its converse: any set of Weyl points with charges adding to zero is admissible as a topological Weyl semimetal phase.
 
-In fact, more can be inferred by looking at the maps around the semimetal group $\Z^3\oplus\Z^{k-1}$. Here exactness tells us that $\ker(\beta)\cong\Z^3$. This makes physical sense: if all local charges are zero, the Weyl points are not topologically protected and the system is really in a 3D Chern insulator phase. However, since $\beta$ is a homomorphism, we also find $\beta^{-1}(c)\cong\Z^3$ for a generic charge configuration $c\neq 0\in\Z^k$; that is, every configuration with total charge zero admits a $\Z^3$ worth of topologically different semimetal phases. This makes precise a principle that is also hinted at in Figure~\ref{fig:Fermi-arc-Chern}: Weyl semimetals with identical charge configurations may nevertheless be topologically distinct, and their topologies differ by a bulk Chern vector in $\Z^3$.\footnote{
-	Properly speaking, the set of topological phases for a given charge configuration is an affine space for $H^2(\T^3)$, since there is no canonical zero Chern vector on a Weyl semimetal. This is worked out in greater mathematical detail in Section 3 of \cite{Mathai_math-review}.}
+In fact, more can be inferred by looking at the maps around the semimetal group $\Z^3\oplus\Z^{k-1}$. Here, exactness tells us that $\ker(\beta)\cong\Z^3$. This makes physical sense: if all local charges are zero, the Weyl points are not topologically protected and the system is really in a 3D Chern insulator phase. However, since $\beta$ is a homomorphism, we also find $\beta^{-1}(c)\cong\Z^3$ for a generic charge configuration $c\neq 0\in\Z^k$; that is, every configuration with total charge zero admits a $\Z^3$ worth of topologically different semimetal phases. %TODO "worth of" is confusing, figure out better wording
+This makes precise a principle that is also hinted at in Figure~\ref{fig:Fermi-arc-Chern}: Weyl semimetals with identical charge configurations may nevertheless be topologically distinct, and their topologies differ by a bulk Chern vector in $\Z^3$.\footnote{
+	Properly speaking, the set of topological phases for a given charge configuration is an affine space for $H^2(\T^3)$, since there is no canonical zero Chern vector on a Weyl semimetal. This is worked out in greater mathematical detail in Section 3 of Ref.~\cite{Mathai_math-review}.}
 
 
 \subsubsection{The dual homology sequence}
@@ -337,7 +360,7 @@ The complete homology dual of \eqref{eq:semimetal-MV-symbolic} is then
 \end{equation}
 
 This exact sequence has arisen through taking Poincaré duals of groups in the Mayer--Vietoris sequence, but somewhat miraculously, it continues to be valid even in the absence of Poincaré duality (e.g.\ on a non-orientable manifold). In fact, it can be considered a more fundamental sequence in some ways: it describes the homology of the torus with respect to a single subspace $W$, whereas the Mayer--Vietoris sequence relies on multiple subspaces that cover the torus.\footnote{
-	Indeed, this is the first exact sequence introduced in the standard algebraic topology textbooks, e.g.\ in Theorem 2.13 of \cite{Hatcher_algebraic-topology}.}
+	Indeed, this is the first exact sequence introduced in the standard algebraic topology textbooks, e.g.\ in Theorem 2.13 of Ref.~\cite{Hatcher_algebraic-topology}.}
 	
 The map indicated by $\partial$ is the boundary map that is used to define homology groups in the first place.\footnote{
 	To be precise, homology is defined using boundaries of chains; one can think of the present map as acting on \emph{representatives} of homology classes.}
@@ -354,9 +377,9 @@ As emphasised before, this homology sequence encodes exactly the same informatio
 
 The preceding topological review of Weyl semimetals has thus far been in the context of the basic symmetry class A---that is, we have not imposed any additional symmetries on the system. However, such additional symmetries are not necessarily forbidden in a Weyl semimetal: the type A classification merely tells us that the semimetal topology is very robust, not relying on any symmetry protection.\footnote{
 	By contrast, for example, the SSH model introduced in Section~\ref{sec:SSH} has chiral symmetry-protected topological phases.}
-As discussed in Section~\ref{sec:semimetal-physics}, either time-reversal symmetry or lattice inversion symmetry needs to be broken in order to realise a Weyl semimetal. In practice, it is often very natural for time-reversal invariance to be preserved in the absence of a magnetic field, and many candidate materials are indeed time-reversal symmetric \cite{Weng_WSM-candidates,Huang_WSM-candidates,Lv_WSM-TaAs,Xu_WSM-experiment,Belopolski_minimal-WSM}. An excellent topological description of such systems was published by Guo Chuan Thiang, Koji Sato and Kiyonori Gomi in 2017, and we will spend the rest of this section reviewing its main aspects \cite{Thiang_equivariant}.
+As discussed in Section~\ref{sec:semimetal-physics}, all of the experimentally observed electronic Weyl semimetals actually preserve time-reversal symmetry, which is a natural condition in the absence of a magnetic field. An excellent topological description of such systems was published by Guo Chuan Thiang, Koji Sato and Kiyonori Gomi in 2017, and we will spend the rest of this section reviewing its main aspects \cite{Thiang_equivariant}.
 
-Preserving time-reversal symmetry puts us in class AII of the tenfold way classification in Table~\red{[cite table]}, %TODO tenfold way table
+Time-reversal symmetric systems belong to class AII of the tenfold way classification in Table~\red{[cite table]}, %TODO tenfold way table
 meaning the underlying insulating topology (i.e. the topology with zero Weyl points) is that of the strong and weak insulators described in Section~\ref{sec:3D-Z2}. This means the four $\Z_2$ invariants (three weak and one strong) in such systems also play a role in the semimetal topology. Just as class A Weyl semimetals can be considered intermediate phases between different 3D Chern insulators (as shown in Figure~\ref{fig:Weyl-phase-transition}), it is shown in Ref.~\cite{Thiang_equivariant} that class AII semimetals can mediate phase transitions between different strong and weak 3D insulators via Weyl point creation and annihilation.
 
 As discussed in Section~\ref{sec:semimetal-physics}, time reversal symmetry squaring to $\TRS^2=-1$ forces Weyl points to appear in Kramers pairs of the same chirality, related by $\k\leftrightarrow-\k$ in the Brillouin zone. The topology induced by the presence of these pairs must also respect the symmetry, and as such it cannot be studied by simply moving integration planes freely over the individual Weyl points (as previously shown in Figure~\ref{fig:Weyl-point-Stokes}). Indeed, recall from Section~\ref{sec:3D-Z2} that the insulating $\Z_2$ invariants must be calculated specifically at the $\TRS$-invariant planes sitting at $k_{x,y,z}\in\{0,\pm\pi\}$. To study how Kramers pairs affect these invariants, their respective planes must be continuously deformed across them in a way that respects the symmetry, leading to the concept of \emph{curved $\TRS$-planes}; see Figure~\ref{fig:T-planes}.
