@@ -109,3 +109,66 @@ These three groups completely classify the homology of the 2-torus, since it onl
 
 
 \section*{Cohomology}
+The chain complex structure underlying homology allows for a natural counterpart called cohomology, which is obtained by \emph{dualising} the chain complex. Dualisation is a concept that shows up all over mathematics; the basic idea is that a mathematical object can be paired with a different object---its \emph{dual}---in order to obtain something like a simple number. A familiar example from physics is that of a covector: in physics notation, any vector $V^\mu$ can be paired with any covector $\omega_\mu$ to obtain a scalar $\omega_\mu V^\mu\in\R$. Formally, a covector is defined as a linear function from the underlying vector space to $\R$.
+
+A similar construction is used to define \emph{cochains} on a manifold $M$. An $n$-cochain is a homomorphism from the $n$-chain group $C_n(M;G)$ into the coefficient group $G$; under the usual integer coefficients, this is a function $C_n(M)\to\Z$ that assigns an integer to each $n$-chain linearly. The cochains form a group which has a very similar structure to the chain group itself. We denote the $n$-cochain group with a raised index:
+\begin{equation*}
+	C^n(M;G) := \Hom\big(C_n(M;G),G\big).
+\end{equation*}
+
+There is an interpretation of cochains with coefficients in $\R$ which is of special relevance to physicists. This comes in the form of integration on differential forms: for example, a 1-form $\Ac$ can be paired with an oriented 1-dimensional subspace $\ell\subset M$ in a line integral, to obtain a real number $\int_{\ell}\Ac\in\R$. The definition of integration can be readily generalised from subspaces of $M$ to chains, so that a differential $n$-form becomes a linear map on the chain group:
+\begin{equation*}
+	\omega: C_n(M;\R)\to\R,\quad c := \sum_i c_i X_i \mapsto \int_c \omega := \sum_i c_i \int_{X_i}\omega,
+\end{equation*}
+where as before, $X_i$ are oriented $n$-dimensional subspaces of $M$ and $c_i$ are coefficients in $\R$. This definition of integration gives rise to a complete cohomology theory in terms of differential forms, called \emph{de Rham cohomology}. This theory is fully equivalent to more abstractly defined cohomology with $\R$ coefficient, and offers a useful link to physical observables: the existence of de Rham cohomology means that many topological invariants can be expressed in terms of integrals over differential forms such as the Berry flux 1-form $\Ac$ and the Berry curvature 2-form $\Fc$.
+
+The main shortcoming of de Rham cohomology lies in its real coefficients. As mentioned before, the universal coefficient theorem implies that $\Z$ coefficients may provide richer homology groups, and the same also holds for cohomology. This is especially true when the homology and cohomology groups contain $\Z_2 := \Z/2\Z$ factors (referred to as \emph{torsion}\footnote{
+	Formally, torsion also includes more general factors $\Z_k$, but these do not tend to appear in the physics literature as often.}
+), corresponding to $\Z_2$ physical invariants; these appear especially often on the non-orientable manifolds studied in this work. These factors disappear under $\R$ coefficients, relating to the fact that $\R/2\R = 0$. Still, many of the associated invariants may be expressed using modified integral formulas, and in any case, the de Rham theory offers a physically intuitive perspective on cohomology. Because of this, we will continue to use it as an analogy for the more abstract concepts of integer-valued cohomology.
+
+Just as in homology, the cochain groups of cohomology are gathered into a \emph{cochain complex}: for example, the cochain complex of the 2-torus is
+\begin{equation*}
+	0 \overset{\delta_{-1}}{\rightarrow} C_0(\T^2) \overset{\delta_0}{\rightarrow} C_1(\T^2) \overset{\delta_1}{\rightarrow} C_2(\T^2) \overset{\delta_2}{\rightarrow} 0.
+\end{equation*}
+The maps $\delta_n: C^n\to C^{n+1}$ are called \emph{coboundary} maps, and they are a natural result of dualising the boundary maps $\dee_{n+1}: C_{n+1}\to C_n$, meaning they are uniquely defined by the property
+\begin{equation}\label{eq:boundary-duality}
+	\delta\omega(c) = \omega(\dee c).
+\end{equation}
+This duality takes on a familiar form in de Rham cohomology: there, the coboundary map is the exterior derivative $\dd$ on differential forms, and the duality above becomes
+\begin{equation*}
+	\int_{c}\dd{\omega} = \int_{\dee c}\omega,
+\end{equation*}
+which is precisely Stokes' theorem. For example, suppose a Berry connection 1-form $\Ac$ is defined on the 2-torus in Figure~\ref{fig:homology-chains}. Then the Berry curvature 2-form $\Fc$ can locally be written as $\Fc = \dd{\Ac}$, and Stokes' theorem tells us that
+\begin{equation*}
+	\int_{S}\Fc = \int_{S}\dd{\Ac} = \int_{\dee S}\Ac = \int_c\Ac.
+\end{equation*}
+This dual property of the coboundary maps also ensures that the cochain complex inherits the $\dee^2 = 0$ property of the chain complex: for any $n$-cochain $\omega$ and $n+2$-chain $c$, we find
+\begin{equation*}
+	\delta^2\omega(c) = \omega(\dee^2 c) = \omega(0) = 0,
+\end{equation*}
+so that there is a similar $\delta^2=0$ property here.
+
+The construction of the cohomology groups from the cochain complex proceeds completely analogously to that of the homology groups. Just as an $n$-cycle is an $n$-chain with no boundary, an $n$-\emph{cocycle} is a cochain $\omega$ which has no coboundary, i.e.\ for which $\delta{\omega} = 0$. In de Rham cohomology, cocycles are called \emph{closed} differential forms (i.e.\ those with $\dd{\omega} = 0$). The $n$-cocycles form a group which is denoted (again using a raised index) as
+\begin{equation*}
+	Z^n(M;G) := \ker(\delta_n).
+\end{equation*}
+Similarly, an $n$-\emph{coboundary} is defined as an $n$-cochain $\omega$ which can be written as $\omega=\delta{\eta}$ for some $(n-1)$-cochain $\eta$. In the context of de Rham cohomology, the coboundaries are referred to as \emph{exact} differential forms (i.e.\ forms which can be written as $\omega = \dd\eta$. Again, the $n$-coboundaries form a group which is denoted
+\begin{equation*}
+	B^n(M;G) := \im(\delta_{n-1}).
+\end{equation*}
+
+The $\delta^2 = 0$ property of the cochain complex implies that all coboundaries are cocycles. In de Rham cohomology, this corresponds precisely to the Bianchi identity $\dd^2=0$, which says that all exact forms are closed. As before, this implies that $B^n$ is a subgroup of $Z^n$, and we can define the $n$th \emph{cohomology group} as their quotient:
+\begin{equation*}
+	H^n(M;G) := \frac{Z^n(M;G)}{B^n(M;G)} = \ker(\delta_n) / \im(\delta_{n-1}).
+\end{equation*}
+The elements of this group are called \emph{cohomology classes}. In the de Rham picture, non-trivial cohomology classes are represented by forms which are closed, but not exact. For example, this can be the case for the Berry curvature 2-form $\Fc$: while it can always be written as $\dd{\Ac}$ \emph{locally}, this depends on a local choice of gauge. Globally, there may be gauge singularities preventing $\Ac$ from being well defined everywhere. As a result, an expression like $\int_{\T^2}\Fc$ may have a non-zero value, precisely because $\T^2$ itself is a 2-cycle with non-trivial global topology. In this case, $\Fc$ represents a non-zero cohomology class $[\Fc]\in H^2(\T^2;\R)$.
+
+This close link between cohomology classes and non-trivial cycles ensures that the cohomology groups $H^n$ are intimately related to the homology groups $H_n$ in their structure; in fact, in the absence of the aforementioned $\Z_2$ torsion factors, there is a direct isomorphism $H^n(M)\cong H_n(M)$ for every $n\in\Z$.\footnote{
+	To be precise, when there are torsion factors in some homology group $H_n$, they will appear ``one dimension up'' in the cohomology group $H^{n+1}$ instead of $H^n$. Incidentally, since there is no torsion in de Rham cohomology, this means that $H^n(M;\R) \cong H_n(M;\R)$ in full generality.}
+This means that for instance, the cohomology groups of the 2-torus are the same as the homology groups:
+\begin{equation*}
+	H^0(\T^2) \cong \Z;\quad H^1(\T^2) \cong \Z^2;\quad H^2(\T^2)\cong \Z
+\end{equation*}
+There is a straightforward interpretation of these groups in terms of their homology counterparts: for example, $H^1(\T^2)$ is generated by the cocycles (1-forms) that evaluate to 1 on either of the two non-trivial loops that generate $H_1(\T^2)$, and to 0 on the other.
+
+Finally,we should reiterate what the value in this whole process of dualisation is, given that the cohomology groups are so easily computed from their homology counterparts. The answer is that cohomology, despite being seemingly more involved than homology, is in some ways a more natural theory from both a physical and a mathematical point of view. Physically, the interpretation in terms of differential forms allows topological invariants to be written as integrals of physical quantities. Mathematically, it turns out there are deep links between cohomology theory and the topological classification of vector bundles; for example, the complex line bundles over a manifold $M$ are always fully classified by $H^2(M)$. This classification of vector bundles is the subject of an advanced area of mathematics known as K-theory, which is really a generalised cohomology theory. K-theory in turn plays an important role in the classification of topological phases of matter \cite{FreedMoore_K-theory,Thiang_K-theory}.
