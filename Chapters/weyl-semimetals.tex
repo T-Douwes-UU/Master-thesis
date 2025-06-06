@@ -4,16 +4,16 @@ In recent years, interest in topological materials has expanded beyond the purel
 
 Weyl semimetals are materials that host gapless modes only at very specific momenta in the Brillouin zone. They have a myriad of properties that make them worthy subjects of study, not only from a theoretical perspective but also in potential experimental and engineering applications. Practically, Weyl semimetals have exotic transport properties such as a resistance which is highly sensitive to the application of a magnetic field, opening up countless possibilities for electronic applications. 
 
-Experimentally, Weyl semimetals may comprise the first platform in which the chiral fermions described by Herman Weyl in 1929 can be studied in the wild, %TODO ref
+Experimentally, Weyl semimetals may comprise the first platform in which the chiral fermions described by Hermann Weyl in 1929 (Ref.~\cite{Weyl_fermions}) can be studied in the wild, %TODO ref
 in the form of bulk quasiparticle excitations---despite their mathematical simplicity, Weyl fermions do not appear to exist as fundamental particles in nature. %TODO wording
 
-This aspect of Weyl semimetals is also of theoretical interest, since their fermionic modes may be altered in different ways beyond the simple description originally given by Weyl. Additionally, the topology of Weyl semimetals is intrinsically rich and generalises many aspects of insulator topology. It is this latter topological point of view which is the main focus of this chapter; the interested reader is referred to Refs.~\red{[Armitage]} and \red{[Hosur]} for more complete physically-minded overviews. %TODO refs
+This aspect of Weyl semimetals is also of theoretical interest, since their fermionic modes may be altered in different ways beyond the simple description originally given by Weyl. Additionally, the topology of Weyl semimetals is intrinsically rich and generalises many aspects of insulator topology. It is this latter topological point of view which is the main focus of this chapter; the interested reader is referred to Refs.~\cite{Armitage_WSM-review} and \cite{Hosur_WSM-transport} for more complete physically-minded overviews.
 
 This chapter does not contain any new results; instead, its purpose is to provide the necessary context for the results contained in Chapter~\ref{chap:non-orientable}. We begin by introducing the most important physical aspects of Weyl semimetals in Section~\ref{sec:semimetal-physics}, with a focus on the features that are of topological relevance. Section~\ref{sec:semimetal-topology} then dives deeper into the underlying topology, introducing many of the relevant mathematical concepts at a fairly elementary level.
 
 \section{Physical aspects}\label{sec:semimetal-physics}
 
-The concept of Weyl semimetals arises naturally when studying how different energy bands relate to each other in three-dimensional solids. Whereas one and two-dimensional materials are generally gapped unless additional symmetries force the bands to touch, the situation is different in three dimensions. In this context, so-called \emph{accidental band crossings} are expected based on geometric arguments \red{[Herring, 1937]}. %TODO Herring 1937
+The concept of Weyl semimetals arises naturally when studying how different energy bands relate to each other in three-dimensional solids. Whereas one and two-dimensional materials are generally gapped unless additional symmetries force the bands to touch, the situation is different in three dimensions. In this context, so-called \emph{accidental band crossings} are expected based on geometric arguments \cite{Herring_Accidental}.
 
 Accidental crossings can be understood by studying the interplay between any two of the energy bands. In most physically relevant scenarios these will be the valence and conduction band, since these determine the conductive properties of a material. Recall that the generic Hermitian two-band Hamiltonian can be written as
 \begin{equation*}
@@ -31,12 +31,12 @@ Near a band intersection at $\k=\k_w$, the Hamiltonian can be linearized: writin
 \begin{equation}\label{eq:linearized-Hamiltonian}
 	\Hc(\delta\k) = h_0(\k_w)\Id + \vb{v}_0\cdot\delta\k\Id + \sum_{i=1}^{3}\vb{v}_i\cdot\delta\k \sigma^i + \order{\delta\k^2},
 \end{equation} %TODO mention Fermi velocities?
-where $(\vb{v}_\mu)_i := \dee_{k^i}h_\mu |_{\k=\k_w}$ records the rate of change of the different components of the Hamiltonian. The spectrum associated with this linear equation looks like two cones which touch at $\k=\k_w$, often collectively called the \emph{Weyl cone}; see Figure~\red{[figure]}. %TODO
+where $(\vb{v}_\mu)_i := \dee_{k^i}h_\mu |_{\k=\k_w}$ records the rate of change of the different components of the Hamiltonian. The spectrum associated with this linear equation looks like two cones which touch at $\k=\k_w$, often collectively called the \emph{Weyl cone}; see Figure~\red{[need to add a figure here still]}. %TODO
 %TODO figure
 The different components of Equation~\eqref{eq:linearized-Hamiltonian} can all be given an interpretation in terms of this Weyl cone: for example, $h_0(\k_w)$ is the energy at which the bands touch, and it determines how far this crossing is from the Fermi energy $\varepsilon_F=0$. If $h_0$ is sufficiently far from the Fermi level, the Fermi surface expands to connect with those around other band crossings and gains an extensive two-dimensional structure. Normal metallic dispersive behaviour dominates in this case. However, if $h_0$ is close enough to zero, then the Fermi surface around $\k_w$ becomes approximately point-like, and there is a low-energy bulk conductive mode at $\k_w$. In this case the point $\k_w$ is called a \emph{Weyl point} or \emph{Weyl node}. When all of the crossings between the valence and conduction band have this property, the material is referred to as a \emph{Weyl semimetal}.\footnote{
 	The term \emph{Weyl metal} is also sometimes used for materials in which the Fermi surface is not point-like due to large $h_0$, but still confined to closed surfaces around the band crossings \cite{Burkov_Weyl-metals}. The topology of such Weyl metals is equivalent to that of their semimetal counterparts, and we will pay them no further mind.}
 
-This nomenclature is derived from the traceless $\vb{v}_i$ term in Equation~\eqref{eq:linearized-Hamiltonian}: it bears resemblance to the simple chiral fermions described by Herman Weyl in 1929 \red{[Weyl, 1929]}, %TODO Weyl 1929 %it bears resemblance to the Hamiltonians describing individual Weyl fermions
+This nomenclature is derived from the traceless $\vb{v}_i$ term in Equation~\eqref{eq:linearized-Hamiltonian}: it bears resemblance to the simple chiral fermions described by Herman Weyl in 1929 \cite{Weyl_fermions},
 \begin{equation*}
 	H_\pm = \mp c\vb{p}\cdot\bm{\upsigma},
 \end{equation*}
