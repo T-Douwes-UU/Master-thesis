@@ -1,6 +1,6 @@
 \chapter{Weyl semimetals}\label{chap:WSM}
 
-In recent years, interest in topological materials has expanded beyond the purely gapped phases in insulators and superconductors, into the realm of metals and other related gapless phases. Some of the topological conductors that are of the greatest interest are called Weyl semimetals, which form the focus of the rest of the present work.
+In recent years, interest in topological materials has expanded beyond the purely gapped phases in insulators and superconductors, into the realm of metals and other related gapless phases. Some of the topological conductors that are of the greatest interest are called Weyl semimetals, which form the focus of the remainder of the present work.
 
 Weyl semimetals are materials that host gapless modes only at very specific momenta in the Brillouin zone. They have a myriad of properties that make them worthy subjects of study, not only from a theoretical perspective but also in potential experimental and engineering applications. Practically, Weyl semimetals have exotic transport properties such as a resistance which is highly sensitive to the application of a magnetic field, opening up countless possibilities for electronic applications. 
 
@@ -17,7 +17,7 @@ The concept of Weyl semimetals arises naturally when studying how different ener
 
 Accidental crossings can be understood by studying the interplay between any two of the energy bands. In most physically relevant scenarios these will be the valence and conduction band, since these determine the conductive properties of a material. Recall that the generic Hermitian two-band Hamiltonian can be written as
 \begin{equation*}
-	\Hc(\k) = h_0(\k)\Id + \h(\k)\cdot\bm{\upsigma},
+	\Hc(\k) = h_0(\k)\Id + \h(\k)\cdot\bm{\upsigma}, %TODO mention h:T^3->R^3?
 \end{equation*}
 where $\k$ lives in the three-dimensional Brillouin torus $\T^3$ in this case. The eigenvalues of this Hamiltonian are
 \begin{equation*}
@@ -33,7 +33,7 @@ Near a band intersection at $\k=\k_w$, the Hamiltonian can be linearized: writin
 \end{equation} %TODO mention Fermi velocities?
 where $(\vb{v}_\mu)_i := \dee_{k^i}h_\mu |_{\k=\k_w}$ records the rate of change of the different components of the Hamiltonian. The spectrum associated with this linear equation looks like two cones which touch at $\k=\k_w$, often collectively called the \emph{Weyl cone}; see Figure~\red{[need to add a figure here still]}. %TODO
 %TODO figure
-The different components of Equation~\eqref{eq:linearized-Hamiltonian} can all be given an interpretation in terms of this Weyl cone: for example, $h_0(\k_w)$ is the energy at which the bands touch, and it determines how far this crossing is from the Fermi energy $\varepsilon_F=0$. If $h_0$ is sufficiently far from the Fermi level, the Fermi surface expands to connect with those around other band crossings and gains an extensive two-dimensional structure. Normal metallic dispersive behaviour dominates in this case. However, if $h_0$ is close enough to zero, then the Fermi surface around $\k_w$ becomes approximately point-like, and there is a low-energy bulk conductive mode at $\k_w$. In this case the point $\k_w$ is called a \emph{Weyl point} or \emph{Weyl node}. When all of the crossings between the valence and conduction band have this property, the material is referred to as a \emph{Weyl semimetal}.\footnote{
+The different components of Equation~\eqref{eq:linearized-Hamiltonian} can all be given an interpretation in terms of this Weyl cone: for example, $h_0(\k_w)$ is the energy at which the bands touch, and it determines how far this crossing is from the Fermi energy $\varepsilon_F=0$. If $h_0$ is sufficiently far from the Fermi level, the Fermi surface expands to connect with those around other band crossings and gains an extensive two-dimensional structure. Normal metallic dispersive behaviour dominates in this case. However, if $h_0$ is close enough to zero, then the Fermi surface around $\k_w$ becomes approximately point-like, and there is a low-energy bulk conductive mode at $\k_w$. In this case, the point $\k_w$ is called a \emph{Weyl point} or \emph{Weyl node}. When all of the crossings between the valence and conduction band have this property, the material is referred to as a \emph{Weyl semimetal}.\footnote{
 	The term \emph{Weyl metal} is also sometimes used for materials in which the Fermi surface is not point-like due to large $h_0$, but still confined to closed surfaces around the band crossings \cite{Burkov_Weyl-metals}. The topology of such Weyl metals is equivalent to that of their semimetal counterparts, and we will pay them no further mind.}
 
 This nomenclature is derived from the traceless $\vb{v}_i$ term in Equation~\eqref{eq:linearized-Hamiltonian}: it bears resemblance to the simple chiral fermions described by Herman Weyl in 1929 \cite{Weyl_fermions},
@@ -54,7 +54,7 @@ A final feature of Equation~\eqref{eq:linearized-Hamiltonian} that bears mention
 	\includegraphics[width=.7\linewidth]{Images/Weyl-cone-tilt}
 	\caption{Figure from Ref.~\cite{Soluyanov_Type-II}. Left: Weyl cone in a normal (type I) Weyl semimetal. Right: ``Overtilted'' Weyl cone in a type II Weyl semimetal. Electron and hole pockets are outlined in red and blue, respectively.}
 	\label{fig:Weyl-cone-tilt}
-\end{figure}
+\end{figure} %TODO figure placements (top?)
 This tipping of the Weyl cone induces significantly altered dispersion, leading to different electronic properties. Such materials are categorised separately as so-called \emph{type II} Weyl semimetals. %TODO type II NODES; also mention type I
 This distinction is purely physical, however; the different types of Weyl semimetals cannot be distinguished topologically.
 
@@ -66,14 +66,15 @@ The Nielsen--Ninomiya theorem is an indication that Weyl points must communicate
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=.5\linewidth]{Images/WSM_bulk+arc}
-	\caption{Figure by Alan Stonebraker. The 3D bulk Brillouin zone is shown of a Weyl semimetal with two Weyl points of negative and positive chirality, depicted as a sink and a source of the Berry field respectively. A 2D surface Brillouin zone is also depicted in grey at the top, featuring the projection of the two Weyl nodes connected by a Fermi arc of gapless states.}
+	\caption{Figure by Alan Stonebraker. %TODO ref
+		The 3D bulk Brillouin zone of a Weyl semimetal with two Weyl points of negative and positive chirality, depicted as a sink and a source of the Berry field respectively. A 2D surface Brillouin zone is depicted in grey at the top, featuring the projection of the two Weyl nodes connected by a Fermi arc of gapless states.}
 	\label{fig:WSM_bulk+arc}
 \end{figure}
 Fermi arcs serve as important experimental signatures of Weyl semimetals, and they have been observed in both electronic and artificial crystals since 2015  \cite{Weng_WSM-candidates,Huang_WSM-candidates,Lv_WSM-TaAs,Xu_WSM-experiment,Belopolski_minimal-WSM,Liu_photonic-Chern-vector}; see Figure~\ref{fig:TaAs_experiment}.
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=.6\linewidth]{Images/TaAs_experiment}
-	\caption{Figures from Ref.~\cite{Xu_WSM-experiment}. Experimental bulk (orange) and surface (green) Fermi surfaces, obtained through angle-resolved photoemission spectroscopy (ARPES). Bottom left: Two Weyl points appearing close together in the bulk. Top left: Fermi arcs are shown to terminate on the surface Brillouin zone above these Weyl points. Right: Bulk measurements are overlaid on the surface measurements at matching $k_x$ and $k_y$ values, showing good agreement between the position of the Weyl nodes and the tail ends of the Fermi arcs. In this case the two distinct Fermi arcs appear because there are two separate sets of Weyl nodes with the same $k_x$ and $k_y$ coordinates.}
+	\caption{Figures from Ref.~\cite{Xu_WSM-experiment}. Experimental bulk (orange) and surface (green) Fermi surfaces, obtained through angle-resolved photoemission spectroscopy (ARPES). Bottom left: Two Weyl points appearing close together in the bulk. Top left: Fermi arcs are shown to terminate on the surface Brillouin zone above these Weyl points. Right: Bulk measurements are overlaid on the surface measurements at matching $k_x$ and $k_y$ values, showing good agreement between the position of the Weyl nodes and the tail ends of the Fermi arcs. In this case, the two distinct Fermi arcs appear because there are two separate sets of Weyl nodes with the same $k_x$ and $k_y$ coordinates.}
 	\label{fig:TaAs_experiment}
 \end{figure}
 
@@ -86,7 +87,7 @@ Inversion symmetry is a natural property of many real-space lattices: it implies
 \begin{equation}\label{eq:inversion-symmetry}
 	\Hc(\k) = U\Hc(-\k)U\herm,
 \end{equation}
-where $U$ is some unitary transformation. In particular, this implies that a Weyl point at $\k=\k_w$ has a partner at $\k=-\k_w$ with the opposite chirality. Take for example the case of $U=\Id$ and a Weyl point with the simple linearized Hamiltonian 
+where $U$ is some unitary transformation. In particular, this implies that a Weyl point at $\k=\k_w$ has a partner at $\k=-\k_w$ with the opposite chirality. Take, for example, the case of $U=\Id$ and a Weyl point with the simple linearized Hamiltonian 
 \begin{equation*}
 	\Hc(\delta\k) = \sum_{i,j}V_i^j\delta k_j \sigma^i.
 \end{equation*}
@@ -94,28 +95,30 @@ This point has chirality $\chi = \sign\abs{V_i^j}$, and Equation~\eqref{eq:inver
 \begin{equation*}
 	\Hc(-\delta\k) = \sum_{i,j}(V')_i^j(-\delta k_j)\sigma^i = \Hc(\delta\k),
 \end{equation*}
-meaning there is a Weyl point at $\k=-\k_w$ with chirality $\chi' = \sign\abs{(V')_i^j} = \sign\abs{-V_i^j} = -\chi$. This reversal of chirality means Nielsen--Ninomiya is automatically satisfied under inversion symmetry. As a result, the minimum number of Weyl points in such a system is two; a Weyl point may be connected to its own symmetric partner via surface Fermi arcs.
+meaning that there is a Weyl point at $\k=-\k_w$ with chirality $\chi' = \sign\abs{(V')_i^j} = \sign\abs{-V_i^j} = -\chi$. This reversal of chirality means Nielsen--Ninomiya is automatically satisfied under inversion symmetry. As a result, the minimum number of Weyl points in such a system is two; a Weyl point may be connected to its own symmetric partner via surface Fermi arcs. %TODO maybe clarify
 
 Time-reversal symmetry has a similar action in momentum space, since momentum has a time component. It differs in the sense that time-reversal is an anti-unitary symmetry, meaning it also induces complex conjugation on the Hamiltonian:
 \begin{equation*}
 	\Hc(\k) = U\Hc^*(-\k)U\herm.
 \end{equation*}
-This complex conjugation changes the sign of the $\sigma^2$ term in the Hamiltonian; for Weyl points, this changes the sign of $\vb{v}_2$, inducing a sign change in the determinant of $V_i^j$. This cancels the sign change discussed above, meaning a Weyl point at $\k=\k_w$ always comes with a symmetric partner of \emph{equal} chirality at $\k=-\k_w$. Such a pair of equal-chirality points is sometimes referred to as a \emph{Kramers pair}. The presence of Kramers pairs means the minimum number of Weyl points in a time-reversal invariant Weyl semimetal is four: following Nielsen--Ninomiya, a pair of $\chi = +1$ points must always be accompanied by a pair of $\chi=-1$ points and vice versa.
+This complex conjugation changes the sign of the $\sigma^{(2)}$ term in the Hamiltonian; for Weyl points, this changes the sign of $\vb{v}_2$, inducing a sign change in the determinant of $V_i^j$. This cancels the sign change discussed above, meaning a Weyl point at $\k=\k_w$ always comes with a symmetric partner of \emph{equal} chirality at $\k=-\k_w$. Such a pair of equal-chirality points is sometimes referred to as a \emph{Kramers pair}. %TODO cite
+The presence of Kramers pairs means that the minimum number of Weyl points in a time-reversal invariant Weyl semimetal is four: following Nielsen--Ninomiya, a pair of $\chi = +1$ points must always be accompanied by a pair of $\chi=-1$ points and vice versa.
 
-The fact that the chirality of Weyl points is reflected in different ways under inversion and time-reversal symmetry immediately implies that a Weyl semimetal cannot satisfy both symmetries at once: if a Weyl point has a non-zero chirality $\chi$, then inversion implies its partner has chirality $-\chi$, while time-reversal implies it should have chirality $\chi$. Physically, this is because the combination of inversion and time-reversal induces a spin degeneracy in the band structure, making modes of opposite chiralities coincide. This is in close analogy to the way in which a Dirac fermion combines two Weyl fermions of opposite chirality into a single description; this is precisely why band touching points of this nature are called \emph{Dirac cones}, and systems featuring them are referred to as \emph{Dirac semimetals}. Because of the lack of non-zero chiralities, such materials are topologically less rich than their Weyl counterparts, and we will not expand on them further.
+The fact that the chirality of Weyl points is reflected in different ways under inversion and time-reversal symmetry immediately implies that a Weyl semimetal cannot satisfy both symmetries at once: if a Weyl point has a non-zero chirality $\chi$, then inversion implies its partner has chirality $-\chi$, while time-reversal implies it should have chirality $\chi$. Physically, this is because the combination of inversion and time-reversal induces a spin degeneracy in the band structure, making modes of opposite chiralities coincide. This is in close analogy to the way in which a Dirac fermion combines two Weyl fermions of opposite chirality into a single description; this is precisely why band touching points of this nature are called \emph{Dirac cones}, and systems featuring them are referred to as \emph{Dirac semimetals}. Because of the lack of non-zero chiralities, such materials are topologically less rich than their Weyl counterparts, and we will not expand on them further. %TODO four bands?
 
 All in all, a candidate Weyl semimetallic material must break either inversion or time-reversal symmetry. Of the two, breaking time-reversal symmetry is conceptually simpler in theory: the minimum amount of Weyl points is lower, and the symmetry is straightforwardly broken in the presence of a magnetic field. However, in practice the experimental detection of Fermi arcs and other spectral features relies on angle-resolved photoemission spectroscopy (ARPES), which is sensitive to magnetic fields. This is why to date, all experimentally confirmed electronic Weyl semimetals have preserved time-reversal symmetry and broken inversion symmetry instead  \cite{Weng_WSM-candidates,Huang_WSM-candidates,Lv_WSM-TaAs,Xu_WSM-experiment,Belopolski_minimal-WSM}.
 
 
 \section{Topological description}\label{sec:semimetal-topology}
 
-In all the systems studied in Chapter~\ref{chap:topo-states}, the underlying approach to topological classification has been to study which band structures cannot be deformed into each other without closing the band gap anywhere in the Brillouin zone. Weyl semimetals already feature band crossings in the bulk to begin with, meaning this approach needs to be modified. The basic idea involves fixing a number of gapless points in place first, and then studying what gapped topologies are admitted on the rest of the Brillouin zone outside of these points. There are many intricacies to this idea, some of which we attempt to review pedagogically in this section.
+In all the systems studied in Chapter~\ref{chap:topo-states}, the underlying approach to topological classification has been to study which band structures cannot be deformed into each other without closing the band gap anywhere in the Brillouin zone. Weyl semimetals already feature band crossings in the bulk to begin with, meaning that this approach needs to be modified. The basic idea involves first fixing a number of gapless points in place, and then studying what gapped topologies are admitted on the rest of the Brillouin zone outside of these points. There are many intricacies to this idea, some of which we attempt to review pedagogically in this section.
 
-Though most of the experimental candidates for Weyl semimetals feature either inversion or time-reversal symmetry, the conceptual topology framework is simplest in the absence of any symmetries beyond lattice translation. The majority of this section is written with this context in mind. Most of the concepts here are borrowed from two superb (if fairly technical) works by Vargese Mathai and Guo Chuan Thiang \cite{Mathai_math-review,Mathai_math-paper}.
+Though most of the experimental candidates for Weyl semimetals feature either inversion or time-reversal symmetry, the conceptual topology framework is simplest in the absence of any symmetries beyond lattice translation. The majority of this section is written with this context in mind. Most of the concepts here are borrowed from two (fairly technical) works by Vargese Mathai and Guo Chuan Thiang \cite{Mathai_math-review,Mathai_math-paper}.
 
-Only in the final part of this section will we return to time reversal symmetric systems, and review how the inclusion of this symmetry alters the topological description. This provides important context to our treatment of other symmetries in Chapter~\ref{chap:non-orientable}.
+Only in the final part of this section will we return to time reversal symmetric systems, %TODO comma grammar
+and review how the inclusion of this symmetry alters the topological description. This provides important context to our treatment of other symmetries in Chapter~\ref{chap:non-orientable}.
 
-The topological arguments in this section rely heavily on the concepts of cohomology and homology. Where possible, an attempt is made to explain the relevant ideas ``just enough'' in their proper physical context so that the main flow of the text may be followed without the relevant mathematical background. Readers seeking a somewhat more fundamental understanding are invited to refer to Appendix~\ref{chap:homology} as needed.
+The topological arguments in this section rely heavily on the concepts of cohomology and homology. Where possible, an attempt is made to explain the relevant ideas ``just enough'' in their proper physical context so that the main flow of the text may be followed without the relevant mathematical background. Readers seeking a somewhat more fundamental understanding are invited to refer to Section~\ref{sec:homology-cohomology} as needed. %TODO rewrite for new structure
 
 \subsection{3D Chern insulators}
 
@@ -146,7 +149,7 @@ This results in a classification by three distinct Chern numbers $C_x$, $C_y$ an
 \]
 
 Importantly, these three Chern numbers are all induced by a single two-form $\Fc$. In this sense, there is an exact correspondence between topologically distinct Berry curvatures $\Fc$ and Chern vectors $\vb{C}\in\Z^3$. This is precisely what motivates the use of cohomology for classification: just like in the 2D Chern insulator, the two-form $\Fc$ can be considered to represent a class in the second cohomology group,\footnote{
-	As explained in Appendix \ref{chap:homology}, $\Fc$ more properly represents a class in the real-valued \emph{de Rham cohomology} group $H_{\rm dR}^2(\T^3)\cong\R^3$. The analogy is strong enough to be considered direct here, but de Rham cohomology is too plain to encode features such as $\Z_2$ invariants. This is why we make use of the richer integer-valued cohomology theory.} %TODO perhaps move to ch.2
+	As explained in Section~\ref{sec:cohomology}, $\Fc$ more properly represents a class in the real-valued \emph{de Rham cohomology} group $H_{\rm dR}^2(\T^3)\cong\R^3$. The analogy is strong enough to be considered direct here, but de Rham cohomology is too plain to encode features such as $\Z_2$ invariants. This is why we make use of the richer integer-valued cohomology theory.} %TODO revisit given new structure
 \begin{equation}\label{eq:2nd-cohom-t3}
 	[\Fc]\in H^2(\T^3)\cong\Z^3. 
 \end{equation}

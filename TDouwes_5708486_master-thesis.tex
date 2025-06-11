@@ -137,7 +137,7 @@
 	
 \pagenumbering{roman}
 \begin{titlepage}  % Suppresses page number, next page is numbered 'i' by default
-	\center
+	\centering
 	
 	\textsc{\LARGE Utrecht University}\\[1.5cm]  % Main heading
 	
@@ -169,10 +169,10 @@
 	{\Large Master of Science}\\[.9cm]
 	
 	
-	{\large under the joint supervision of}\\[1cm]
+	{\large under the joint supervision of}\\[1.5cm]
 	
 	
-	\begin{minipage}{0.45\textwidth}
+	\begin{minipage}{0.51\textwidth}
 		\begin{flushleft}
 			\large
 			\textit{Project supervisor}\\
@@ -181,45 +181,54 @@
 		\end{flushleft}
 	\end{minipage}
 	~
-	\begin{minipage}{0.45\textwidth}
+	\begin{minipage}{0.42\textwidth}
 		\begin{flushright}
 			\large
-			\textit{Direct supervisor}\\
+			\textit{Daily supervisor}\\
 			Dr. Marcus \textsc{St{\aa}lhammar}\\
 			\normalsize Department of Physics
 		\end{flushright}
-	\end{minipage}
+	\end{minipage} %TODO second supervisor?
 	
 	
 	\vfill\vfill\vfill  % Position the date 3/4 down the remaining page
 	
-	{\large October 2024}  % Use \today for current date
+	{\large June 2025} 
 	
 	\vfill  % Push the date up 1/4 of the remaining page
 \end{titlepage}
 %TODO title page
 \setcounter{page}{2}  % Number next page as 'ii' instead of 'i'
 	
-\include{Chapters/abstract}
+\include{Chapters/abstract} %TODO abstract
+
+%TODO Acknowledgements?
 	
 \tableofcontents
 	
+\clearpage  % Ensures arabic numbering starts on Chapter 1
 \pagenumbering{arabic}
 
 %TODO check -ize vs. -ise in final report
 %TODO figure copyright
 
 \include{Chapters/introduction}
+
+\include{Chapters/prerequisites}
 	
 \include{Chapters/topological-states}
+
+\addtocontents{toc}{\pagebreak} %TODO finalize toc
 	
 \include{Chapters/weyl-semimetals}
 
 \include{Chapters/non-orientable}
 
+\include{Chapters/conclusions}
+
 \appendix 
 
-\include{Chapters/appendix}
+\include{Chapters/cellular-homology}
 
 \emergencystretch=1em
 

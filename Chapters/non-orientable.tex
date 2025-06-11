@@ -191,7 +191,7 @@ This becomes manifestly clear from the existence of a topological invariant at t
 
 \subsection{Classification scheme}
 
-There are two main conceptual challenges that present themselves in attempting to apply consistent cohomology and homology frameworks to non-orientable systems, and in particular in developing a physical intuition for them. First of all, the analogy between second cohomology classes and differential two-forms such as the Berry curvature $\Fc$ breaks down in this case, and a statement like Equation~\eqref{eq:2nd-cohom-t3} can no longer be taken to hold directly. This is because differential forms like $\Fc$ cannot be integrated over non-orientable manifolds, and the associated (de Rham) cohomology group is actually real-valued---it cannot readily encode the $\Z_2$ invariants induced by changes in orientation. As an example, suppose we are trying to find an invariant for the 2D Klein bottle insulator obeying Equation~\eqref{eq:2D_glide}. Integrating a Berry curvature on $K^2$ directly is not well defined, while integrating over the entire Brillouin torus always yields zero: the integration is over two oppositely oriented areas. The correct $\Z_2$ invariant can be interpreted as integration with different signs on both halves of the torus, bearing in mind that the result is only gauge invariant mod 2. In order to capture this behaviour generally, we need to move to the richer but more abstract integer-valued cohomology. \red{[Probably add a reference to the (co)homology appendix here.]} %TODO refer to appendix?
+There are two main conceptual challenges that present themselves in attempting to apply consistent cohomology and homology frameworks to non-orientable systems, and in particular in developing a physical intuition for them. First of all, the analogy between second cohomology classes and differential two-forms such as the Berry curvature $\Fc$ breaks down in this case, and a statement like Equation~\eqref{eq:2nd-cohom-t3} can no longer be taken to hold directly. This is because differential forms like $\Fc$ cannot be integrated over non-orientable manifolds, and the associated (de Rham) cohomology group is actually real-valued---as discussed in Section~\ref{sec:cohomology}, it cannot readily encode the $\Z_2$ invariants induced by changes in orientation. As an example, suppose we are trying to find an invariant for the 2D Klein bottle insulator obeying Equation~\eqref{eq:2D_glide}. Integrating a Berry curvature on $K^2$ directly is not well defined, while integrating over the entire Brillouin torus always yields zero: the integration is over two oppositely oriented areas. The correct $\Z_2$ invariant can be interpreted as integration with different signs on both halves of the torus, bearing in mind that the result is only gauge invariant mod 2. In order to capture this behaviour generally, we need to move to the richer but more abstract integer-valued cohomology laid out in Section~\ref{sec:homology-cohomology}.
 
 The second obstacle is that Poincaré duality is altered in this context. In Section \ref{sec:semimetal-topology}, this form of duality was used to identify the familiar cohomology invariants with homology invariants, in the form of non-trivial oriented loops and Dirac strings. In a non-orientable system, this identification cannot be made directly; in this case, either the homology or the cohomology must be \emph{twisted} by the introduction of a \emph{local coefficient system} $\ext{\Z}$ \cite{Whitehead_Homotopy,Hatcher_algebraic-topology}. Such a coefficient system compensates for the twist in orientation by tracking sign changes across the manifold. Introducing local coefficients on an $n$-manifold $M$ gives rise to the twisted homology and cohomology groups $H_k(M;\ext{\Z})$ and $H^k(M;\ext{\Z})$. Poincaré duality then takes the following forms \parencite[Theorem 3H.6]{Hatcher_algebraic-topology}:
 \begin{align*}
@@ -204,7 +204,7 @@ Given the fact that Poincaré duality can be restored by twisting either the hom
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=.9\linewidth]{Images/local_coefficients}
-	\caption{On the top left, the action of an orientation-reversing symmetry (represented by the dashed mirror axis) is shown on a Weyl point [whose chirality is an invariant in $H^2(M\setminus W)$] and a Dirac string  [representing an invariant in $H_1(M,W)$]. The Weyl point has its chirality reversed, since the Chern number is a pseudoscalar. On the other hand, the Dirac string is mirrored but maintains its internal orientation (i.e.\ its image is also oriented away from the ``hook'' at the end). As a result, when the symmetry acts on a set of two Weyl points connected by a Dirac string, the resulting structure has a Dirac string whose orientation is inconsistent with the chirality of the Weyl points (shown in the shaded area)---this is a result of Poincaré duality breaking. This problem can be resolved in one of two ways: either the cohomology is twisted into $H^2(M\setminus W;\ext{\Z})$ to undo the chirality reversal, or the homology is twisted into $H_1(M,W;\ext{\Z})$ to reverse the Dirac string's orientation. Poincaré duality is restored in both cases; the correct approach depends on the physical setup.}
+	\caption{On the top left, the action of an orientation-reversing symmetry (represented by the dashed mirror axis) is shown on a Weyl point [of which the chirality is an invariant in $H^2(M\setminus W)$] and a Dirac string  [representing an invariant in $H_1(M,W)$]. The Weyl point has its chirality reversed, since the Chern number is a pseudoscalar. On the other hand, the Dirac string is mirrored but maintains its internal orientation (i.e.\ its image is also oriented away from the ``hook'' at the end). As a result, when the symmetry acts on a set of two Weyl points connected by a Dirac string, the resulting structure has a Dirac string of which the orientation is inconsistent with the chirality of the Weyl points (shown in the shaded area)---this is a result of Poincaré duality breaking. This problem can be resolved in one of two ways: either the cohomology is twisted into $H^2(M\setminus W;\ext{\Z})$ to undo the chirality reversal, or the homology is twisted into $H_1(M,W;\ext{\Z})$ to reverse the Dirac string's orientation. Poincaré duality is restored in both cases; the correct approach depends on the physical setup.}
 	\label{fig:local_coefficients}
 \end{figure}
 The decision of which group must be twisted can thus be made by noting how the chirality of Weyl points (outside of high-symmetry points) relates to that of their symmetric partners in the full Brillouin torus. To be precise, the presence of same-chirality pairs indicates that the (cohomological) Chern number is not reversed as expected, and the cohomology must be twisted. Meanwhile, pairs with opposite chiralities indicate that the cohomology behaves naturally, and the homology (i.e.\ the Dirac string orientations) must be twisted to follow suit.
@@ -243,7 +243,8 @@ As an example, we may apply this line of reasoning to the time reversal invarian
 	\subcaptionbox{\label{subfig:TRS_orientation}}{\includegraphics[width=.35\textwidth]{Images/TRS_EBZ_orientation}}
 	\hfil
 	\subcaptionbox{\label{subfig:TRS_Kramers}}{\includegraphics[width=.45\textwidth]{Images/Kramers_pairs}}
-	\caption{(a) Figure~adapted from Ref.~\cite{Thiang_equivariant}. The effective Brillouin zone under time reversal symmetry is half of $\T^3$, with additional identifications of the coloured areas as $k\sim -k$. The resulting space is non-orientable: a ``test particle'' with a given helicity is shown travelling out through the boundary at $\k = (0,\pi/2,\pi/2)\tran$, and reappearing at $\k = (0,-\pi/2,-\pi/2)\tran$ with the opposite helicity. (b) Top view of a time reversal invariant Weyl semimetal, featuring same-chirality Kramers pairs at conjugate momenta, indicating a twist in the cohomology. On the other hand, the orientation of Dirac strings respects the symmetry, indicating ordinary (``untwisted'') homology.}
+	\caption{(a) Figure~adapted from Ref.~\cite{Thiang_equivariant}. The effective Brillouin zone under time reversal symmetry is half of $\T^3$, with additional identifications of the coloured areas as $k\sim -k$. The resulting space is non-orientable: a ``test particle'' with a given helicity is shown travelling out through the boundary at $\k = (0,\pi/2,\pi/2)\tran$, and reappearing at $\k = (0,-\pi/2,-\pi/2)\tran$ with the opposite helicity. (b) Top view of a time reversal invariant Weyl semimetal, featuring same-chirality Kramers pairs at conjugate momenta, %TODO clarify
+		 indicating a twist in the cohomology. On the other hand, the orientation of Dirac strings respects the symmetry, indicating ordinary (``untwisted'') homology.}
 	\label{fig:TRS_twist}
 \end{figure}
 As discussed before, \red{the time-reversal symmetry in this system is anti-unitary, and as such} the Kramers pairs of Weyl points at opposite momenta (related by $\k\leftrightarrow -\k$) always have the same chirality; see Figure~\ref{subfig:TRS_Kramers}.  %As discussed before, such systems feature Kramers pairs of Weyl points at opposite momenta related by $\k\leftrightarrow -\k$, both of which always have the same chirality; see Figure~\ref{subfig:TRS_Kramers}.
@@ -264,7 +265,7 @@ where as before, $W$ is the set of Weyl points on $M$ and $S_{w_i}^2$ is a small
 \begin{equation}\label{eq:homology-sequence-nonorientable}
 	0\ \to\ \underbrace{H_1(M;\ext{\Z})}_{\mathclap{\text{Twisted Dirac loops}}}\ \to\ \underbrace{H_1\big(M, W;\ext{\Z}\big)}_{\mathclap{\text{Twisted Dirac strings}}}\ \overset{\partial}{\to}\ H_0(W;\ext{\Z})\ \overset{\Sigma}{\to}\ H_0(M;\ext{\Z})\ \to\ 0,
 \end{equation}
-where we refer to the Dirac loops and Dirac strings as twisted to emphasise the non-trivial action of the symmetry on their orientation. The concept of a twisted Dirac string on $\KS$ can be difficult to intuit, leading to Dirac strings that appear to change orientation at orientation-reversing boundaries of the fundamental domain in a setup like Figure~\ref{subfig:BZ_right}. As such, they are more readily understood as equivariant (i.e.\ symmetry-related) pairs of Dirac strings on the full torus $\T^3$, whose orientation is reversed under the symmetry.
+where we refer to the Dirac loops and Dirac strings as twisted to emphasise the non-trivial action of the symmetry on their orientation. The concept of a twisted Dirac string on $\KS$ can be difficult to intuit, leading to Dirac strings that appear to change orientation at orientation-reversing boundaries of the fundamental domain in a setup like Figure~\ref{subfig:BZ_right}. As such, they are more readily understood as equivariant (i.e.\ symmetry-related) pairs of Dirac strings on the full torus $\T^3$, of which the orientation is reversed under the symmetry.
 
 In what follows, we will provide explicit computations of these sequences and discuss the associated invariants.
 
@@ -318,7 +319,7 @@ A second feature that stands out is the appearance of a $\Z_2$ group on the far 
 
 Recall from Section \ref{sec:Mayer-Vietoris} that the map $\Sigma$ in Equation~\eqref{eq:semimetal-MV-explicit-again} can be interpreted as a sum over all Weyl point charges on $\T^3$. The Nielsen--Ninomiya charge cancellation theorem on the torus then arises from the fact that $\Sigma\circ\beta = 0$; that is, a semimetal structure $a\in\Z^3\oplus\Z^{k-1}$ must always feature a charge configuration $\beta(a)\in\Z^k$ such that the charges sum to $\Sigma(\beta(a)) = 0 \in \Z$.
 
-The situation is somewhat more subtle on $\KS$: the $\Z^k$ group $H^2\!\left(\bigcup_{i=1}^k S_{w_i}^2\right)$ and its dual $H_0(W;\ext{\Z})$ no longer have a direct interpretation in terms of Weyl point charges, since both the absolute and relative chiralities of these points are ill defined here---as seen in Figure \ref{fig:BZ_param}. That is, the spheres $S_{w_i}$ no longer have a canonical orientation descending from the ambient manifold. Instead, $H^2\!\left(\bigcup_{i=1}^k S_{w_i}^2\right)$ must be interpreted as the group of charges $\chi_i$ \emph{given a choice of orientation} at each Weyl point $w_i$. This choice of orientation is exactly what is induced by choosing a specific fundamental domain: the changes of (absolute and relative) chirality in Figure~\ref{fig:BZ_param} correspond to a change of basis of this $\Z^k$. Nevertheless, the map $\Sigma$ can still be interpreted as a sum over these charges, precisely because it maps into $\Z_2$: to be exact, the map
+The situation is somewhat more subtle on $\KS$: the $\Z^k$ group $H^2\!\left(\bigcup_{i=1}^k S_{w_i}^2\right)$ and its dual $H_0(W;\ext{\Z})$ no longer have a direct interpretation in terms of Weyl point charges, since both the absolute and relative chiralities of these points are ill defined (see Figure~\ref{fig:BZ_param}). That is, the spheres $S_{w_i}$ no longer have a canonical orientation descending from the ambient manifold. Instead, $H^2\!\left(\bigcup_{i=1}^k S_{w_i}^2\right)$ must be interpreted as the group of charges $\chi_i$ \emph{given a choice of orientation} at each Weyl point $w_i$. This choice of orientation is exactly what is induced by choosing a specific fundamental domain: the changes of (absolute and relative) chirality in Figure~\ref{fig:BZ_param} correspond to a change of basis of this $\Z^k$. Nevertheless, the map $\Sigma$ can still be interpreted as a sum over these charges, precisely because it maps into $\Z_2$: to be exact, the map
 \begin{equation}\label{eq:map-sigma}
 	\Sigma: \Z^k\to\Z_2,\quad (\chi_1,\ldots,\chi_k) \mapsto \sum_{i=1}^{k}\chi_i \mod 2
 \end{equation}
@@ -390,82 +391,3 @@ Instead, the $\Z_2$ invariant on gapped $K^2$-like slices should be taken to be 
 	\nu_z' = \nu_z + C \mod 2,
 \end{equation*}
 requiring no $\Z_2$ charge on the Weyl point. This is also the position taken with respect to time-reversal invariant Weyl semimetals in Ref.~\cite{Thiang_equivariant}.
-
-	
-\section{Conclusions and outlook}
-
-\red{[Should outlook be a stand-alone chapter?]}
-
-%TODO Conclude
-
-%TODO Outlook
-
-{\color{blue}
-Outlook points:	
-	
-\begin{itemize}
-	\item The $K^2$ surface topology is probably also easily captured using twisted homology/ordinary 1st cohomology. The other two surfaces are more complicated: in the front ($xz$) surface, the chirality change is induced by mirroring across $k_x=0$ (probably can be captured using equivariant cohomology on the surface), while in the $yz$ surface it is induced by a change of projection direction (cannot be captured using equivariant homology, the effective surface BZ is a torus).
-	
-	\item This description may be easily extendable to a 2D type AIII Klein bottle WSM with chiral symmetry; in this case, 1st cohomology invariants (winding numbers) are dual to twisted 1st homology invariants (Fermi arcs/loops).
-	
-	\item More elementary systems such as 3D type A with inversion symmetry also exhibit non-orientable EBZs, but in this case the description is complicated by the existence of fixed points (the TRIM).
-	
-	\item Applicability of this description is probably limited under addition of non-trivial additional bands, e.g. 4-band models incorporating spin and orbital degrees of freedom. The full scope of applicability is somewhat of an open question at this point. (E.g., how well are 2D chiral WSMs described by this homology picture?)
-	
-	\item Experimental verification in acoustic crystals may be relatively straightforward.
-	
-	\item Anti-unitary glide symmetry $\implies$ twisted cohomology on $\KS$?
-\end{itemize}
-}
-
-
-
-{\color{red}
-\section*{Notes}
-Concepts explored in early personal notes:
-\begin{itemize}
-	\item Calculations of (co)homology and semimetal MV sequence for manifolds in $\geq2$ dimensions:
-	\begin{itemize}
-		\item All compact surfaces without boundary, i.e.\ the surfaces $M_g$ and $N_g$
-		
-		\item All spaces of the form $M = K^2 \times \T^{d-2}$
-	\end{itemize}
-	
-	\item The map $\Sigma:H^{d-1}(\bigsqcup_{k}S^{d-1})\to H^d(M)$ in the semimetal MV has a clear interpretation in terms of total charge in the (orientable) $d=3$ case. This would provide a clear picture of the total charge cancellation in the orientable case ($H^d(M) = \Z$ in general) vs. the mod 2 charge cancellation in the non-orientable case ($H^d(M) = \Z_2$ in general).
-	
-	\item However, $\Sigma$ and the other maps in the MV sequence are difficult to interpret in the $\chi\neq 0$ case (maybe even generally for odd dimensions). Taking the oriented case as an example, the MV sequence ends as
-	\begin{align*}
-		H^{d-1}(M\setminus\Delta)\ \rightarrow\ H^{d-1}\left(\bigsqcup_{k}S^{d-1}\right) \cong \Z^k\ \overset{\Sigma}{\rightarrow}\ H^d(M) \cong \Z
-	\end{align*}
-	so that the ``charge configuration'' in $\Z^k$ must map to 0 by $\Sigma$ in order to descend from the semimetal, regardless of whether $\chi=0$.
-	
-	\item This may imply that the Bloch vector field carries more topological information about the total charge than the MV sequence (which makes sense since it generates \emph{all} homology groups of the valence bundle, and all Betti numbers factor into $\chi$). As a concrete example, consider $M=S^2$ with a single puncture of charge $+2$. The punctured sphere is topologically a disc, so that the valence bundle must be trivial, while the Bloch vector field is topologically non-trivial in the sense that it has an index $+2$ singularity. In addition, all relevant $H_n(A)\oplus H_n(B)$ are zero, so that the semimetal MV reduces to the statement that $H_2(S^2)\cong H_1(S^1)$.
-	
-	\item It may even be the case that the valence bundle cannot be generated from the Bloch vector field in the $d=2$ case; it's probably worth studying the $d\in\set{3,4,5}$ cases (pullback of some universal bundle) to learn more about this. The $d=3$ case should be especially helpful in understanding how the valence bundle arises from the vector field.
-	
-	\item A complicating factor in the non-orientable case is that the homology groups are different from the cohomology groups, since the torsion moves up one dimension. This makes the homological semimetal MV different from the cohomological one (it's a short exact sequence in $d\geq3$!), and this leads to additional challenges in interpretation.
-	
-	\item The map $H: \R^3\to\la[su](2),\ \vec{h}\mapsto \vec{h}\cdot\vec{\sigma}$ is an isomorphism of Lie algebras, with the cross product as a Lie bracket on $\R^3$. Still the vector field is discontinuous on a non-orientable manifold, while $H$ is not. This suggests an alternative approach for constructing the valence bundle: consider $h$ as a map $M\to\R^d$ instead of an element of $\vct(M)$, and then pull back the universal bundle along the unit map $\hat{h}:M\setminus\Delta\to S^{d-1}$. That is, we detach $\vec{h}$ from the tangent bundle and consider it a more abstract map. An added ``benefit'' of this is that we lose all coordinate dependence. However, this may also be a downside in the sense that the map will not be subject to the same constraints (Poincaré--Hopf etc.) that the vector field is; for example, $S^2\to\R^2,\ x\mapsto(1,0)$ is a perfectly valid map that would violate the hairy ball theorem as a vector field (and this is a result of being unable to cover $S^2$ by a single chart). At this point the question may become more about which description is more physical in nature, and the non-orientable Weyl point paper\cite{Fonseca-Vaidya_nonorientable} seems to imply there may be more to the $h:M\to\R^3$ story. It also seems to agree better with the intuition of an applied external potential removing all Weyl nodes -- something that's impossible for $\chi\neq0$ if charge corresponds to vector field index. It also explains how the valence bundle can be trivial on the once punctured $S^2$.
-	
-	\item In light of the previous point, this may be an important observation: every $d$-manifold $M$ with $\chi(M)=0$ admits a nowhere-vanishing vector field (\href{https://math.stackexchange.com/questions/47370/if-a-manifold-m-has-zero-euler-characteristic-there-is-a-non-vanishing-vector-f}{link}). \st{This may imply that the vector field description is equivalent to the map to $\R^d$ in these cases, though one needs to be careful about charts. It would be good to find or write a (dis)proof for something like $\vct(M)\cong\Cinf(M,\R^d)$ (or similar for non-vanishing maps) in this case. Or more specifically:}
-	\[
-		\st{\big[M\setminus\Delta,S^{d-1}\big] \stackrel{?}{\cong} \Set{\vec{h}\in\vct(M\setminus\Delta) | \text{$\vec{h}$ is non-vanishing}}}
-	\]
-	Update: I think the real requirement for equivalence is that the base manifold $M$ is parallelisable (i.e.\ has a trivial tangent bundle), since we're essentially using a trivial $\R^d$-bundle in this construction.
-	
-	\item Any smooth $d$-manifold can be given a CW complex structure with one $d$-cell (\href{https://mathoverflow.net/questions/120799/manifolds-admitting-cw-structure-with-single-n-cell}{link}). On this $d$-cell there is an exact correspondence between vector fields and maps to $\R^d$, since it can be embedded in $\R^d$. What distinguishes the two is how points on the boundary of the $d$-cell are identified with each other; this determines whether the ``vectors'' need to change orientation. To illustrate:\\
-	\includegraphics[width=.9\textwidth]{Images/vectorfield-vs-map}
-	
-	\item On any orientable manifold, the Stokes' theorem argument shows that the total charge must be zero regardless of Euler characteristic:
-	\[
-		\sum_{\alpha}w(S_\alpha) = \sum_{\alpha}\int_{S_\alpha} c_1(E) = \sum_{\alpha}\int_{S_\alpha}\frac{\Tr\Fc}{2\pi} = \int_{B'} \dd{\frac{\Tr\Fc}{2\pi}} = 0
-	\]
-	where the last equality holds by the Bianchi identity for the trace. This means the valence bundle cannot be a pullback along a tangent vector field for $\chi\neq0$.
-	
-	On a non-orientable manifold, this argument doesn't hold since the integral over $B'$ isn't well defined.
-	
-	\item Total chirality isn't well defined on a non-orientable manifold (at least in odd dimensions, not sure how to interpret even dimensions). Still there is charge cancellation in the form of Fermi arcs etc.; it may take moving to a different homology system to get the full picture, such as homology with local coefficients or equivariant homology. (See e.g. Ref.~\cite{Thiang_equivariant})
-	
-	\item It may be worth classifying which manifolds are candidates for physical material Brillouin zones; I have a feeling that this might be restricted to those manifolds for which the $n$-torus is a covering space. In this case a full classification of symmetries on the torus (and e.g. their related equivariant homologies) would be sufficient to classify all material topologies. This classification is related to space group symmetries.
-\end{itemize}
-}  % end red colour
