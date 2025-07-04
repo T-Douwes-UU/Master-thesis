@@ -133,7 +133,6 @@
 \newcommand{\markedsection}[2]{\section[#2]{#2%
 	\sectionmark{#1}}
 	\sectionmark{#1}}
-%TODO check whether shorter headings are necessary in the final report
 
 \newcommand{\h}{\vb{h}}
 \renewcommand{\k}{\vb{k}}
@@ -217,10 +216,10 @@
 \end{titlepage}
 
 \setcounter{page}{2}  % Number next page as 'ii' instead of 'i'
-	
-\include{Chapters/abstract} %TODO abstract
 
-%\include{Chapters/acknowledgements} %TODO Acknowledgements
+\include{Chapters/acknowledgements}
+	
+\include{Chapters/abstract}
 
 	
 \tableofcontents
@@ -228,9 +227,6 @@
 \clearpage  % Ensures arabic numbering starts on Chapter 1
 \pagenumbering{arabic}
 
-%TODO conductive vs. conducting
-%TODO check -ize vs. -ise in final report
-%TODO n't
 
 \include{Chapters/introduction}
 
@@ -238,7 +234,7 @@
 	
 \include{Chapters/topological-states}
 
-\addtocontents{toc}{\pagebreak} %TODO finalize toc
+\addtocontents{toc}{\pagebreak}
 	
 \include{Chapters/weyl-semimetals}
 

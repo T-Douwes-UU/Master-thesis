@@ -28,7 +28,7 @@ The eigenvalues of this Hamiltonian are
 so that the two energy bands coincide exactly when $\h(\k) = 0$. That is, band crossings occur at the simultaneous zeroes of three functions $h_i$ for $i\in\set{1,2,3}$, all depending on three momentum degrees of freedom. Such a system of three equations with three parameters generically has point-like solutions: the zeroes of each individual $h_i$ normally form a surface in $\T^3$, two such surfaces intersect in a set of curves, and the third surface intersects these curves in a set of points. This means that in a three-dimensional system, the gap between two bands generically closes at a discrete set of points, given that the bands are close enough together (i.e.\ the functions $h_i$ each have zeroes to begin with). These band crossings are called accidental because they are not enforced by any symmetry of the system, but as we will review shortly, they are actually topologically robust and cannot be gapped out by small perturbations.
 
 \subsection{Weyl points}
-Near a band intersection at $\k=\k_w$, the Hamiltonian can be linearized: writing $\delta\k := \k - \k_w$, it can be expanded as
+Near a band intersection at $\k=\k_w$, the Hamiltonian can be linearised: writing $\delta\k := \k - \k_w$, it can be expanded as
 \begin{equation}\label{eq:linearized-Hamiltonian}
 	\Hc(\delta\k) = h_0(\k_w)\Id + \vb{v}_0\cdot\delta\k\Id + \sum_{i=1}^{3}\vb{v}_i\cdot\delta\k \sigma^i + \order{\delta\k^2},
 \end{equation}
@@ -36,7 +36,7 @@ where $(\vb{v}_\mu)_i := \dee_{k^i}h_\mu |_{\k=\k_w}$ records the rate of change
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=.5\linewidth]{Images/Weyl-cone}
-	\caption{Figure from Ref.~\cite{Zhang_Berry}. Example Weyl cone dispersion corresponding to the linearized Hamiltonian in Equation~\eqref{eq:linearized-Hamiltonian}. The $k_z$ direction is omitted, and the Fermi energy is indicated by the flat blue plane. Features of this Weyl cone can be related to the coefficients of Equation~\eqref{eq:linearized-Hamiltonian}: $h_0$ represents the height of the band touching point above the Fermi level, and it must be reasonably close to zero for the Fermi surface (intersection of the cone with the blue plane) to be approximately point-like. The $\vb{v}_0$ and $\vb{v}_i$ determine how the Weyl cone is tilted and deformed in different directions, respectively.}
+	\caption{Figure from Ref.~\cite{Zhang_Berry}. Example Weyl cone dispersion corresponding to the linearised Hamiltonian in Equation~\eqref{eq:linearized-Hamiltonian}. The $k_z$ direction is omitted, and the Fermi energy is indicated by the flat blue plane. Features of this Weyl cone can be related to the coefficients of Equation~\eqref{eq:linearized-Hamiltonian}: $h_0$ represents the height of the band touching point above the Fermi level, and it must be reasonably close to zero for the Fermi surface (intersection of the cone with the blue plane) to be approximately point-like. The $\vb{v}_0$ and $\vb{v}_i$ determine how the Weyl cone is tilted and deformed in different directions, respectively.}
 	\label{fig:Weyl-cone}
 \end{figure}
 The different components of Equation~\eqref{eq:linearized-Hamiltonian} can all be given an interpretation in terms of this Weyl cone: for example, $h_0(\k_w)$ is the energy at which the bands touch, and it determines how far this crossing is from the Fermi energy $E_F = 0$. If $h_0$ is sufficiently far from the Fermi level, the Fermi surface expands to connect with those around other band crossings and gains an extensive two-dimensional structure. Normal metallic dispersive behaviour dominates in this case. However, if $h_0$ is close enough to zero, then the Fermi surface around $\k_w$ becomes approximately point-like, and there is a low-energy bulk conducting mode at $\k_w$. In this case, the point $\k_w$ is called a \emph{Weyl point} or \emph{Weyl node}. When all of the crossings between the valence and conduction band have this property, the material is referred to as a \emph{Weyl semimetal}.\footnote{
@@ -52,13 +52,13 @@ One particularly interesting feature of Weyl fermions is that they have a non-ze
 \begin{equation}\label{eq:determinant_chirality}
 	\chi = \sign{|V_i^j|},
 \end{equation} 
-which yields a chirality of $\chi=\pm1$. In special cases where the band crossing is non-linear, the chirality may take on other integer values; this is captured more generally using a Berry curvature integral on a two-dimensional sphere surrounding the Weyl point. In this light, Weyl points can be viewed as sources or sinks of the Berry field, with a quantized integer charge. This charge is topological in nature, which is exactly why Weyl points are robust to perturbations. The implications of this topological perspective will be explored in greater detail in Section~\ref{sec:semimetal-topology}.
+which yields a chirality of $\chi=\pm1$. In special cases where the band crossing is non-linear, the chirality may take on other integer values; this is captured more generally using a Berry curvature integral on a two-dimensional sphere surrounding the Weyl point. In this light, Weyl points can be viewed as sources or sinks of the Berry field, with a quantised integer charge. This charge is topological in nature, which is exactly why Weyl points are robust to perturbations. The implications of this topological perspective will be explored in greater detail in Section~\ref{sec:semimetal-topology}.
 
 A final feature of Equation~\eqref{eq:linearized-Hamiltonian} that bears mentioning is the inclusion of the $\vb{v}_0$ term. This term can be interpreted in terms of a tilting of the associated Weyl cone. For small $\vb{v}_0$, the Fermi surface of a Weyl point remains point-like, and the dispersive properties of the virtual Weyl fermion are not greatly affected. However, for large enough $\vb{v}_0$, the Weyl cone may begin to intersect the Fermi level, causing electron and hole pockets to form on either side of the Weyl point \cite{Soluyanov_Type-II}; see Figure~\ref{fig:Weyl-cone-tilt}.
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=.7\linewidth]{Images/Weyl-cone-tilt}
-	\caption{Figure from Ref.~\cite{Soluyanov_Type-II}. Left: Upright Weyl cone corresponding to a normal (type I) Weyl node. Right: ``Over-tilted'' Weyl cone associated with a type-II Weyl node. Electron and hole pockets in the Fermi surface (i.e.\ the intersection between the cone and the grey Fermi level plane) are outlined in red and blue, respectively; these pockets appear to continue indefinitely in this linearized picture, but in reality their size is constrained by higher-order terms in the Hamiltonian.}
+	\caption{Figure from Ref.~\cite{Soluyanov_Type-II}. Left: Upright Weyl cone corresponding to a normal (type I) Weyl node. Right: ``Over-tilted'' Weyl cone associated with a type-II Weyl node. Electron and hole pockets in the Fermi surface (i.e.\ the intersection between the cone and the grey Fermi level plane) are outlined in red and blue, respectively; these pockets appear to continue indefinitely in this linearised picture, but in reality their size is constrained by higher-order terms in the Hamiltonian.}
 	\label{fig:Weyl-cone-tilt}
 \end{figure}
 This tipping of the Weyl cone induces significantly altered dispersion, leading to different electronic properties. Band touching points with this property are categorised separately as so-called \emph{type-II} Weyl nodes, and conventional Weyl points are sometimes called type-I in contrast. Similarly, the quasiparticle excitations associated with over-tilted cones are called type-II Weyl fermions, and materials hosting them are referred to as type-II Weyl semimetals.\footnote{
@@ -95,7 +95,7 @@ Inversion symmetry is a natural property of many real-space lattices: it implies
 \begin{equation}\label{eq:inversion-symmetry}
 	\Hc(\k) = U\Hc(-\k)U^{-1},
 \end{equation}
-where $U$ is some unitary transformation. In particular, this implies that a Weyl point at $\k=\k_w$ has a partner at $\k=-\k_w$ with the opposite chirality. Take, for example, the case of $U=\Id$ and a Weyl point with the simple linearized Hamiltonian 
+where $U$ is some unitary transformation. In particular, this implies that a Weyl point at $\k=\k_w$ has a partner at $\k=-\k_w$ with the opposite chirality. Take, for example, the case of $U=\Id$ and a Weyl point with the simple linearised Hamiltonian 
 \begin{equation*}
 	\Hc(\delta\k) = \sum_{i,j}V_i^j\delta k_j \sigma^i.
 \end{equation*}
@@ -283,13 +283,13 @@ This homology picture provides a classification scheme that is exactly dual to t
 	H^2\big(\T^3\setminus W\big) \cong H_1\big(\T^3, W\big).
 \end{equation}
 This is not a direct Poincar\'e duality, but it is nevertheless mathematically rigorous and protected by orientability in the same way.\footnote{
-	To be precise, Poincar\'e duality does not hold directly because $\T^3\setminus W$ is not a closed manifold. Instead, for non-compact manifolds $M$ there is a generalized duality $H^n(M)\cong H_{d-n}^{\rm BM}(M)$ where the group on the right is the \emph{Borel--Moore homology}, and this is in turn equivalent to the relative homology in this case. Alternatively, Equation~\eqref{eq:semimetal-duality} can be interpreted as a result of the so-called \emph{Lefschetz duality} $H^n(M)\cong H_{d-n}(M, \partial M)$ for manifolds with a boundary.}
+	To be precise, Poincar\'e duality does not hold directly because $\T^3\setminus W$ is not a closed manifold. Instead, for non-compact manifolds $M$ there is a generalised duality $H^n(M)\cong H_{d-n}^{\rm BM}(M)$ where the group on the right is the \emph{Borel--Moore homology}, and this is in turn equivalent to the relative homology in this case. Alternatively, Equation~\eqref{eq:semimetal-duality} can be interpreted as a result of the so-called \emph{Lefschetz duality} $H^n(M)\cong H_{d-n}(M, \partial M)$ for manifolds with a boundary.}
 The interpretation in terms of Chern numbers given in Equation~\eqref{eq:duality-scheme} also still holds here, with the Chern vector and Dirac loops replaced with more general Chern numbers and Dirac strings, respectively.
 
 
 \subsection{The semimetal Mayer--Vietoris sequence}\label{sec:Mayer-Vietoris}
 
-In the previous section, a heuristic Stokes' theorem argument was presented for charge cancellation on Weyl points. This argument can be generalized by moving to a more abstract cohomology setting, where we are not dependent on the integration of forms; this is important because integration will not be well defined once we move to a non-orientable setting. As an added bonus, the abstract description proves to be richer and provide more detailed information on the possible topological phases for a Weyl semimetal.
+In the previous section, a heuristic Stokes' theorem argument was presented for charge cancellation on Weyl points. This argument can be generalised by moving to a more abstract cohomology setting, where we are not dependent on the integration of forms; this is important because integration will not be well defined once we move to a non-orientable setting. As an added bonus, the abstract description proves to be richer and provide more detailed information on the possible topological phases for a Weyl semimetal.
 
 The idea is that the relation between the global semimetal topology in Equation~\eqref{eq:2nd-cohom-semimetal} and the local charge data in Equation~\eqref{eq:2nd-cohom-spheres} can be understood by considering how cohomology classes are mapped between them. That is, one needs to find and study a homomorphism
 \begin{equation*}

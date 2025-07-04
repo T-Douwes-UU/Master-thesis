@@ -2,8 +2,7 @@
 
 In recent years, innumerable forms of topological matter have been studied in many different contexts, using many different methods. Their study has revealed a richness of systems with widely varying physical properties \cite{Akhmerov_online-course,Asboth_topo-course,Bernevig_topological-insulators,Sato_superconductors}. We cannot hope to offer a comprehensive overview of such a diverse and rapidly developing field, but there are some common threads to be found across much of it that are worth highlighting.
 
-The first of these commonalities is that symmetries always play a crucial role in determining how many topologically distinct phases a system has. This interplay between symmetry and topology is subtle: on the one hand, certain topological phases may only be distinct if a symmetry is assumed, in which case the topology is said to be protected by the symmetry. %TODO ref
-On the other hand, certain topological states are inherently asymmetrical in some way, so that introducing a symmetry may prevent non-trivial topology from arising altogether. %TODO ref
+The first of these commonalities is that symmetries always play a crucial role in determining how many topologically distinct phases a system has. This interplay between symmetry and topology is subtle: on the one hand, certain topological phases may only be distinct if a symmetry is assumed, in which case the topology is said to be protected by the symmetry. On the other hand, certain topological states are inherently asymmetrical in some way, so that introducing a symmetry may prevent non-trivial topology from arising altogether.
 
 Another very important characteristic that is shared by most topological phases of matter lies in the appearance of boundary states. For example, a topological insulator may conduct electricity on its surface, in a way that is determined and protected by the topology of the insulating bulk of the material. This correspondence between bulk topology and surface behaviour is known as the \emph{bulk-boundary correspondence}, and it is a central tenet of the theory of topological solids.
 
@@ -156,7 +155,7 @@ The exponentials in this expression are turned into real space delta functions u
 			0 & 0
 		\end{pmatrix} + {\rm h.c.}\right)\right], 
 \end{equation}
-where ``h.c.'' denotes the Hermitian conjugate of the preceding term. This Hamiltonian contains a term which acts within the unit cells, and terms which act between neighbouring unit cells, parametrized by $v$ and $w$ respectively. The structure of these interactions can be made somewhat more transparent by going to a finite chain of length $N$. The Hamiltonian then becomes
+where ``h.c.'' denotes the Hermitian conjugate of the preceding term. This Hamiltonian contains a term which acts within the unit cells, and terms which act between neighbouring unit cells, parametrised by $v$ and $w$ respectively. The structure of these interactions can be made somewhat more transparent by going to a finite chain of length $N$. The Hamiltonian then becomes
 \[
 	\hat{H} = \sum_{n=0}^{N}\ket{n}\bra{n}\otimes\begin{pmatrix}
 		0 & v \\
@@ -184,7 +183,7 @@ where open boundary conditions have been introduced on the ends of the chain to 
 \]
 A physical interpretation of this system presents itself in the form of this matrix: it describes a chain of $2N$ sites, with alternating hopping amplitudes $v$ and $w$ between neighbouring sites. The unit cells now consist of two of these sites, and $v$ and $w$ are referred to as the \emph{intra-cell} and \emph{inter-cell} hoppings, respectively. When these two hoppings are equal, the system is in the gapless phase $v=w$, corresponding to a chain where all bonds are equally strong. Intuitively, this homogeneity allows electrons to propagate freely along the chain. On the other hand, in the insulating cases $v\neq w$, one of the two hoppings is stronger than the other, and the electrons tend to be confined around these stronger bonds.
 
-Dividing the unit cells into two individual sites in this way allows us to distinguish two so-called \emph{sublattices} of the crystal, which we label $A$ and $B$. The notation can then be simplified by labelling quantum states according to the sublattice on which they are localized:
+Dividing the unit cells into two individual sites in this way allows us to distinguish two so-called \emph{sublattices} of the crystal, which we label $A$ and $B$. The notation can then be simplified by labelling quantum states according to the sublattice on which they are localised:
 \[
 	\ket{n,A} \equiv \ket{n}\otimes\begin{pmatrix}
 		1 \\ 0
@@ -206,7 +205,7 @@ The tight-binding model of alternating hoppings is precisely the SSH model as it
 \end{figure}
 This material displays unexpectedly high conductivity when doped with halogen impurities, and the SSH model affords an explanation for this.
 
-To understand how this metallic behaviour comes about, the differences between the trivial and the topological phase must be examined more closely. The two phases appear to be identical at a first glance: if the unit cell in polyacetylene is chosen in such a way that the stronger double bond represents the intra-cell hopping $v$, then the system is in the trivial phase $v>w$, and if instead the unit cell is centred around a single bond, $v<w$ and the phase is topological. In either case, valence electrons are expected to remain localized around the double bonds, leading to the same insulating bulk behaviour.\footnote{
+To understand how this metallic behaviour comes about, the differences between the trivial and the topological phase must be examined more closely. The two phases appear to be identical at a first glance: if the unit cell in polyacetylene is chosen in such a way that the stronger double bond represents the intra-cell hopping $v$, then the system is in the trivial phase $v>w$, and if instead the unit cell is centred around a single bond, $v<w$ and the phase is topological. In either case, valence electrons are expected to remain localised around the double bonds, leading to the same insulating bulk behaviour.\footnote{
 	The attentive reader might wonder why the conducting $v=w$ phase does not occur naturally in this system. This is a result of the so-called Peierls transition: in a nutshell, introducing a band gap locally lowers the energy of the (filled) valence band and raises that of the (empty) conduction band. This makes it energetically favourable for atoms in the chain to pair up, in a process referred to as dimerisation.}
 
 The difference between the two phases only becomes apparent when the endpoints of the chain are studied. For example, the leftmost atom is not subject to any inter-cell hopping, and it is only connected to the other atom in its unit cell. In the trivial case, this connection is strong and the two atoms share their valence electrons. In the topological phase, on the other hand, the second atom from the left prefers to share electrons with its right-hand neighbour, and the leftmost atom becomes isolated. In the limit where $v$ goes to zero, this isolation becomes complete; this is illustrated in Figure~\ref{fig:SSH-boundaries}.
@@ -220,7 +219,7 @@ and the edge sites carry zero-energy eigenstates. In this case, only the second 
 \begin{align*}
 	\hat{H}\ket{1,A} = \hat{H}\ket{N,B} = 0.
 \end{align*}
-These edge modes can be shown to persist for non-zero $v<w$, in which case they become highly localized and approach zero energy in the $N\to\infty$ limit \cite{Asboth_topo-course}. The salient point is that the boundary modes of the topological phase exist inside the energy gap: their energy eigenvalues have a point-like degeneracy at the Fermi level $E_F = 0$. 
+These edge modes can be shown to persist for non-zero $v<w$, in which case they become highly localised and approach zero energy in the $N\to\infty$ limit \cite{Asboth_topo-course}. The salient point is that the boundary modes of the topological phase exist inside the energy gap: their energy eigenvalues have a point-like degeneracy at the Fermi level $E_F = 0$. 
 
 Something remarkable has happened: we have started from a topological description of a gapped bulk phase, and the resulting physical effects appear as in-gap zero energy modes on the boundary of the material. As will become apparent upon looking at other examples, the existence of edge modes at the Fermi level is a fairly general feature of topological phases of matter,\footnote{
 	This is not a completely general statement: topological phases with edge modes at energies other than $E_F$ have been shown to be theoretically feasible \cite{Freedman_gapped-edge}. For our purposes, it will be sufficient to restrict our attention to edge modes at the Fermi level.}
@@ -264,7 +263,7 @@ An immediate consequence of this setup is that the trivial and topological phase
 
 The SSH model discussed in the previous section demonstrates that the topological nature of a system is inextricably linked to the symmetries that it possesses. It should come as no surprise, then, that this relation between topology and symmetry has comprised one of the principal avenues of research in topological matter. In this section, we review one of the most important results of this endeavour, which comes in the form of a periodic table of gapped topological phases of matter---often referred to as the \emph{tenfold way}. Much of the discussion here is borrowed from the review in Ref.~\cite{Ludwig_tenfold-way}.
 
-The idea at the heart of the tenfold way classification is that any symmetry on a quantum mechanical system---not only a crystalline one---can be reduced to several fundamental components. This idea was first developed by Martin Zirnbauer and Alexander Altland around the turn of the current century \cite{Zirnbauer_random-matrix,AltlandZirnbauer_symm-classes,Heinzner_symm-classes}. We summarize the main ideas of the construction here.
+The idea at the heart of the tenfold way classification is that any symmetry on a quantum mechanical system---not only a crystalline one---can be reduced to several fundamental components. This idea was first developed by Martin Zirnbauer and Alexander Altland around the turn of the current century \cite{Zirnbauer_random-matrix,AltlandZirnbauer_symm-classes,Heinzner_symm-classes}. We summarise the main ideas of the construction here.
 
 First, the system may be subject to a number of ordinary unitary symmetries, such as rotations, reflections, or the spatial translations that define a crystal. Each of these unitary symmetries is represented by a unitary operator $\hat{U}$ that commutes with the Hamiltonian: that is, the symmetry is defined as
 \begin{equation*}
@@ -354,7 +353,7 @@ The invariant on these systems is a so-called \emph{Chern number}, and it can be
 \begin{equation}\label{eq:Chern-number}
 	C = \frac{1}{2\pi}\int_{\T^2} \Fc,
 \end{equation}
-where $\T^2$ is the two-dimensional Brillouin torus and $\Fc$ is the Berry curvature 2-form as defined in Section~\ref{sec:band-theory}. This total curvature represents the $\U(1)$ phase change picked up by a state after parallel transport around the full $\T^2$, and as such it must be quantized to a multiple of $2\pi$.
+where $\T^2$ is the two-dimensional Brillouin torus and $\Fc$ is the Berry curvature 2-form as defined in Section~\ref{sec:band-theory}. This total curvature represents the $\U(1)$ phase change picked up by a state after parallel transport around the full $\T^2$, and as such it must be quantised to a multiple of $2\pi$.
 
 The Chern number essentially classifies the curvature 2-form $\Fc$ into different cohomology classes on the Brillouin torus, as outlined in Section~\ref{sec:cohomology}. That is, we can consider $\Fc$ to be a representative of the second cohomology class\footnote{
 	As explained in Section~\ref{sec:cohomology}, $\Fc$ more properly represents a class in the real-valued de Rham cohomology group $H_{\rm dR}^2(\T^2)\cong\R$. The analogy is strong enough to be considered direct here, but de Rham cohomology is too plain to encode features such as $\Z_2$ invariants. This is why we make use of the richer integer-valued cohomology theory throughout this work.}
