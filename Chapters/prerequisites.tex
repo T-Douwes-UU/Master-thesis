@@ -1,18 +1,104 @@
-\chapter{Prerequisites}
+\chapter{Prerequisites}\label{chap:prerequisites}
 
-%TODO short intro
+In this chapter, we briefly review some of the more fundamental concepts on which the rest of this work is built. Section~\ref{sec:band-theory} covers some essentials of condensed matter physics, to the degree that is necessary here; in particular, some of the key assumptions underlying our description are highlighted, and the significance of the Brillouin zone and the Berry phase are explained. Section~\ref{sec:homology-cohomology} provides the necessary mathematical background; in particular, the topological tools of homology and cohomology are treated. Readers who are at least somewhat familiar with the concepts in either section are free to skip over them, and refer back to their contents later as needed.
 
-\section{Topological band theory}
+\section{Concepts in condensed matter}\label{sec:band-theory}
 
-%TODO band theory
+We offer here a brief review of the physics of electronic materials, to the extent that is relied on in this thesis. The concepts set out here are explored in great generality in standard reference works such as Ref.~\cite{AshcroftMermin_bands}, but we will only require a select few specialised details.
+
+The electronic transport properties of materials can be understood in terms of the energy levels that the electronic states that inhabit them may occupy, in close analogy to the electronic orbitals in a single atom; in a material, these levels are referred to as \emph{energy bands}. In the ground state of a material, the Pauli exclusion principle ensures that the energy bands are occupied up to a certain level, known as the Fermi energy. The manner in which electricity is (or is not) conducted in a system is then determined by the way in which the bands are organised around the Fermi energy; this is illustrated in Figure~\ref{fig:bands}.
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=.7\linewidth]{Images/bands}
+	\caption{Schematic illustration of the energy bands related to different types of materials. Occupied states are indicated in grey, while unoccupied states are white. In an insulator, the Fermi energy lies between a fully occupied valence band and a fully empty conduction band. On the other hand, metals and semimetals are characterised by bands which overlap or touch at the Fermi energy, respectively. The colour gradient across the Fermi energy $E_F$ indicates that the system is not in the ground state, and the electrons in these states are mobile.}
+	\label{fig:bands}
+\end{figure}
+In general, partially occupied bands give rise to mobile electron states at the Fermi energy, allowing for conduction. This is closely related to the microscopic picture in which the partially occupied outer electron orbits in metal atoms allow mutual exchange of electrons. Here, we will use the common convention of setting the Fermi energy to $E_F=0$.
+
+
+\subsection{Core assumptions}
+
+We follow three commonly made assumptions in this work in order to make the energy band description mathematically tractable. The first is that the atomic orbitals in the material do not overlap significantly between atomic sites. This is known as the \emph{tight-binding approximation}, and it ensures that the bands exist at discrete energy levels, without being split into different ranges of energies.
+
+The second assumption we make is that the physical properties of the systems under consideration are well approximated by just two energy bands. This is often the case in insulators and semimetals, where the Fermi energy lies between two bands: in this case, the highest occupied band is called the \emph{valence band} and the lowest empty band is the \emph{conduction band}.
+
+The two-band tight-binding model allows for the system to be described by a $2\times2$ Hamiltonian operator. In momentum space, a $2\times2$ Hermitian operator takes on the generic form
+\begin{equation}\label{eq:Hamiltonian}
+	\Hc(\k) = h_0(\k)\Id + \h(\k)\cdot\bm{\upsigma},
+\end{equation}
+where $\bm{\upsigma} = (\sigma_x,\sigma_y,\sigma_z)\tran$ is the vector of Pauli matrices, and the number of components in $\k$ depends on the dimensionality of the material. In practice, the trace term parametrised by $h_0$ turns out to not affect the topology of the bands, and as such we will often assume $h_0(\k)=0$.
+
+The actual energy bands are now the eigenvalues of this Hamiltonian,
+\begin{equation*}
+	E(\k) = h_0(\k) \pm \abs{\h(\k)} = h_0(\k) \pm \sqrt{h_1^2(\k) + h_2^2(\k) + h_3^2(\k)}.
+\end{equation*}
+It follows that the two bands only touch when $\h(\k) = 0$. Under the assumption that $h_0(\k) = 0$, this means that the system is insulating whenever $\h(\k)$ is non-zero.
+
+The final key assumption that we adhere to is that the materials under consideration are crystalline, i.e. that they are described by a periodic lattice. In this context, a result known as \emph{Bloch's theorem} applies \cite{Bloch_theorem}, which tells us that the real-space eigenstates $\psi(\vb{r})$ of any Hamiltonian can be expressed in terms of plane waves and periodic functions:
+\begin{equation*}
+	\psi(\vb{r}) = \e^{i\k\cdot\vb{r}} u(\vb{r}),
+\end{equation*}
+where $u(\vb{r})$ respects the periodicity of the lattice. Consequently, different momenta $\k$ can describe the same eigenstate $\psi(\vb{r})$, as long as the resulting values of $\k\cdot\vb{r}$ differ by a multiple of $2\pi$. As a result, there is a bounded region of momentum space containing only momenta which correspond to distinct eigenstates $\psi(\vb{r})$. This region is referred to as the \emph{Brillouin zone}, and it is precisely the unit cell of the reciprocal lattice; see Figure~\ref{fig:Brillouin_zone}.
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=.7\linewidth]{Images/Brillouin_zone}
+	\caption{Figure by Gang65, licensed under CC BY-SA 3.0. The Fourier transform of a real-space crystal lattice (left) is a reciprocal lattice in momentum space (right). The Brillouin zone is the unit cell of this reciprocal lattice.}
+	\label{fig:Brillouin_zone}
+\end{figure}
+
+The boundaries of the Brillouin zone contain momenta which are separated by exactly one unit cell, and these momenta need to be identified with each other to obtain a completely unambiguous description. In $d$ dimensions, the reciprocal lattice is periodic in $d$ directions, so that these boundary identifications give the Brillouin zone the topology of the $d$-dimensional torus $\T^d = \big(S^1\big)^d$; see Figure~\ref{fig:torus}.
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=.7\linewidth]{Images/torus}
+	\caption{Figure from Ref.~\cite{Potoczak_torus}. The square on the top left represents a two-dimensional Brillouin zone, with the necessary boundary identifications indicated by numbered arrows. This identification is topologically equivalent to ``gluing'' the boundaries together, which gives rise to the 2-torus $\T^2 = S^1\times S^1$.}
+	\label{fig:torus}
+\end{figure}
+Therefore, the Hamiltonian in Equation~\eqref{eq:Hamiltonian} can be considered a function on the torus in this setting; in particular, the vector $\h(\k)$ becomes a map $\h: \T^d\to\R^3$.
+
+
+\subsection{Berry phase}\label{sec:Berry}
+
+One of the most fundamental concepts in the theory of topological matter is that of the Berry phase \cite{Berry_phase}. The underlying idea is that each electronic eigenstate $\psi(\k)$ of the Hamiltonian carries a complex phase $\phi$ in the electromagnetic gauge group $\U(1)$ (i.e.\ the complex unit circle).\footnote{
+Formally, $\phi$ depends on the $\U(1)$ gauge used, but the relative phase change discussed later does not suffer this problem.}
+This phase may change as the state $\psi(\k)$ is parallel transported across momentum space; see Figure~\ref{fig:parallel_transport}.
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=.4\linewidth]{Images/parallel_transport}
+	\caption{Figure from Ref.~\cite{Natelson_Berry}. Schematic illustration of parallel transport. The complex phase $\phi$ of a state is represented by the blue arrows. As the state is transported along a closed loop, the phase is kept locally constant, but a non-zero Berry curvature (represented here by the curvature of a sphere) results in a net phase change.}
+	\label{fig:parallel_transport}
+\end{figure}
+
+The notion of parallel transport is perhaps most familiar in the context of general relativity: there, four-vectors may be transported across spacetime using the Levi--Civita connection. Depending on the Riemann curvature of the intervening spacetime, the orientation of a vector may change as it is transported along a closed loop. The situation is similar for the $\U(1)$ phase of electronic states: the so-called \emph{Berry connection} can be defined as the differential 1-form
+\begin{equation*}
+	\Ac = A_\mu \dd{k^\mu} = i\bra{\psi(\k)}\partial_\mu\ket{\psi(\k)}.
+\end{equation*}
+Parallel transport along a line $l\subset\T^d$ in the Brillouin zone is then given by integration of this 1-form, and it induces a change of phase:
+\begin{equation*}
+	\Delta\phi = \int_l \Ac.
+\end{equation*}
+This change of phase is exactly what is known as the Berry phase.
+
+Just as the Levi--Civita connection gives rise to Riemann curvature, there is also a \emph{Berry curvature} associated with the Berry connection. This curvature is the differential 2-form given by the exterior derivative of the connection,\footnote{
+	To be precise, the Berry curvature is \emph{locally} defined as the exterior derivative, but $\Ac$ may need to be defined in multiple gauges to obtain the full curvature.}
+\begin{equation*}
+	\Fc = \dd{\Ac} = \big(\partial_\mu A_\nu - \partial_\nu A_\mu\big) \dd{k^\mu}\dd{k^\nu}.
+\end{equation*}
+This curvature 2-form can be integrated over any two-dimensional subspace $S\subset\T^d$ of the Brillouin zone, and by Stokes' theorem, the result is a measure of the phase change around the boundary of $S$:
+\begin{equation*}
+	\int_S \Fc = \int_S \dd{\Ac} = \oint_{\dee S} \Ac.
+\end{equation*}
+This phase change along closed loops needs to be an integer multiple of $2\pi$ to ensure that the electronic states are defined consistently. This puts topological constraints on the Berry curvature, allowing it to be used to study the topology of the system.
+
 
 \section{Homology and cohomology}\label{sec:homology-cohomology}
 
-The concepts of homology and its dual counterpart cohomology are indispensable tools in the mathematical field of algebraic topology. While seemingly abstract from a physics point of view, many fundamental elements of the physicist's toolbox---such as Stokes' theorem---are formulated most naturally in the context of this theory. Additionally, there are deep results relating the cohomology of a space to the classification of different types of vector bundles over this space. Physically, this relates to the classification of topological phases of matter to which this work is dedicated.
+The concepts of homology and its dual counterpart cohomology are indispensable tools in the mathematical field of algebraic topology. While seemingly abstract from a physics point of view, many fundamental elements of the physicist's toolbox---such as Stokes' theorem---are formulated most naturally in the context of this theory. Additionally, there are deep results relating the cohomology of a space to the classification of different types of vector bundles over this space. Physically, this relates closely to the classification of topological phases of matter to which this work is dedicated.
 
-Here, we offer a brief introduction to these concepts, aimed at the uninitiated physicist. The goal is not to be completely rigorous, but to give a sufficiently comprehensive understanding that the applications discussed in later chapters may be understood in their proper context. For a more complete picture, the interested reader is referred to standard texts in algebraic topology such as Refs.~\cite{Hatcher_algebraic-topology} and \cite{Bredon_topo-geometry}. A more geometric treatment relying on differential forms is also found in Ref.~\cite{Bott-Tu_differential-forms}. %TODO can skip?
+Here, we offer a brief introduction to these concepts, aimed at the uninitiated physicist. The goal is not to be completely rigorous, but to give a sufficiently comprehensive understanding that the applications discussed in later chapters may be understood in their proper context. For a more complete picture, the interested reader is referred to standard texts in algebraic topology such as Refs.~\cite{Hatcher_algebraic-topology} and \cite{Bredon_topo-geometry}. A more geometric treatment relying on differential forms is also found in Ref.~\cite{Bott-Tu_differential-forms}.
 
-The basic idea underlying homology is that information about the topology of a space $M$ can be gained from studying non-trivial subspaces of $M$ of various dimensions. Perhaps the simplest conceptual realisation of this idea exists in the closely related \emph{homotopy} theory. In this theory, one defines the $n$th homotopy group $\pi_n(M)$ in terms of maps from the $n$-dimensional sphere $S^n$ into $M$. For example, the first homotopy group $\pi_1(M)$ (also known as the \emph{fundamental group}) records the topologically different ways in which loops $\gamma:S^1\to M$ can sit inside $M$. If two such loops cannot be transformed continuously into each other, then they represent different elements of $\pi_1(M)$. This fundamental group forms the conceptual basis behind some topological invariants in physics as well, such as that of the Su--Schrieffer--Heeger model discussed in Section~\ref{sec:SSH}.
+The basic idea underlying homology is that information about the topology of a space $M$ can be gained from studying non-trivial subspaces of $M$ of various dimensions. Perhaps the simplest conceptual realisation of this idea exists in the closely related \emph{homotopy} theory. In this theory, one defines the $n$th homotopy group $\pi_n(M)$ in terms of maps from the $n$-dimensional sphere $S^n$ into $M$. For example, the first homotopy group $\pi_1(M)$ (also known as the \emph{fundamental group}) records the topologically different ways in which loops $\gamma:S^1\to M$ can sit inside $M$. If two such loops cannot be transformed continuously into each other, then they represent different elements of $\pi_1(M)$.\footnote{
+	These deformations may include self-intersections. In particular, this means that different knots (i.e.\ embeddings of $S^1$ in $\R^3$ cannot be distinguished by homotopy. In this context, one needs to use a form of \emph{isotopy} instead, which does not allow self intersections as maps are deformed into each other.}
+This fundamental group forms the conceptual basis behind some topological invariants in physics as well, such as that of the Su--Schrieffer--Heeger model discussed in Section~\ref{sec:SSH}.
 
 Despite their conceptual simplicity, homotopy groups can be rather unwieldy in practice: they are generally difficult to compute and may have unpredictable structures. For example, even maps from $S^n$ to a lower-dimensional $S^m$ with $m<n$ may be non-trivial, and calculating the associated higher homotopy groups $\pi_n(S^m)$ of the spheres is an important open problem in algebraic topology.
 
@@ -71,7 +157,7 @@ The property $\dee^2 = 0$ implies that all boundaries are cycles, but crucially,
 	B_n(M;G) := \im(\dee_{n+1}) \subset Z_n(M;G) \subset C_n(M;G).
 \end{equation*}
 
-We can now finally define the homology on $M$. The \emph{$n$th homology group} $H_n$ consists of all $n$-cycles modulo $n$-boundaries:
+We can now finally define the homology on $M$. The \emph{$n$th homology group} $H_n$ is the quotient group consisting of all $n$-cycles modulo $n$-boundaries:
 \begin{equation*}
 	H_n(M;G) := \frac{Z_n(M;G)}{B_n(M;G)} = \ker(\dee_n) / \im(\dee_{n+1}).
 \end{equation*}
@@ -114,6 +200,7 @@ These three groups completely classify the homology of the 2-torus, since it onl
 
 
 \subsection{Cohomology}\label{sec:cohomology}
+
 The chain complex structure underlying homology allows for a natural counterpart called cohomology, which is obtained by \emph{dualising} the chain complex. Dualisation is a concept that shows up all over mathematics; the basic idea is that a mathematical object can be paired with a different object---its \emph{dual}---in order to obtain something like a simple number. A familiar example from physics is that of a covector: in physics notation, any vector $V^\mu$ can be paired with any covector $\omega_\mu$ to obtain a scalar $\omega_\mu V^\mu\in\R$. Formally, a covector is defined as a linear function from the underlying vector space to $\R$.
 
 A similar construction is used to define \emph{cochains} on a manifold $M$. An $n$-cochain is a homomorphism from the $n$-chain group $C_n(M;G)$ into the coefficient group $G$; under the usual integer coefficients, this is a function $C_n(M)\to\Z$ that assigns an integer to each $n$-chain linearly. The cochains form a group which has a very similar structure to the chain group itself. We denote the $n$-cochain group with a raised index:
@@ -143,7 +230,7 @@ This duality takes on a familiar form in de Rham cohomology: there, the cobounda
 \begin{equation*}
 	\int_{c}\dd{\omega} = \int_{\dee c}\omega,
 \end{equation*}
-which is precisely Stokes' theorem. For example, suppose a Berry connection 1-form $\Ac$ is defined on the 2-torus in Figure~\ref{fig:homology-chains}. Then the Berry curvature 2-form $\Fc$ can locally be written as $\Fc = \dd{\Ac}$, and Stokes' theorem tells us that
+which is precisely Stokes' theorem. For example, suppose a Berry connection 1-form $\Ac$ (as defined in Section~\ref{sec:Berry}) exists on the 2-torus in Figure~\ref{fig:homology-chains}. Then the Berry curvature 2-form $\Fc$ can locally be written as $\Fc = \dd{\Ac}$, and Stokes' theorem tells us that
 \begin{equation*}
 	\int_{S}\Fc = \int_{S}\dd{\Ac} = \int_{\dee S}\Ac = \int_c\Ac.
 \end{equation*}
@@ -176,4 +263,4 @@ This means that for instance, the cohomology groups of the 2-torus are the same 
 \end{equation*}
 There is a straightforward interpretation of these groups in terms of their homology counterparts: for example, $H^1(\T^2)$ is generated by the cocycles (1-forms) that evaluate to 1 on either of the two non-trivial loops that generate $H_1(\T^2)$, and to 0 on the other.
 
-Finally, we should reiterate what the value in this whole process of dualisation is, given that the cohomology groups are so easily computed from their homology counterparts. The answer is that cohomology, despite being seemingly more involved than homology, is in some ways a more natural theory from both a physical and a mathematical point of view. Physically, the interpretation in terms of differential forms allows topological invariants to be written as integrals of physical quantities. Mathematically, it turns out that there are deep links between cohomology theory and the topological classification of vector bundles; for example, the complex line bundles over a manifold $M$ are always fully classified by $H^2(M)$. This classification of vector bundles is the subject of an advanced area of mathematics known as K-theory, which is really a generalised cohomology theory. K-theory in turn plays an important role in the classification of topological phases of matter \cite{FreedMoore_K-theory,Thiang_K-theory}.
+Finally, we should reiterate what the value in this whole process of dualisation is, given that the cohomology groups are so easily computed from their homology counterparts. The answer is that cohomology, despite being seemingly more involved than homology, is in some ways a more natural theory from both a physical and a mathematical point of view. Physically, the interpretation in terms of differential forms allows topological invariants to be written as integrals of physical quantities. Mathematically, it turns out that there are deep links between cohomology theory and the topological classification of vector bundles; for example, the complex line bundles over a manifold $M$ are always fully classified by $H^2(M)$. These line bundles turn out to be in direct correspondence to certain topological states of matter in a two-band model. The full classification of vector bundles is the subject of an advanced area of mathematics known as K-theory, which is really a generalised cohomology theory. K-theory in turn plays an important role in the more general classification of topological phases of matter \cite{FreedMoore_K-theory,Thiang_K-theory}.

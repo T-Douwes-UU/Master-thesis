@@ -29,8 +29,9 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \setlength{\headheight}{13.6pt}
-\usepackage[sorting=none,style=numeric-comp]{biblatex} %[style=alphabetic]
+\usepackage[backend=biber,style=numeric-comp,sortcites,sorting=none]{biblatex} %[style=alphabetic]
 \addbibresource{references.bib}
+\usepackage{notoccite}
 \usepackage{tocloft}
 \usepackage{microtype}
 \usepackage{csquotes}
@@ -38,6 +39,10 @@
 \usepackage{nicematrix}
 \usepackage[hidelinks]{hyperref}
 \usepackage{import}
+\usepackage{eso-pic}
+\usepackage{booktabs}
+\usepackage{array}
+%\usepackage{colortbl}
 
 \usepackage[normalem]{ulem}
 \newcommand{\st}[1]{\ifmmode\text{\sout{\ensuremath{#1}}}\else\sout{#1}\fi}
@@ -112,7 +117,9 @@
 \newcommand{\dee}{\partial}
 \newcommand{\KS}{K^2\times S^1}
 \newcommand{\TRS}{\mathsf{T}}
-\newcommand{\Id}{\mathbb{I}}
+\newcommand{\PHS}{\mathsf{C}}
+\newcommand{\CHR}{\mathsf{S}}
+\newcommand{\Id}{\mathds{1}}
 
 \setlength{\headheight}{14.5pt}
 
@@ -131,15 +138,22 @@
 \newcommand{\h}{\vb{h}}
 \renewcommand{\k}{\vb{k}}
 
-%\includeonly{Chapters/non-orientable}  % For generating a single chapter PDF
+%\includeonly{Chapters/topological-states}  % For generating a single chapter PDF; speeds up compilation
 
 \begin{document}
 	
 \pagenumbering{roman}
 \begin{titlepage}  % Suppresses page number, next page is numbered 'i' by default
+	\AddToShipoutPictureBG*{%
+		\AtPageLowerLeft{%
+			\includegraphics[width=\paperwidth,height=\paperheight]{Images/cover} %Klein bottle bezel
+		}%
+	}
+	
 	\centering
 	
-	\textsc{\LARGE Utrecht University}\\[1.5cm]  % Main heading
+	\textsc{\LARGE Utrecht University}\\[.3cm]
+	\textsc{\Large Institute for Theoretical Physics}\\[.8cm]
 	
 	%------------------------------------------------
 	%	Title
@@ -162,21 +176,21 @@
 	{\Large \textsc{A thesis}}\\[.8cm]
 	
 	
-	{\large Submitted to the Department of Physics}\\[.1cm]
+	{\large Submitted to the Department of Physics}\\[.1cm] 
 	{\large in partial fulfilment of the requirements}\\[.1cm]
 	{\large for the degree of}\\[.5cm]
 	
 	{\Large Master of Science}\\[.9cm]
 	
 	
-	{\large under the joint supervision of}\\[1.5cm]
+	{\large under the joint supervision of}\\[1.3cm]
 	
 	
 	\begin{minipage}{0.51\textwidth}
 		\begin{flushleft}
 			\large
-			\textit{Project supervisor}\\
-			Prof. Cristiane \textsc{de Morais Smith}\\
+			\textit{First supervisor}\\
+			Prof. Cristiane \textsc{Morais Smith}\\
 			\normalsize Department of Physics
 		\end{flushleft}
 	\end{minipage}
@@ -188,8 +202,12 @@
 			Dr. Marcus \textsc{St{\aa}lhammar}\\
 			\normalsize Department of Physics
 		\end{flushright}
-	\end{minipage} %TODO second supervisor?
+	\end{minipage} \\[.7cm]
 	
+	\large
+	\textit{Second supervisor}\\
+	Dr. Lars \textsc{Fritz}\\
+	\normalsize Department of Physics
 	
 	\vfill\vfill\vfill  % Position the date 3/4 down the remaining page
 	
@@ -197,22 +215,22 @@
 	
 	\vfill  % Push the date up 1/4 of the remaining page
 \end{titlepage}
-%TODO title page
+
 \setcounter{page}{2}  % Number next page as 'ii' instead of 'i'
 	
 \include{Chapters/abstract} %TODO abstract
 
-%TODO Acknowledgements?
+%\include{Chapters/acknowledgements} %TODO Acknowledgements
+
 	
 \tableofcontents
 	
 \clearpage  % Ensures arabic numbering starts on Chapter 1
 \pagenumbering{arabic}
 
+%TODO conductive vs. conducting
 %TODO check -ize vs. -ise in final report
 %TODO n't
-%TODO widows/orphans
-%TODO figure copyright
 
 \include{Chapters/introduction}
 
@@ -228,11 +246,11 @@
 
 \include{Chapters/conclusions}
 
-\appendix 
+%\appendix 
+%
+%\include{Chapters/cellular-homology}
 
-\include{Chapters/cellular-homology}
-
-\emergencystretch=1em
+\emergencystretch=1.5em
 
 \printbibliography
 

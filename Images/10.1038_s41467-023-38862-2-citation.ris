@@ -1,0 +1,20 @@
+TY  - JOUR
+AU  - Cheng, Wenting
+AU  - Cerjan, Alexander
+AU  - Chen, Ssu-Ying
+AU  - Prodan, Emil
+AU  - Loring, Terry A.
+AU  - Prodan, Camelia
+PY  - 2023
+DA  - 2023/05/27
+TI  - Revealing topology in metals using experimental protocols inspired by K-theory
+JO  - Nature Communications
+SP  - 3071
+VL  - 14
+IS  - 1
+AB  - Topological metals are conducting materials with gapless band structures and nontrivial edge-localized resonances. Their discovery has proven elusive because traditional topological classification methods require band gaps to define topological robustness. Inspired by recent theoretical developments that leverage techniques from the field of C∗-algebras to identify topological metals, here, we directly observe topological phenomena in gapless acoustic crystals and realize a general experimental technique to demonstrate their topology. Specifically, we not only observe robust boundary-localized states in a topological acoustic metal, but also re-interpret a composite operator—mathematically derived from the K-theory of the problem—as a new Hamiltonian whose physical implementation allows us to directly observe a topological spectral flow and measure the topological invariants. Our observations and experimental protocols may offer insights for discovering topological behaviour across a wide array of artificial and natural materials that lack bulk band gaps.
+SN  - 2041-1723
+UR  - https://doi.org/10.1038/s41467-023-38862-2
+DO  - 10.1038/s41467-023-38862-2
+ID  - Cheng2023
+ER  - 
