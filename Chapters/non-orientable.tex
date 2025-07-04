@@ -272,8 +272,7 @@ In what follows, we will provide explicit computations of these sequences and di
 
 \subsection{Computation of invariants on \texorpdfstring{$\KS$}{K²×S¹}}\label{sec:invariants}
 
-The use of ordinary cohomology groups in the Mayer--Vietoris sequence \eqref{eq:MV-nonorientable} means that calculations are relatively straightforward, and standard techniques such as cellular cohomology can be applied. \red{[Given enough time, I can include a small Appendix B containing an example cellular cohomology calculation.]} %TODO appendix or ref.
-Using these methods, we calculate the sequence to be
+The use of ordinary cohomology groups in the Mayer--Vietoris sequence \eqref{eq:MV-nonorientable} means that calculations are relatively straightforward, and standard techniques such as cellular homology can be applied \parencite[\S 2.2]{Hatcher_algebraic-topology}. Using these methods, we calculate the sequence to be
 \begin{equation}\label{eq:explicit-sequence-nonorientable}
 	0\to \Z\oplus\Z_2 \overset{\alpha}{\to} \Z\oplus\Z_2\oplus\Z^k \overset{\beta}{\to} \Z^k \overset{\Sigma}{\to} \Z_2 \to 0,
 \end{equation}
@@ -434,8 +433,7 @@ We can then make use of twisted Poincaré duality in order to turn this into a m
 \end{equation}
 Note that compared to the bulk sequence in Equation~\eqref{eq:MV-nonorientable}, this sequence classifies topological states in terms of first cohomology groups $H^1$ rather than second cohomology groups $H^2$. This is indicative of the fact that the chiralities of surface states are given by winding numbers of the Berry connection 1-form $\Ac$, rather than Chern numbers obtained from the Berry curvature 2-form $\Fc$.
 
-Just as in the bulk, the Mayer--Vietoris sequence in Equation~\eqref{eq:K2-surface-cohomology} can be computed using standard tools such as cellular homology. %TODO appendix?
-The resulting explicit sequence is as follows:
+Just as in the bulk, the Mayer--Vietoris sequence in Equation~\eqref{eq:K2-surface-cohomology} can be computed using standard tools such as cellular homology. The resulting explicit sequence is as follows:
 \begin{equation}\label{eq:K2-MV-explicit}
 	\cdots \overset{0}{\to} \Z \to \Z\oplus\Z^k \to \Z^k \overset{\Sigma}{\to} \Z_2 \to 0.
 \end{equation}
@@ -617,7 +615,7 @@ This sequence can be turned into a semimetal Mayer--Vietoris sequence in cohomol
 This exclusion of the TRIM has an interesting side effect: it ensures that the action of inversion symmetry is completely free on the remaining space, so that the groups in this sequence are fully equivalent to the equivariant cohomology which we are trying to emulate.
 
 Now that we have reduced our tentative invariant groups to untwisted, non-equivariant cohomology, they may once again be calculated using basic cellular homology. The removal of the TRIM makes this calculation somewhat more cumbersome than the others appearing in this chapter,\footnote{
-	To be specific, $M$ is no longer closed after removing the TRIM. In order to find a cell structure, one can ``grow'' the holes in the space while maintaining the correct boundary identifications, until only a set of surfaces remains (in technical terms, one can deformation retract $M$ onto a 2-skeleton). The resulting cell structure is relatively complex, so that extracting its homology takes some work. This work can be facilitated using a computational tool such as the Smith normal form \cite{Peltier_Homology-computation}.} %TODO appendix?
+	To be specific, $M$ is no longer closed after removing the TRIM. In order to find a cell structure, one can ``grow'' the holes in the space while maintaining the correct boundary identifications, until only a set of surfaces remains (in technical terms, one can deformation retract $M$ onto a 2-skeleton). The resulting cell structure is relatively complex, so that extracting its homology takes some work. This work can be facilitated using a computational tool such as the Smith normal form \cite{Peltier_Homology-computation}.}
 but the conceptual basis is still relatively simple. The explicit semimetal Mayer--Vietoris we obtain in this way is as follows:\footnote{
 	The $\Z_2^4$ components stem from $H_1(M\setminus\text{TRIM})\cong\Z_2^4$. Interestingly, this is essentially equivalent to the equivariant homology calculation that is performed in Ref.~\cite{Thiang_equivariant} to obtain the four $\Z_2$ invariants under time reversal: both groups end up classifying T-stable loops on the torus that avoid the TRIM.}
 \begin{equation}\label{eq:inversion-MV-explicit}
